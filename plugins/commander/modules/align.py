@@ -166,7 +166,7 @@ def _regex(view, reg, group, additional_ws, add_ws_group, flags=0):
     # Compile the regular expression
     try:
         reg = re.compile(reg, flags)
-    except Exception, e:
+    except Exception as e:
         raise commander.commands.exceptions.Execute('Failed to compile regular expression: %s' % (e,))
 
     # Query the user to provide a regex group number to align on
@@ -210,7 +210,7 @@ def _regex(view, reg, group, additional_ws, add_ws_group, flags=0):
     if not end.ends_line():
         end.forward_to_line_end()
 
-    lines = unicode(start.get_text(end), 'utf-8').splitlines()
+    lines = start.get_text(end).splitlines()
     newlines = []
     num = 0
     tabwidth = view.get_tab_width()
@@ -228,7 +228,7 @@ def _regex(view, reg, group, additional_ws, add_ws_group, flags=0):
             line.append(i, al + additional_ws, group, add_ws_group)
 
     # Replace lines
-    aligned = unicode.join(u'\n', [x.newline for x in newlines])
+    aligned = str.join('\n', [x.newline for x in newlines])
 
     buf.begin_user_action()
     buf.delete(bounds[0], bounds[1])

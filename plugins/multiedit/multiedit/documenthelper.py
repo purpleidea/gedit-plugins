@@ -22,8 +22,8 @@
 import re
 import time
 import xml.sax.saxutils
-from gi.repository import GObject, Pango, PangoCairo, Gdk, Gtk, Gedit
-from signals import Signals
+from gi.repository import GLib, GObject, Pango, PangoCairo, Gdk, Gtk, Gedit
+from .signals import Signals
 import gettext
 from gpdefs import *
 
@@ -161,7 +161,7 @@ class DocumentHelper(Signals):
         ]
 
         for handler in self._event_handlers:
-            handler[0] = map(lambda x: Gdk.keyval_from_name(x), handler[0])
+            handler[0] = list(map(lambda x: Gdk.keyval_from_name(x), handler[0]))
 
     def disable_multi_edit(self):
         if self._column_mode:
@@ -354,9 +354,9 @@ class DocumentHelper(Signals):
         self._invalidate_status()
 
         if self._status_timeout != 0:
-            GObject.source_remove(self._status_timeout)
+            GLib.source_remove(self._status_timeout)
 
-        self._status_timeout = GObject.timeout_add(3000, self._remove_status)
+        self._status_timeout = GLib.timeout_add(3000, self._remove_status)
 
     def _apply_column_mode(self):
         mode = self._column_mode

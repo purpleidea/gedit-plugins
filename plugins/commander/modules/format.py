@@ -73,8 +73,8 @@ the open documents."""
                 start = end.copy()
                 start.forward_line()
 
-        except Exception, e:
-            print e
+        except Exception as e:
+            print(e)
 
         buf.delete_mark(until)
         buf.end_user_action()

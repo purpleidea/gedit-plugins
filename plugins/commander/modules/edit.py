@@ -106,7 +106,7 @@ def rename(view, newfile):
             # Create parent directories
             try:
                 os.makedirs(dest.get_parent().get_path())
-            except OSError, e:
+            except OSError as e:
                 raise commander.commands.exceptions.Execute('Could not create directory')
         else:
             yield commander.commands.result.HIDE
@@ -122,7 +122,7 @@ def rename(view, newfile):
 
         doc.set_location(dest)
         yield commander.commands.result.HIDE
-    except Exception, e:
+    except Exception as e:
         raise commander.commands.exceptions.Execute('Could not move file: %s' % (e,))
 
 def _mod_has_func(mod, func):

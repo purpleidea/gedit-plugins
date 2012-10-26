@@ -214,7 +214,7 @@ class Finder:
                         break
 
                 self.entry.info_show('<i>Search hit end of the document</i>', True)
-        except GeneratorExit, e:
+        except GeneratorExit as e:
             self.cancel()
             raise e
 
@@ -269,7 +269,7 @@ class Finder:
 
                 replacestr, words, modifier = (yield commands.result.Prompt('Replace with:'))
                 self.set_replace(replacestr)
-            except GeneratorExit, e:
+            except GeneratorExit as e:
                 if replaceall:
                     self._restore_cursor(startmark)
 
@@ -308,7 +308,7 @@ class Finder:
 
                     break
 
-        except GeneratorExit, e:
+        except GeneratorExit as e:
             if replaceall:
                 self._restore_cursor(startmark)
                 buf.end_user_action()

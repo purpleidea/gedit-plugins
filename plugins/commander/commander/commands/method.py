@@ -19,11 +19,11 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor,
 #  Boston, MA 02110-1301, USA.
 
-import exceptions
+import commands.exceptions as exceptions
 import types
 import inspect
 import sys
-import commander.utils as utils
+import utils
 
 class Method:
     def __init__(self, method, name, parent):

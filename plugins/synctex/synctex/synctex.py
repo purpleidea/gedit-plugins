@@ -20,7 +20,7 @@
 #  Boston, MA 02110-1301, USA.
 
 from gi.repository import GObject, Pango, Gtk, Gedit, Peas, PeasGtk, Gio, Gdk
-from evince_dbus import EvinceWindowProxy
+from .evince_dbus import EvinceWindowProxy
 import dbus.mainloop.glib
 import logging
 import gettext

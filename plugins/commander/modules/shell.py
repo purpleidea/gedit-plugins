@@ -48,7 +48,8 @@ class Process:
             fcntl.fcntl(stdout, fcntl.F_SETFL, os.O_NONBLOCK)
             conditions = GLib.IOCondition.IN | GLib.IOCondition.PRI | GLib.IOCondition.ERR | GLib.IOCondition.HUP
 
-            self.watch = GLib.io_add_watch(stdout, conditions, self.collect_output)
+            channel = GLib.IOChannel.unix_new(stdout.fileno())
+            self.watch = GLib.io_add_watch(channel, GLib.PRIORITY_DEFAULT, conditions, self.collect_output)
             self._buffer = ''
         else:
             stdout.close()
@@ -106,7 +107,7 @@ class Process:
         if hasattr(self.pipe, 'kill'):
             self.pipe.kill()
 
-        GObject.source_remove(self.watch)
+        GLib.source_remove(self.watch)
 
         if self.replace:
             self.entry.view().set_editable(True)
@@ -148,7 +149,7 @@ def _run_command(entry, replace, background, argstr):
         p = subprocess.Popen(argstr, shell=True, cwd=cwd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         stdout = p.stdout
 
-    except Exception, e:
+    except Exception as e:
         raise commander.commands.exceptions.Execute('Failed to execute: ' + e)
 
     suspend = None

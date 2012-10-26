@@ -18,7 +18,7 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 from gi.repository import GObject, Gio, Pango, Gtk, Gedit, Gucharmap
-from panel import CharmapPanel
+from .panel import CharmapPanel
 import sys
 import gettext
 from gpdefs import *

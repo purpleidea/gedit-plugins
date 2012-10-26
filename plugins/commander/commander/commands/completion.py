@@ -91,7 +91,7 @@ def _filter_command(cmd, subs):
     if len(subs) > len(parts):
         return False
 
-    for i in xrange(0, len(subs)):
+    for i in range(0, len(subs)):
         if not parts[i].startswith(subs[i]):
             return False
 

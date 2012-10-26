@@ -99,11 +99,11 @@ class Info(TransparentWindow):
         }
 
         css = Gtk.CssProvider()
-        css.load_from_data("""
+        css.load_from_data(bytes("""
 .trough {
     background: transparent;
 }
-""")
+""", 'utf-8'))
 
         self._vw.get_vscrollbar().get_style_context().add_provider(css, 600)
 
@@ -176,8 +176,8 @@ class Info(TransparentWindow):
 
         try:
             ret = Pango.parse_markup(line, -1, u'\x00')
-        except Exception, e:
-            print 'Could not parse markup:', e
+        except Exception as e:
+            print('Could not parse markup:', e)
             buf.insert(buf.get_end_iter(), line)
             return
 

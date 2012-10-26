@@ -72,7 +72,8 @@ class History:
 
     def load(self):
         try:
-            self._history = map(lambda x: x.strip("\n"), file(self._filename, 'r').readlines())
+            #FIXME: we should rewrite this
+            self._history = list(map(lambda x: x.strip("\n"), open(self._filename, 'r').readlines()))
             self._history.append('')
             self._ptr = len(self._history) - 1
         except IOError:
@@ -85,7 +86,7 @@ class History:
             pass
 
         try:
-            f = file(self._filename, 'w')
+            f = open(self._filename, 'w')
 
             if self._history[-1] == '':
                 hist = self._history[:-1]

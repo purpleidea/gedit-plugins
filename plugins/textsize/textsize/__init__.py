@@ -23,7 +23,7 @@
 #  Boston, MA 02110-1301, USA.
 
 from gi.repository import GObject, Gtk, Gdk, Gedit
-from documenthelper import DocumentHelper
+from .documenthelper import DocumentHelper
 import gettext
 from gpdefs import *
 

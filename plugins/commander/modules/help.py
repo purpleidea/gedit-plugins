@@ -37,7 +37,7 @@ def _name_match(first, second):
     if len(first) > len(second):
         return False
 
-    for i in xrange(0, len(first)):
+    for i in range(0, len(first)):
         if not second[i].startswith(first[i]):
             return False
 

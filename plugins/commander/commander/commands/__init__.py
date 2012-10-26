@@ -20,7 +20,7 @@
 #  Boston, MA 02110-1301, USA.
 
 import os
-from gi.repository import GObject, Gio
+from gi.repository import GLib, GObject, Gio
 import sys
 import bisect
 import types
@@ -28,14 +28,14 @@ import shlex
 import re
 import os
 
-import module
-import method
-import result
-import exceptions
-import metamodule
+import commands.module as module
+import commands.method as method
+import commands.result as result
+import commands.exceptions as exceptions
+import commands.metamodule as metamodule
 
-from accel_group import AccelGroup
-from accel_group import Accelerator
+from commands.accel_group import AccelGroup
+from commands.accel_group import Accelerator
 
 __all__ = ['is_commander_module', 'Commands', 'Accelerator']
 
@@ -111,7 +111,7 @@ class Commands(Singleton):
             if ret:
                 ct.retval = ct.generator.send(ret)
             else:
-                ct.retval = ct.generator.next()
+                ct.retval = next(ct.generator)
 
             return ct.retval
 
@@ -156,7 +156,7 @@ class Commands(Singleton):
         self._modules = None
 
         for k in self._timeouts:
-            GObject.source_remove(self._timeouts[k])
+            GLib.source_remove(self._timeouts[k])
 
         self._timeouts = {}
 
@@ -198,7 +198,7 @@ class Commands(Singleton):
 
         try:
             monitor = gfile.monitor_directory(Gio.FileMonitorFlags.NONE, None)
-        except Gio.Error, e:
+        except Gio.Error as e:
             # Could not create monitor, this happens on systems where file monitoring is
             # not supported, but we don't really care
             pass
@@ -275,7 +275,7 @@ class Commands(Singleton):
 
             if state:
                 return self.run(state)
-        except Exception, e:
+        except Exception as e:
             # Something error like, we throw on the parent generator
             state.pop()
 
@@ -405,9 +405,9 @@ class Commands(Singleton):
         # Now, try to reload the module
         try:
             mod.reload()
-        except Exception, e:
+        except Exception as e:
             # Reload failed, we remove the module
-            print 'Failed to reload module (%s):' % (mod.name,), e
+            print('Failed to reload module (%s):' % (mod.name,), e)
 
             self._modules.remove(mod)
             return
@@ -444,17 +444,17 @@ class Commands(Singleton):
                 return
 
             if path in self._timeouts:
-                GObject.source_remove(self._timeouts[path])
+                GLib.source_remove(self._timeouts[path])
 
             # We add a timeout because a common save strategy causes a
             # DELETE/CREATE event chain
-            self._timeouts[path] = GObject.timeout_add(500, self.on_timeout_delete, path, mod)
+            self._timeouts[path] = GLib.timeout_add(500, self.on_timeout_delete, path, mod)
         elif evnt == Gio.FileMonitorEvent.CREATED:
             path = gfile1.get_path()
 
             # Check if this CREATE followed a previous DELETE
             if path in self._timeouts:
-                GObject.source_remove(self._timeouts[path])
+                GLib.source_remove(self._timeouts[path])
                 del self._timeouts[path]
 
             # Reload the module

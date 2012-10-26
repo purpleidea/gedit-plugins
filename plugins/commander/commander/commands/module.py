@@ -25,9 +25,9 @@ import types
 import bisect
 
 import utils
-import exceptions
-import method
-import rollbackimporter
+import commands.exceptions as exceptions
+import commands.method as method
+import commands.rollbackimporter as rollbackimporter
 
 class Module(method.Method):
     def __init__(self, base, mod, parent=None):

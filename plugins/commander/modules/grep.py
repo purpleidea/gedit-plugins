@@ -126,7 +126,7 @@ def _grep(view, regex, match_action, non_match_action):
 
     try:
         reg = re.compile(regex)
-    except Exception, e:
+    except Exception as e:
         raise commands.exceptions.Execute('Invalid regular expression: ' + str(e))
 
     while True:

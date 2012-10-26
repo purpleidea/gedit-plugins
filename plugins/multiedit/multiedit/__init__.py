@@ -20,8 +20,8 @@
 #  Boston, MA 02110-1301, USA.
 
 from gi.repository import GObject, Gtk, Gedit
-from signals import Signals
-from documenthelper import DocumentHelper
+from .signals import Signals
+from .documenthelper import DocumentHelper
 import gettext
 from gpdefs import *
 

@@ -39,7 +39,7 @@ class RegexFinder(finder.Finder):
 
         try:
             self.findre = re.compile(findstr, self.flags)
-        except Exception, e:
+        except Exception as e:
             raise commands.exceptions.Execute('Invalid regular expression: ' + str(e))
 
     def do_find(self, bounds):
@@ -96,7 +96,7 @@ class RegexFinder(finder.Finder):
     def get_replace(self, text):
         try:
             return self.findre.sub(self._do_re_replace, text)
-        except Exception, e:
+        except Exception as e:
             raise commands.exceptions.Execute('Invalid replacement: ' + str(e))
 
 class SemanticFinder(RegexFinder):

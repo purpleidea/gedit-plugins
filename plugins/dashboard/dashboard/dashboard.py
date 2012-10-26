@@ -22,7 +22,7 @@
 from gi.repository import GObject, Gedit, Gtk, Gio, GLib, GdkPixbuf, GtkSource
 from zeitgeist.client import ZeitgeistClient
 from zeitgeist.datamodel import Event, TimeRange
-from utils import *
+from .utils import *
 
 import time
 import os
@@ -39,7 +39,7 @@ CLIENT = ZeitgeistClient()
 version = [int(x) for x in CLIENT.get_version()]
 MIN_VERSION = [0, 8, 0, 0]
 if version < MIN_VERSION:
-    print "PLEASE USE ZEITGEIST 0.8.0 or above"
+    print("PLEASE USE ZEITGEIST 0.8.0 or above")
 
 class Item(Gtk.Button):
 
@@ -423,7 +423,7 @@ class Dashboard (Gtk.Box):
     def _on_search(self, widget, query):
         self.search_result_box.show()
         self.dash_box.hide()
-        print "Dashboard search for:", query
+        print("Dashboard search for:", query)
         ZG_FTS.search(query, self.tree_view.insert_results)
         self.last_used_button.set_active(False)
 

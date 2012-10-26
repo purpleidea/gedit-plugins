@@ -1,1 +1,1 @@
-from synctex import SynctexWindowActivatable
+from .synctex import SynctexWindowActivatable

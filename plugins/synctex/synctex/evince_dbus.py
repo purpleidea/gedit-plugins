@@ -145,9 +145,9 @@ if __name__ == '__main__':
     from gi.repository import GObject
 
     def print_usage():
-        print '''
+        print('''
 The usage is evince_dbus output_file line_number input_file from the directory of output_file.
-'''
+''')
         sys.exit(1)
 
     if len(sys.argv)!=4:

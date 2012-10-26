@@ -20,7 +20,7 @@
 #
 
 from gi.repository import GObject, Gedit
-from dashboard import Dashboard
+from .dashboard import Dashboard
 
 class DashboardWindowActivatable(GObject.Object, Gedit.WindowActivatable):
 

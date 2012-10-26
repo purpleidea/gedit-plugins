@@ -60,7 +60,7 @@ class Entry(Gtk.EventBox):
         self._entry.show()
 
         css = Gtk.CssProvider()
-        css.load_from_data("""
+        css.load_from_data(bytes("""
 @binding-set terminal-like-bindings {
     unbind "<Control>A";
 
@@ -82,7 +82,7 @@ GtkEntry#gedit-commander-entry {
     border-width: 0;
     box-shadow: 0 0 transparent;
 }
-""")
+""", 'utf-8'))
 
         # FIXME: remove hardcopy of 600 (GTK_STYLE_PROVIDER_PRIORITY_APPLICATION)
         # https://bugzilla.gnome.org/show_bug.cgi?id=646860
@@ -358,7 +358,7 @@ GtkEntry#gedit-commander-entry {
 
     def on_suspend_resume(self):
         if self._wait_timeout:
-            GObject.source_remove(self._wait_timeout)
+            GLib.source_remove(self._wait_timeout)
             self._wait_timeout = 0
         else:
             self._cancel_button.destroy()
@@ -389,7 +389,7 @@ GtkEntry#gedit-commander-entry {
 
         try:
             ret = cb()
-        except Exception, e:
+        except Exception as e:
             self.command_history_done()
             self._command_state.clear()
 
@@ -408,7 +408,7 @@ GtkEntry#gedit-commander-entry {
             self._suspended = ret
             ret.register(self.on_suspend_resume)
 
-            self._wait_timeout = GObject.timeout_add(500, self._show_wait_cancel)
+            self._wait_timeout = GLib.timeout_add(500, self._show_wait_cancel)
             self._entry.set_sensitive(False)
         else:
             self.command_history_done()
@@ -494,7 +494,7 @@ GtkEntry#gedit-commander-entry {
         #  * "hello world|"
         posidx = None
 
-        for idx in xrange(0, len(words)):
+        for idx in range(0, len(words)):
             spec = self._complete_word_match(words[idx])
 
             if words[idx].start(0) > pos:
@@ -582,10 +582,10 @@ GtkEntry#gedit-commander-entry {
                             del kwargs[k]
 
                 ret = func(**kwargs)
-            except Exception, e:
+            except Exception as e:
                 # Can be number of arguments, or return values or simply buggy
                 # modules
-                print e
+                print(e)
                 traceback.print_exc()
                 return True
 
