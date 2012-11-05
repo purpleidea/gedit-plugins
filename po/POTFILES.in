@@ -20,10 +20,6 @@ plugins/joinlines/joinlines.py
 plugins/multiedit/multiedit/documenthelper.py
 plugins/multiedit/multiedit/__init__.py
 plugins/multiedit/multiedit.plugin.desktop.in.in
-plugins/sessionsaver/dialogs.py
-plugins/sessionsaver/__init__.py
-plugins/sessionsaver/sessionsaver.plugin.desktop.in.in
-[type: gettext/glade]plugins/sessionsaver/sessionsaver.ui
 plugins/smartspaces/smartspaces.plugin.desktop.in.in
 plugins/synctex/synctex.plugin.desktop.in.in
 plugins/synctex/synctex/synctex.py

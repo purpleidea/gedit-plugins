@@ -92,9 +92,9 @@ ALL_PLUGINS="bookmarks drawspaces wordcompletion"
 USEFUL_PLUGINS="bookmarks drawspaces wordcompletion"
 DEFAULT_PLUGINS="bookmarks drawspaces wordcompletion"
 
-PYTHON_ALL_PLUGINS="bracketcompletion charmap codecomment colorpicker commander dashboard joinlines multiedit textsize sessionsaver smartspaces terminal synctex"
-PYTHON_USEFUL_PLUGINS="bracketcompletion charmap codecomment colorpicker commander dashboard joinlines multiedit textsize sessionsaver smartspaces terminal synctex"
-PYTHON_DEFAULT_PLUGINS="bracketcompletion charmap codecomment colorpicker commander dashboard joinlines multiedit textsize sessionsaver smartspaces terminal synctex"
+PYTHON_ALL_PLUGINS="bracketcompletion charmap codecomment colorpicker commander dashboard joinlines multiedit textsize smartspaces terminal synctex"
+PYTHON_USEFUL_PLUGINS="bracketcompletion charmap codecomment colorpicker commander dashboard joinlines multiedit textsize smartspaces terminal synctex"
+PYTHON_DEFAULT_PLUGINS="bracketcompletion charmap codecomment colorpicker commander dashboard joinlines multiedit textsize smartspaces terminal synctex"
 
 DIST_PLUGINS="$ALL_PLUGINS $PYTHON_ALL_PLUGINS"
 
@@ -116,7 +116,7 @@ AC_ARG_WITH([plugins],
 			  build the specified plugins. Available:
 			  bracketcompletion, charmap, codecomment,
 			  colorpicker, drawspaces, joinlines, multiedit,
-			  textsize, sessionsaver, smartspaces,
+			  textsize, smartspaces,
 			  terminal, wordcompletion, as well as the aliases
 			  default, all, and really-all],
 			  [plugins=$with_plugins],
@@ -342,8 +342,6 @@ plugins/joinlines/Makefile
 plugins/multiedit/Makefile
 plugins/multiedit/multiedit.plugin.desktop.in
 plugins/multiedit/multiedit/Makefile
-plugins/sessionsaver/Makefile
-plugins/sessionsaver/sessionsaver.plugin.desktop.in
 plugins/smartspaces/Makefile
 plugins/smartspaces/smartspaces.plugin.desktop.in
 plugins/synctex/Makefile
