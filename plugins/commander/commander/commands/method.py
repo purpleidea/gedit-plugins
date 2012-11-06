@@ -118,10 +118,10 @@ class Method:
 
         return self.method(*args, **kwargs)
 
-    def __cmp__(self, other):
+    def __lt__(self, other):
         if isinstance(other, Method):
-            return cmp(self.name, other.name)
+            return (self.name > other.name) - (self.name < other.name)
         else:
-            return cmp(self.name, other)
+            return (self.name > other) - (self.name < other)
 
 # vi:ex:ts=4:et
