@@ -393,7 +393,7 @@ class Commands(Singleton):
             del commander.modules.__dict__[mod.name]
 
     def reload_module(self, mod):
-        if isinstance(mod, basestring):
+        if isinstance(mod, str):
             mod = self.resolve_module(mod)
 
         if not mod or not self._modules:
