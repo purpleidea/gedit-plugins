@@ -20,7 +20,7 @@
 #  Boston, MA 02110-1301, USA.
 
 from xml.sax import saxutils
-import commander.commands as commands
+import commander.commands.result
 import commander.utils as utils
 from gi.repository import Gdk, Gtk
 
@@ -143,7 +143,7 @@ class Finder:
         buf = self.view.get_buffer()
 
         while not self.findstr:
-            fstr, words, modifier = (yield commands.result.Prompt('Find:'))
+            fstr, words, modifier = (yield commander.commands.result.Prompt('Find:'))
 
             if fstr:
                 self.set_find(fstr)
@@ -183,7 +183,7 @@ class Finder:
             if doend:
                 self.entry.info_show('<i>Search hit end of the document</i>', True)
 
-            yield commands.result.DONE
+            yield commander.commands.result.DONE
         else:
             yield True
 
@@ -205,7 +205,7 @@ class Finder:
         try:
             if (yield self.find_first(select=True)):
                 while True:
-                    argstr, words, modifier = (yield commands.result.Prompt('Search next [<i>%s</i>]:' % (saxutils.escape(self.findstr),)))
+                    argstr, words, modifier = (yield commander.commands.result.Prompt('Search next [<i>%s</i>]:' % (saxutils.escape(self.findstr),)))
 
                     if argstr:
                         self.set_find(argstr)
@@ -219,7 +219,7 @@ class Finder:
             raise e
 
         self.cancel()
-        yield commands.result.DONE
+        yield commander.commands.result.DONE
 
     def _restore_cursor(self, mark):
         buf = mark.get_buffer()
@@ -256,7 +256,7 @@ class Finder:
         ret = (yield self.find_first(select=not replaceall))
 
         if not ret:
-            yield commands.result.DONE
+            yield commander.commands.result.DONE
 
         self.scroll_back = False
 
@@ -267,7 +267,7 @@ class Finder:
                     self.scroll_back = True
                     self.select_last_result()
 
-                replacestr, words, modifier = (yield commands.result.Prompt('Replace with:'))
+                replacestr, words, modifier = (yield commander.commands.result.Prompt('Replace with:'))
                 self.set_replace(replacestr)
             except GeneratorExit as e:
                 if replaceall:
@@ -283,7 +283,7 @@ class Finder:
         try:
             while True:
                 if not replaceall:
-                    rep, words, modifier = (yield commands.result.Prompt('Replace next [%s]:' % (saxutils.escape(self.get_current_replace()),)))
+                    rep, words, modifier = (yield commander.commands.result.Prompt('Replace next [%s]:' % (saxutils.escape(self.get_current_replace()),)))
 
                     if rep:
                         self.set_replace(rep)
@@ -323,6 +323,6 @@ class Finder:
             buf.end_user_action()
 
         self.cancel()
-        yield commands.result.DONE
+        yield commander.commands.result.DONE
 
 # vi:ex:ts=4:et
