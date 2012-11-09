@@ -37,6 +37,12 @@ class Result(object):
         else:
             return int(self) < other
 
+    def __eq__(self, other):
+        if isinstance(other, Result):
+            return int(self) == int(other)
+        else:
+            return int(self) == other
+
 # Easy shortcuts
 HIDE = Result(Result.HIDE)
 DONE = Result(Result.DONE)
