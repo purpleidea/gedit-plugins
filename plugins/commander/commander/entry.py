@@ -81,6 +81,7 @@ GtkEntry#gedit-commander-entry {
     background: transparent;
     border-width: 0;
     box-shadow: 0 0 transparent;
+    transition: none;
 }
 """, 'utf-8'))
 
