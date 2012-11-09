@@ -21,12 +21,8 @@
 
 import os
 from gi.repository import GLib, GObject, Gio
-import sys
-import bisect
-import types
-import shlex
-import re
-import os
+
+import sys, bisect, types, shlex, re, os, traceback
 
 import commands.module as module
 import commands.method as method
@@ -407,7 +403,8 @@ class Commands(Singleton):
             mod.reload()
         except Exception as e:
             # Reload failed, we remove the module
-            print('Failed to reload module (%s):' % (mod.name,), e)
+            info = traceback.format_tb(sys.exc_info()[2])
+            print('Failed to reload module ({0}):\n  {1}'.format(mod.name, info[-1]))
 
             self._modules.remove(mod)
             return
