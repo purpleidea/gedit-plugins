@@ -24,11 +24,7 @@ from gi.repository import GLib, GObject, Gio
 
 import sys, bisect, types, shlex, re, os, traceback
 
-import commands.module as module
-import commands.method as method
-import commands.result as result
-import commands.exceptions as exceptions
-import commands.metamodule as metamodule
+from . import module, method, result, exceptions, metamodule
 
 from commands.accel_group import AccelGroup
 from commands.accel_group import Accelerator
@@ -83,7 +79,9 @@ class Commands(Singleton):
             self.retval = None
 
         def autocomplete_func(self):
-            if self.retval == result.Result.PROMPT:
+            mod = sys.modules['commander.commands.result']
+
+            if self.retval == mod.Result.PROMPT:
                 return self.retval.autocomplete
             else:
                 return {}
@@ -254,11 +252,13 @@ class Commands(Singleton):
             self.scan(d)
 
     def _run_generator(self, state, ret=None):
+        mod = sys.modules['commander.commands.result']
+
         try:
             # Determine first use
             retval = state.run(ret)
 
-            if not retval or (isinstance(retval, result.Result) and (retval == result.DONE or retval == result.HIDE)):
+            if not retval or (isinstance(retval, mod.Result) and (retval == mod.DONE or retval == mod.HIDE)):
                 state.pop()
 
                 if state:
@@ -284,13 +284,15 @@ class Commands(Singleton):
         return None
 
     def run(self, state, ret=None):
+        mod = sys.modules['commander.commands.result']
+
         if type(ret) == types.GeneratorType:
             # Ok, this is cool stuff, generators can ask and susped execution
             # of commands, for instance to prompt for some more information
             state.push(ret)
 
             return self._run_generator(state)
-        elif not isinstance(ret, result.Result) and len(state) > 1:
+        elif not isinstance(ret, mod.Result) and len(state) > 1:
             # Basicly, send it to the previous?
             state.pop()
 

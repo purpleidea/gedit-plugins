@@ -404,7 +404,9 @@ GtkEntry#gedit-commander-entry {
 
             return None
 
-        if ret == commands.result.Result.SUSPEND:
+        mod = sys.modules['commander.commands.result']
+
+        if ret == mod.Result.SUSPEND:
             # Wait for it...
             self._suspended = ret
             ret.register(self.on_suspend_resume)
@@ -415,9 +417,9 @@ GtkEntry#gedit-commander-entry {
             self.command_history_done()
             self.prompt('')
 
-            if ret == commands.result.Result.PROMPT:
+            if ret == mod.Result.PROMPT:
                 self.prompt(ret.prompt)
-            elif (ret == None or ret == commands.result.HIDE) and not self._prompt and (not self._info_window or self._info_window.empty()):
+            elif (ret == None or ret == mod.HIDE) and not self._prompt and (not self._info_window or self._info_window.empty()):
                 self._command_state.clear()
                 self._view.grab_focus()
                 self.destroy()
