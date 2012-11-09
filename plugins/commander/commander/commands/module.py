@@ -19,10 +19,7 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor,
 #  Boston, MA 02110-1301, USA.
 
-import sys
-import os
-import types
-import bisect
+import sys, os, types, bisect, importlib
 
 import utils
 import commands.exceptions as exceptions
@@ -128,8 +125,8 @@ class Module(method.Method):
             sys.path.insert(0, self._dirname)
 
             self._rollback.monitor()
-            self.mod = __import__(self.real_name, globals(), locals(), [], 0)
             self._rollback.cancel()
+            self.mod = importlib.import_module(self.real_name)
 
             if not utils.is_commander_module(self.mod):
                 raise Exception('Module is not a commander module...')
