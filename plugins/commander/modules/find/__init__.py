@@ -41,7 +41,7 @@ class TextFinder(finder.Finder):
         if self.get_find():
             buf.set_search_text(self.get_find(), self.flags)
 
-        ret = map(lambda x: x.copy(), bounds)
+        ret = list(map(lambda x: x.copy(), bounds))
 
         if buf.search_forward(bounds[0], bounds[1], ret[0], ret[1]):
             return ret

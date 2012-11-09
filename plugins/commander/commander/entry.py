@@ -550,7 +550,7 @@ GtkEntry#gedit-commander-entry {
 
             # Remove system arguments
             s = ['argstr', 'args', 'entry', 'view']
-            args = filter(lambda x: not x in s, args)
+            args = list(filter(lambda x: not x in s, args))
 
             if realidx < len(args):
                 arg = args[realidx]
@@ -577,7 +577,7 @@ GtkEntry#gedit-commander-entry {
                 }
 
                 if not spec.keywords:
-                    for k in kwargs.keys():
+                    for k in list(kwargs.keys()):
                         if not k in spec.args:
                             del kwargs[k]
 

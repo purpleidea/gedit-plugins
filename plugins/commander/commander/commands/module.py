@@ -70,8 +70,8 @@ class Module(method.Method):
             else:
                 root = []
 
-            root = filter(lambda x: x in dic and type(dic[x]) == types.FunctionType, root)
-            self._roots = map(lambda x: method.Method(dic[x], x, self.mod), root)
+            root = list(filter(lambda x: x in dic and type(dic[x]) == types.FunctionType, root))
+            self._roots = list(map(lambda x: method.Method(dic[x], x, self.mod), root))
 
         return self._roots
 

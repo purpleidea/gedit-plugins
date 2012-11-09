@@ -119,7 +119,7 @@ def single_command(words, idx):
     if not ret:
         return None
 
-    ret[0] = filter(lambda x: x.method, ret[0])
+    ret[0] = list(filter(lambda x: x.method, ret[0]))
 
     if not ret[0]:
         return None
@@ -209,11 +209,11 @@ def filename(words, idx, view):
 
         return ret, ret[0], after
     else:
-        return map(lambda x: _file_color(x), real), common_prefix(ret)
+        return list(map(lambda x: _file_color(x), real), common_prefix(ret))
 
 def words(ret):
     def decorator(words, idx):
-        rr = filter(lambda x: x.startswith(words[idx]), ret)
+        rr = list(filter(lambda x: x.startswith(words[idx]), ret))
         return rr, common_prefix(rr)
 
     return decorator
