@@ -22,9 +22,9 @@
 import commander.commands as commands
 from gi.repository import Gedit
 import re
-import regex
+from . import regex
 from xml.sax import saxutils
-import finder
+from . import finder
 
 __commander_module__ = True
 __root__ = ['/', 'find_i', '//', 'r/', 'r//']
