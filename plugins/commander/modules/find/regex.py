@@ -20,7 +20,7 @@
 #  Boston, MA 02110-1301, USA.
 
 import commander.commands as commands
-import finder
+from . import finder
 
 import re
 
