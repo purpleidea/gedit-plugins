@@ -34,10 +34,10 @@ class RollbackImporter:
     def cancel(self):
         __builtins__['__import__'] = self._original_import
 
-    def _import(self, name, globals=None, locals=None, fromlist=[], level=0):
+    def _import(self, name, globals={}, locals={}, fromlist=[], level=0):
         maybe = not name in sys.modules
 
-        mod = self._original_import(*(name, globals, locals, fromlist, level))
+        mod = self._original_import(name, globals, locals, fromlist, level)
 
         if maybe and utils.is_commander_module(mod):
             self._new_modules.append(name)
