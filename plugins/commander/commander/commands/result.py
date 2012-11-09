@@ -31,11 +31,11 @@ class Result(object):
     def __int__(self):
         return self._value
 
-    def __cmp__(self, other):
-        if isinstance(other, int) or isinstance(other, Result):
-            return cmp(int(self), int(other))
+    def __lt__(self, other):
+        if isinstance(other, Result):
+            return int(self) < int(other)
         else:
-            return 1
+            return int(self) < other
 
 # Easy shortcuts
 HIDE = Result(Result.HIDE)

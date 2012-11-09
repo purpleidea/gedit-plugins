@@ -120,8 +120,8 @@ class Method:
 
     def __lt__(self, other):
         if isinstance(other, Method):
-            return (self.name > other.name) - (self.name < other.name)
+            return self.name < other.name
         else:
-            return (self.name > other) - (self.name < other)
+            return self.name < other
 
 # vi:ex:ts=4:et
