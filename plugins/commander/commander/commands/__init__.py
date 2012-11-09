@@ -276,7 +276,7 @@ class Commands(Singleton):
             state.pop()
 
             if state:
-                state.top().generator.throw(type(e), e)
+                state.top().generator.throw(type(e), e, e.__traceback__)
             else:
                 # Re raise it for the top most to show the error
                 raise
