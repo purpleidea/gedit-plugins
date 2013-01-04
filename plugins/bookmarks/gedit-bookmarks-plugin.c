@@ -28,6 +28,7 @@
 #include <stdlib.h>
 #include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
+#include <gtksourceview/gtksource.h>
 #include <gedit/gedit-debug.h>
 #include <gedit/gedit-window.h>
 #include <gedit/gedit-window-activatable.h>
@@ -299,16 +300,23 @@ disable_bookmarks (GeditView *view)
 static GdkPixbuf *
 get_bookmark_pixbuf (GeditBookmarksPlugin *plugin)
 {
-	gchar *datadir;
-	gchar *iconpath;
 	GdkPixbuf *pixbuf;
+	gint width;
+	GError *error = NULL;
 
-	datadir = peas_extension_base_get_data_dir (PEAS_EXTENSION_BASE (plugin));
-	iconpath = g_build_filename (datadir, "bookmark.png", NULL);
-	pixbuf = gdk_pixbuf_new_from_file (iconpath, NULL);
+	gtk_icon_size_lookup (GTK_ICON_SIZE_MENU, &width, NULL);
+	pixbuf = gtk_icon_theme_load_icon (gtk_icon_theme_get_default (),
+	                                   "user-bookmarks-symbolic",
+	                                   (width * 2) / 3,
+	                                   0,
+	                                   &error);
 
-	g_free (datadir);
-	g_free (iconpath);
+	if (error != NULL)
+	{
+		g_warning ("Could not load theme icon user-bookmarks-symbolic: %s",
+		           error->message);
+		g_error_free (error);
+	}
 
 	return pixbuf;
 }

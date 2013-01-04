@@ -1,6 +1,5 @@
 # Advanced Editing plugin
 plugindir = $(GEDIT_PLUGINS_LIBS_DIR)
-supportdir = $(GEDIT_PLUGINS_DATA_DIR)/bookmarks
 
 INCLUDES = \
 	-I$(top_srcdir) 				\
@@ -28,8 +27,6 @@ libbookmarks_la_SOURCES = \
 libbookmarks_la_LDFLAGS = $(PLUGIN_LIBTOOL_FLAGS)
 libbookmarks_la_LIBADD = $(GEDIT_LIBS)
 
-support_DATA = bookmark.png
-
 # Plugin Info
 plugin_in_files = bookmarks.plugin.desktop.in
 
@@ -39,7 +36,7 @@ BUILDFILES = $(plugin_in_files:.plugin.desktop.in=.plugin)
 
 plugin_DATA = $(BUILDFILES)
 
-EXTRA_DIST = $(plugin_in_files) $(support_DATA)
+EXTRA_DIST = $(plugin_in_files)
 
 CLEANFILES = $(BUILDFILES) 
 DISTCLEANFILES = $(BUILDFILES)
