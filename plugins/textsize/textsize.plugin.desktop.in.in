@@ -1,5 +1,5 @@
 [Plugin]
-Loader=python
+Loader=python3
 Module=textsize
 IAge=3
 _Name=Text Size

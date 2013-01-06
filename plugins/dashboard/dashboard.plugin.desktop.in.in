@@ -1,5 +1,5 @@
 [Plugin]
-Loader=python
+Loader=python3
 Module=dashboard
 IAge=3
 _Name=Dashboard

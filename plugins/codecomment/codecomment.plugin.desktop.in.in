@@ -1,5 +1,5 @@
 [Plugin]
-Loader=python
+Loader=python3
 Module=codecomment
 IAge=3
 _Name=Code comment
