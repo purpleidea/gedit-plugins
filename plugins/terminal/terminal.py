@@ -268,12 +268,11 @@ class TerminalPlugin(GObject.Object, Gedit.WindowActivatable):
 
     def get_active_document_directory(self):
         doc = self.window.get_active_document()
-        if doc is None:
-            return None
-        location = doc.get_location()
-        if location is not None and Gedit.utils_location_has_file_scheme(location):
-            directory = location.get_parent()
-            return directory.get_path()
+        if doc:
+            location = doc.get_location()
+            if location and location.has_uri_scheme(location, "file"):
+                directory = location.get_parent()
+                return directory.get_path()
         return None
 
     def on_panel_populate_popup(self, panel, menu):
