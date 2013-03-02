@@ -3,10 +3,12 @@
 #  smartspaces.py
 #
 #  Copyright (C) 2006 - Steve Frécinaux
+#  Copyright (C) 2013 - Garrett Regier
+#  Copyright (C) 2013 - James Shubin
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation; either version 2 of the License, or
+#  the Free Software Foundation; either version 3 of the License, or
 #  (at your option) any later version.
 #
 #  This program is distributed in the hope that it will be useful,
@@ -19,7 +21,37 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor,
 #  Boston, MA 02110-1301, USA.
 
-from gi.repository import GObject, Gtk, Gdk, GtkSource, Gedit
+from gi.repository import GObject, Gtk, Gdk, GtkSource, Gedit, PeasGtk, Gio
+DEBUG = False                                                  # very!! useful
+SCHEMA_ID = 'org.gnome.gedit.plugins.smartspaces'
+# TODO: check that the boilerplate and the loading/unloading details work right
+
+class SmartSpacesPluginSettings(GObject.Object, PeasGtk.Configurable):
+
+    def do_create_configure_widget(self):
+        settings = self.plugin_info.get_settings(SCHEMA_ID)
+
+        # TODO: this sticks out on display, and doesn't wrap...
+        label = Gtk.Label('These settings let you remove, delete and move '\
+        'through space indented code, as if it was using tabs.')
+        check1 = Gtk.CheckButton('Enable smart backspace.')
+        check2 = Gtk.CheckButton('Enable smart delete.')
+        check3 = Gtk.CheckButton('Enable smart arrows.')
+        check4 = Gtk.CheckButton('Enable smart keypad arrows.')
+
+        settings.bind('smart-backspace', check1, 'active', Gio.SettingsBindFlags.DEFAULT)
+        settings.bind('smart-delete', check2, 'active', Gio.SettingsBindFlags.DEFAULT)
+        settings.bind('smart-arrows', check3, 'active', Gio.SettingsBindFlags.DEFAULT)
+        settings.bind('smart-kparrows', check4, 'active', Gio.SettingsBindFlags.DEFAULT)
+
+        vbox = Gtk.VBox(False, 5)
+        vbox.add(label)
+        vbox.add(check1)
+        vbox.add(check2)
+        vbox.add(check3)
+        vbox.add(check4)
+
+        return vbox
 
 class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
     __gtype_name__ = 'SmartSpacesPlugin'
@@ -30,11 +62,18 @@ class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
         GObject.Object.__init__(self)
 
     def do_activate(self):
+        # the magic plugin_info attribute comes from here:
+        # http://git.gnome.org/browse/libpeas/tree/loaders/python/peas-plugin-loader-python.c#n177
+        self.settings = self.plugin_info.get_settings(SCHEMA_ID)
+
         self._handlers = [
             None,
             self.view.connect('notify::editable', self.on_notify),
-            self.view.connect('notify::insert-spaces-instead-of-tabs', self.on_notify)
+            self.view.connect('notify::insert-spaces-instead-of-tabs', self.on_notify),
+            self.settings.connect('changed', self.on_settings_changed)
         ]
+
+        self.reconfigure()
 
     def do_deactivate(self):
         for handler in self._handlers:
@@ -72,7 +111,7 @@ class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
         return indent_width
 
     def on_key_press_event(self, view, event):
-        # Only take care of backspace and shift+backspace
+        # only take care of backspace, shift+backspace, left, right, delete...
         mods = Gtk.accelerator_get_default_mod_mask()
 
         if DEBUG: print 'keyval: %s' % str(event.keyval)
@@ -85,16 +124,16 @@ class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
         event.state & mods != 0 and event.state & mods != Gdk.ModifierType.SHIFT_MASK
 
         if event.keyval in [Gdk.KEY_Left, Gdk.KEY_Right] and self.settings.get_boolean('smart-arrows'):
-            pass # TODO: Not implemented yet...
+            return self.do_key_press_leftright(view, event, debug=DEBUG)
 
         elif event.keyval in [Gdk.KEY_KP_Left, Gdk.KEY_KP_Right] and self.settings.get_boolean('smart-kparrows'):
-            pass # TODO: Not implemented yet...
+            return self.do_key_press_leftright(view, event, debug=DEBUG)
 
         elif not(bs_bool) and self.settings.get_boolean('smart-backspace'):
             return self.do_key_press_backspace(view, event)
 
         elif not(dl_bool) and self.settings.get_boolean('smart-delete'):
-            pass # TODO: Not implemented yet...
+            return self.do_key_press_delete(view, event)
 
         else:
             return False
@@ -146,5 +185,179 @@ class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
         doc.end_user_action()
 
         return True
+
+    # NOTE: this algorithm isn't perfect, but will probably do the job. Ping me
+    # if you find any corner cases that you'd like to be handled differently.
+    def do_key_press_delete(self, view, event):
+        mods = Gtk.accelerator_get_default_mod_mask()
+        if event.keyval != Gdk.KEY_Delete or \
+        event.state & mods != 0 and event.state & mods != Gdk.ModifierType.SHIFT_MASK:
+            return False
+
+        doc = view.get_buffer()
+        if doc.get_has_selection():
+            return False
+
+        cur = doc.get_iter_at_mark(doc.get_insert())
+        offset = cur.get_line_offset()
+        length = cur.get_chars_in_line()                # length of line
+
+        if offset == length - 1:
+            # We're at the end of the line, so we can't obviously
+            # unindent in this case
+            return False
+
+        start = cur.copy()
+        prev = cur.copy()
+        #prev.forward_char()
+
+        # If the previous chars are spaces, try to remove
+        # them until the previous tab stop
+        max_move = offset % self.get_real_indent_width()
+
+        if max_move == 0:
+            max_move = self.get_real_indent_width()
+
+        moved = 0
+        while moved < max_move and prev.get_char() == ' ':
+            start.forward_char()
+            moved += 1
+            if not prev.forward_char():
+                # we reached the start of the buffer
+                break
+
+        if moved == 0:
+            # The iterator hasn't moved, it was not a space
+            return False
+
+        # Actually delete the spaces
+        doc.begin_user_action()
+        doc.delete(start, cur)
+        doc.end_user_action()
+
+        return True
+
+    def do_key_press_leftright(self, view, event, debug=False):
+        """Handle moving left and right over spaces as if they were tabs!
+        Handle selection (shift) and control-selection (shift+control) too.
+        Writing this function was off-by-one hell. Patch carefully and test
+        extensively."""
+        mods = Gtk.accelerator_get_default_mod_mask()
+
+        if debug: print 'FUNCTION: do_key_press_leftright(keyval:%d)' % event.keyval
+
+        both = bool(event.state & mods == Gdk.ModifierType.SHIFT_MASK | Gdk.ModifierType.CONTROL_MASK)
+        if debug: print 'BOTH: %s' % both
+
+        if both: shift = True
+        else: shift = bool(event.state & mods == Gdk.ModifierType.SHIFT_MASK)
+        if debug: print 'SHIFT: %s' % shift
+
+        if both: control = True
+        else: control = bool(event.state & mods == Gdk.ModifierType.CONTROL_MASK)
+        if debug: print 'CONTROL: %s' % control
+
+        if event.keyval != Gdk.KEY_Left and \
+        event.keyval != Gdk.KEY_Right and \
+        event.keyval != Gdk.KEY_KP_Left and \
+        event.keyval != Gdk.KEY_KP_Right:
+            return False
+
+        doc = view.get_buffer()
+        # NOTE: we don't do this because we want to work while under selection!
+        #if doc.get_has_selection():
+        #    return False
+
+        tabwidth = self.get_real_indent_width()
+        if debug: print 'TABWIDTH: %d' % tabwidth
+
+        iterobj = doc.get_iter_at_mark(doc.get_insert())    # get cursor mark
+        selecto = doc.get_iter_at_mark(doc.get_selection_bound())
+
+        length = iterobj.get_chars_in_line()                # length of line
+        if debug: print 'LENGTH: %d' % length
+
+        offset = iterobj.get_line_offset()                  # an int
+        if debug: print 'OFFSET: %d' % offset
+
+        iter_a = doc.get_iter_at_mark(doc.get_insert())
+        iter_a.set_line_offset(0)                           # move to start
+        iter_b = doc.get_iter_at_mark(doc.get_insert())
+        iter_b.forward_line()                               # move to end
+
+        line_list = doc.get_slice(iter_a, iter_b, True)     # line as an array
+        if length != len(line_list):                        # sanity check
+            import inspect
+            print '** (gedit:%s:%d): CRITICAL **: do_key_press_leftright: assertion `length == len(line_list)\' failed' % (__file__, inspect.currentframe().f_back.f_lineno)
+
+        # if in the 'middle' of a tab, jump to edge
+        lalign = ((tabwidth-offset) % tabwidth)
+        ralign = (offset % tabwidth)
+
+        if debug: print 'LALIGN: %d' % lalign
+        if debug: print 'RALIGN: %d' % ralign
+
+        space = True
+        until = 0
+        while until < len(line_list) and space:             # find continuous
+            if line_list[until] != ' ':
+                space = False
+                break
+            until = until + 1
+
+        if debug: print 'UNTIL: %d' % until
+
+        motion = 1  # cursor moves itself by this (1)
+        if event.keyval == Gdk.KEY_Left:
+
+            if offset == 0:     # start of line
+                return False
+
+            if offset > until and line_list[offset-1] != ' ':  # not within continuous initial indentation
+                return False
+
+            if line_list[offset-1] == ' ':
+                space = True
+                luntil = offset
+                while luntil > 0 and space:             # find continuous
+                    if line_list[luntil-1] != ' ':
+                        space = False
+                        break
+                    luntil = luntil - 1
+
+                if debug: print 'LUNTIL: %d' % luntil
+                iterobj.set_line_offset( max(offset - (tabwidth-lalign) + motion, luntil+1) )
+            else:
+                iterobj.set_line_offset( offset - (tabwidth-lalign) + motion )
+
+        if event.keyval == Gdk.KEY_Right:
+
+            if offset == length-1:  # end of line
+                return False
+
+            if offset > until-1 and line_list[offset+0] != ' ':     # not within continuous initial indentation
+                return False
+
+            if line_list[offset+0] == ' ':
+                space = True
+                runtil = offset
+                while runtil < length and space:                # find continuous
+                    if line_list[runtil+0] != ' ':
+                        space = False
+                        break
+                    runtil = runtil + 1
+
+                if debug: print 'RUNTIL: %d' % runtil
+                iterobj.set_line_offset(min(offset + (tabwidth-ralign) - motion, runtil-1))
+            else:
+                iterobj.set_line_offset(offset + (tabwidth-ralign) - motion)
+
+        # do the placement
+        if shift or both:   # as long as shift is being used...
+            doc.select_range(iterobj, selecto)  # don't break the selection!
+        else:
+            doc.place_cursor(iterobj)
+        #return True    # TODO: shouldn't this work ?
+        return False    # TODO: however this does!
 
 # ex:ts=4:et:
