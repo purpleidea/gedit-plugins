@@ -22,7 +22,7 @@
 from gi.repository import GObject, Gtk, Gdk, GtkSource, Gedit
 
 class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
-    __gtype_name__ = "SmartSpacesPlugin"
+    __gtype_name__ = 'SmartSpacesPlugin'
 
     view = GObject.property(type=Gedit.View)
 
@@ -45,14 +45,20 @@ class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
         # Don't activate the feature if the buffer isn't editable or if
         # we're using tabs
         active = self.view.get_editable() and \
-                 self.view.get_insert_spaces_instead_of_tabs()
+        self.view.get_insert_spaces_instead_of_tabs()
 
         if active and self._handlers[0] is None:
-            self._handlers[0] = self.view.connect('key-press-event',
-                                                   self.on_key_press_event)
+            self._handlers[0] = self.view.connect('key-press-event', self.on_key_press_event)
         elif not active and self._handlers[0] is not None:
             self.view.disconnect(self._handlers[0])
             self._handlers[0] = None
+
+    def reconfigure(self):
+        # load any settings you want here...
+        pass
+
+    def on_settings_changed(self, settings, key):
+        self.reconfigure()
 
     def on_notify(self, view, pspec):
         self.update_active()
@@ -69,8 +75,34 @@ class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
         # Only take care of backspace and shift+backspace
         mods = Gtk.accelerator_get_default_mod_mask()
 
+        if DEBUG: print 'keyval: %s' % str(event.keyval)
+
+        # FIXME: this condition is confusing as !
+        bs_bool = event.keyval != Gdk.KEY_BackSpace or \
+        event.state & mods != 0 and event.state & mods != Gdk.ModifierType.SHIFT_MASK
+
+        dl_bool = event.keyval != Gdk.KEY_Delete or \
+        event.state & mods != 0 and event.state & mods != Gdk.ModifierType.SHIFT_MASK
+
+        if event.keyval in [Gdk.KEY_Left, Gdk.KEY_Right] and self.settings.get_boolean('smart-arrows'):
+            pass # TODO: Not implemented yet...
+
+        elif event.keyval in [Gdk.KEY_KP_Left, Gdk.KEY_KP_Right] and self.settings.get_boolean('smart-kparrows'):
+            pass # TODO: Not implemented yet...
+
+        elif not(bs_bool) and self.settings.get_boolean('smart-backspace'):
+            return self.do_key_press_backspace(view, event)
+
+        elif not(dl_bool) and self.settings.get_boolean('smart-delete'):
+            pass # TODO: Not implemented yet...
+
+        else:
+            return False
+
+    def do_key_press_backspace(self, view, event):
+        mods = Gtk.accelerator_get_default_mod_mask()
         if event.keyval != Gdk.KEY_BackSpace or \
-           event.state & mods != 0 and event.state & mods != Gdk.ModifierType.SHIFT_MASK:
+        event.state & mods != 0 and event.state & mods != Gdk.ModifierType.SHIFT_MASK:
             return False
 
         doc = view.get_buffer()
