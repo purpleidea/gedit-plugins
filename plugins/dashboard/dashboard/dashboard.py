@@ -322,7 +322,7 @@ class ListView(Gtk.TreeView):
         item = event.subjects[0]
         if uri_exists(item.uri):
             uri = item.uri.replace(self.home_path, "Home").split("/")
-            uri = u" → ".join(uri[0:len(uri) - 1])
+            uri = " → ".join(uri[:-1])
             text = """<span size='large'><b>
                %s\n</b></span><span color='darkgrey'>   %s
                </span>"""%(item.text, uri)
