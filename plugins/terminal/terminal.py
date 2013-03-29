@@ -20,6 +20,8 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor,
 # Boston, MA  02110-1301  USA
 
+import gi
+gi.require_version('Vte', '2.90')
 from gi.repository import GObject, GLib, Gio, Pango, Gdk, Gtk, Gedit, Vte
 import os
 import gettext
