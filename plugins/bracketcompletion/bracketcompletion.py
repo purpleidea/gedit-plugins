@@ -158,7 +158,7 @@ class BracketCompletionPlugin(GObject.Object, Gedit.ViewActivatable):
             end.forward_word_end()
             word = self._doc.get_text(start, end)
 
-        if not word and end.forward_char():
+        if not word:
             word = start.get_char()
             if word.isspace():
                 word = None
