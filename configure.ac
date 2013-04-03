@@ -92,9 +92,9 @@ ALL_PLUGINS="bookmarks drawspaces wordcompletion"
 USEFUL_PLUGINS="bookmarks drawspaces wordcompletion"
 DEFAULT_PLUGINS="bookmarks drawspaces wordcompletion"
 
-PYTHON_ALL_PLUGINS="bracketcompletion charmap codecomment colorpicker commander dashboard joinlines multiedit textsize smartspaces terminal synctex"
-PYTHON_USEFUL_PLUGINS="bracketcompletion charmap codecomment colorpicker commander dashboard joinlines multiedit textsize smartspaces terminal synctex"
-PYTHON_DEFAULT_PLUGINS="bracketcompletion charmap codecomment colorpicker commander dashboard joinlines multiedit textsize smartspaces terminal synctex"
+PYTHON_ALL_PLUGINS="bracketcompletion charmap codecomment colorpicker colorschemer commander dashboard joinlines multiedit textsize smartspaces terminal synctex"
+PYTHON_USEFUL_PLUGINS="bracketcompletion charmap codecomment colorpicker colorschemer commander dashboard joinlines multiedit textsize smartspaces terminal synctex"
+PYTHON_DEFAULT_PLUGINS="bracketcompletion charmap codecomment colorpicker colorschemer commander dashboard joinlines multiedit textsize smartspaces terminal synctex"
 
 DIST_PLUGINS="$ALL_PLUGINS $PYTHON_ALL_PLUGINS"
 
@@ -325,6 +325,9 @@ plugins/codecomment/codecomment.plugin.desktop.in
 plugins/codecomment/Makefile
 plugins/colorpicker/colorpicker.plugin.desktop.in
 plugins/colorpicker/Makefile
+plugins/colorschemer/schemer/Makefile
+plugins/colorschemer/colorschemer.plugin.desktop.in
+plugins/colorschemer/Makefile
 plugins/commander/commander/commands/Makefile
 plugins/commander/commander.plugin.desktop.in
 plugins/commander/commander/Makefile
