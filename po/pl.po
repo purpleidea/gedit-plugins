@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gedit-plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-17 16:35+0100\n"
-"PO-Revision-Date: 2013-02-17 16:36+0100\n"
+"POT-Creation-Date: 2013-04-04 22:33+0200\n"
+"PO-Revision-Date: 2013-04-04 22:34+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -69,8 +69,9 @@ msgstr "Uzupełnianie nawiasów"
 msgid "Automatically adds closing brackets."
 msgstr "Automatyczne dodaje nawiasy zamykające."
 
-#: ../plugins/charmap/charmap.plugin.desktop.in.in.h:1
+#. ex:et:ts=4:
 #: ../plugins/charmap/charmap/__init__.py:51
+#: ../plugins/charmap/charmap.plugin.desktop.in.in.h:1
 msgid "Character Map"
 msgstr "Mapa znaków"
 
@@ -78,7 +79,6 @@ msgstr "Mapa znaków"
 msgid "Insert special characters just by clicking on them."
 msgstr "Wstawia znaki specjalne po kliknięciu na nie."
 
-#. ex:et:ts=4:
 #: ../plugins/codecomment/codecomment.plugin.desktop.in.in.h:1
 msgid "Code comment"
 msgstr "Komentarze w kodzie"
@@ -126,6 +126,78 @@ msgid "Pick Color"
 msgstr "Wybór koloru"
 
 #. ex:ts=4:et:
+#: ../plugins/colorschemer/colorschemer.plugin.desktop.in.in.h:1
+msgid "Color Scheme Editor"
+msgstr "Edytor schematów kolorów"
+
+#: ../plugins/colorschemer/colorschemer.plugin.desktop.in.in.h:2
+msgid "Source code color scheme editor"
+msgstr "Edytor kolorów kodu źródłowego"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:1
+msgid "Scheme Editor"
+msgstr "Edytor schematów"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:2
+msgid "X"
+msgstr "X"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:3
+msgid "Bold"
+msgstr "Pogrubienie"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:4
+msgid "Italic"
+msgstr "Pochylenie"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:5
+msgid "Underline"
+msgstr "Podkreślenie"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:6
+msgid "Strikethrough"
+msgstr "Przekreślenie"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:7
+msgid "Pick the background color"
+msgstr "Wybór koloru tła"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:8
+msgid "Pick the foreground color"
+msgstr "Wybór koloru tekstu"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:9
+msgid "_Background"
+msgstr "_Tło"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:10
+msgid "_Foreground"
+msgstr "T_ekst"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:11
+msgid "_Clear "
+msgstr "Wy_czyść "
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:12
+msgid "Name"
+msgstr "Nazwa"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:13
+msgid "Id"
+msgstr "Identyfikator"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:14
+msgid "Description"
+msgstr "Opis"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:15
+msgid "Author"
+msgstr "Autor"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:16
+msgid "Sample"
+msgstr "Przykład"
+
 #: ../plugins/commander/commander.plugin.desktop.in.in.h:1
 msgid "Commander"
 msgstr "Commander"
