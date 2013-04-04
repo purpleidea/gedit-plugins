@@ -1,12 +1,14 @@
 plugins/bookmarks/bookmarks.plugin.desktop.in.in
 plugins/bookmarks/gedit-bookmarks-plugin.c
 plugins/bracketcompletion/bracketcompletion.plugin.desktop.in.in
-plugins/charmap/charmap.plugin.desktop.in.in
 plugins/charmap/charmap/__init__.py
+plugins/charmap/charmap.plugin.desktop.in.in
 plugins/codecomment/codecomment.plugin.desktop.in.in
 plugins/codecomment/codecomment.py
 plugins/colorpicker/colorpicker.plugin.desktop.in.in
 plugins/colorpicker/colorpicker.py
+plugins/colorschemer/colorschemer.plugin.desktop.in.in
+[type: gettext/glade]plugins/colorschemer/schemer/schemer.ui
 plugins/commander/commander.plugin.desktop.in.in
 plugins/commander/commander/windowactivatable.py
 plugins/dashboard/dashboard/dashboard.py
