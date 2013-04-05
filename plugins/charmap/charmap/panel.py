@@ -34,7 +34,7 @@ class CharmapPanel(Gtk.Box):
         self.view = Gucharmap.ChaptersView()
         self.view.set_headers_visible (False)
 
-        model = Gucharmap.ScriptChaptersModel()
+        model = Gucharmap.ScriptChaptersModel.new()
         self.view.set_model(model)
 
         selection = self.view.get_selection()
