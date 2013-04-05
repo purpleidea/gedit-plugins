@@ -134,13 +134,13 @@ class DocumentHelper(Signals):
 
             buf.apply_tag(newtag, start, end)
 
-    def increase_font_size(self):
+    def larger_text(self):
         self.set_font_size(1)
 
-    def decrease_font_size(self):
+    def smaller_text(self):
         self.set_font_size(-1)
 
-    def reset_font_size(self):
+    def normal_size(self):
         self.update_default_font()
 
         buf = self._view.get_buffer()
@@ -164,16 +164,16 @@ class DocumentHelper(Signals):
             return False
 
         if event.direction == Gdk.ScrollDirection.UP:
-            self.increase_font_size()
+            self.larger_text()
             return True
         elif event.direction == Gdk.ScrollDirection.DOWN:
-            self.decrease_font_size()
+            self.smaller_text()
             return True
         elif event.direction == Gdk.ScrollDirection.SMOOTH:
             if event.delta_y > 0:
-                self.decrease_font_size()
+                self.smaller_text()
             elif event.delta_y < 0:
-                self.increase_font_size()
+                self.larger_text()
 
         return False
 
@@ -181,7 +181,7 @@ class DocumentHelper(Signals):
         state = event.state & Gtk.accelerator_get_default_mod_mask()
 
         if state == Gdk.ModifierType.CONTROL_MASK and event.button == 2:
-            self.reset_font_size()
+            self.normal_size()
             return True
         else:
             return False

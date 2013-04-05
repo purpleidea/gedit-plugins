@@ -40,9 +40,9 @@ ui_str = """
     <menu name="ViewMenu" action="View">
       <placeholder name="ViewOps_2">
         <separator/>
-        <menuitem name="IncreaseFontSize" action="IncreaseFontSizeAction"/>
-        <menuitem name="DecreaseFontSize" action="DecreaseFontSizeAction"/>
-        <menuitem name="ResetFontSize" action="ResetFontSizeAction"/>
+        <menuitem name="LargerText" action="LargerTextAction"/>
+        <menuitem name="SmallerText" action="SmallerTextAction"/>
+        <menuitem name="NormalSize" action="NormalSizeAction"/>
         <separator/>
       </placeholder>
     </menu>
@@ -75,9 +75,9 @@ class TextSizePlugin(GObject.Object, Gedit.WindowActivatable):
         self.window.add_accel_group(self._accel_group)
 
         self._proxy_callback_map = {
-            'IncreaseFontSizeAction': self.on_increase_font_accel,
-            'DecreaseFontSizeAction': self.on_decrease_font_accel,
-            'ResetFontSizeAction': self.on_reset_font_accel
+            'LargerTextAction': self.on_larger_text_accel,
+            'SmallerTextAction': self.on_smaller_text_accel,
+            'NormalSizeAction': self.on_normal_size_accel
         }
 
         self._proxy_mapping = {}
@@ -115,9 +115,9 @@ class TextSizePlugin(GObject.Object, Gedit.WindowActivatable):
             self._proxy_mapping[action] = (key, mod)
 
     def _init_proxy_accels(self):
-        self._install_proxy('IncreaseFontSizeAction')
-        self._install_proxy('DecreaseFontSizeAction')
-        self._install_proxy('ResetFontSizeAction')
+        self._install_proxy('LargerTextAction')
+        self._install_proxy('SmallerTextAction')
+        self._install_proxy('NormalSizeAction')
 
     def do_deactivate(self):
         # Remove any installed menu items
@@ -139,15 +139,15 @@ class TextSizePlugin(GObject.Object, Gedit.WindowActivatable):
 
         # Create a new action group
         self._action_group = Gtk.ActionGroup("GeditTextSizePluginActions")
-        self._action_group.add_actions([("IncreaseFontSizeAction", None, _("_Increase font size"),
+        self._action_group.add_actions([("LargerTextAction", None, _("_Larger Text"),
                                          "<Ctrl>plus", None,
-                                         self.on_increase_font_size_activate),
-                                         ("DecreaseFontSizeAction", None, _("_Decrease font size"),
+                                         self.on_larger_text_activate),
+                                         ("SmallerTextAction", None, _("S_maller Text"),
                                          "<Ctrl>minus", None,
-                                         self.on_decrease_font_size_activate),
-                                         ("ResetFontSizeAction", None, _("_Reset font size"),
+                                         self.on_smaller_text_activate),
+                                         ("NormalSizeAction", None, _("_Normal size"),
                                          "<Ctrl>0", None,
-                                         self.on_reset_font_size_activate)])
+                                         self.on_normal_size_activate)])
 
         # Insert the action group
         manager.insert_action_group(self._action_group)
@@ -195,23 +195,23 @@ class TextSizePlugin(GObject.Object, Gedit.WindowActivatable):
             cb(self.get_helper(view))
 
     # Menu activate handlers
-    def on_increase_font_size_activate(self, action, user_data=None):
-        self.call_helper(lambda helper: helper.increase_font_size())
+    def on_larger_text_activate(self, action, user_data=None):
+        self.call_helper(lambda helper: helper.larger_text())
 
-    def on_decrease_font_size_activate(self, action, user_data=None):
-        self.call_helper(lambda helper: helper.decrease_font_size())
+    def on_smaller_text_activate(self, action, user_data=None):
+        self.call_helper(lambda helper: helper.smaller_text())
 
-    def on_reset_font_size_activate(self, action, user_data=None):
-        self.call_helper(lambda helper: helper.reset_font_size())
+    def on_normal_size_activate(self, action, user_data=None):
+        self.call_helper(lambda helper: helper.normal_size())
 
-    def on_increase_font_accel(self, group, accel, key, mod):
-        self.call_helper(lambda helper: helper.increase_font_size())
+    def on_larger_text_accel(self, group, accel, key, mod):
+        self.call_helper(lambda helper: helper.larger_text())
 
-    def on_decrease_font_accel(self, group, accel, key, mod):
-        self.call_helper(lambda helper: helper.decrease_font_size())
+    def on_smaller_text_accel(self, group, accel, key, mod):
+        self.call_helper(lambda helper: helper.smaller_text())
 
-    def on_reset_font_accel(self, group, accel, key, mod):
-        self.call_helper(lambda helper: helper.reset_font_size())
+    def on_normal_size_accel(self, group, accel, key, mod):
+        self.call_helper(lambda helper: helper.normal_size())
 
     def on_tab_added(self, window, tab):
         self.add_document_helper(tab.get_view())
