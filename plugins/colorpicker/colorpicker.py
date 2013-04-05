@@ -192,8 +192,7 @@ class ColorPickerWindowActivatable(GObject.Object, Gedit.WindowActivatable):
 
     def on_dialog_response(self, dialog, response):
         if response == Gtk.ResponseType.OK:
-            rgba = Gdk.RGBA()
-            dialog.get_rgba(rgba)
+            rgba = dialog.get_rgba()
 
             self._color_helper.insert_color(self.window.get_active_view(),
                                             "%02x%02x%02x" % (self._color_helper.scale_color_component(rgba.red), \
