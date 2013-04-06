@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gedit-plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-04 22:33+0200\n"
-"PO-Revision-Date: 2013-04-04 22:34+0200\n"
+"POT-Creation-Date: 2013-04-06 11:19+0200\n"
+"PO-Revision-Date: 2013-04-06 11:20+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -621,16 +621,16 @@ msgid "C_hange Directory"
 msgstr "Zmień _katalog"
 
 #: ../plugins/textsize/textsize/__init__.py:142
-msgid "_Increase font size"
-msgstr "_Zwiększ rozmiar czcionki"
+msgid "_Larger Text"
+msgstr "_Większy tekst"
 
 #: ../plugins/textsize/textsize/__init__.py:145
-msgid "_Decrease font size"
-msgstr "Z_mniejsz rozmiar czcionki"
+msgid "S_maller Text"
+msgstr "_Mniejszy tekst"
 
 #: ../plugins/textsize/textsize/__init__.py:148
-msgid "_Reset font size"
-msgstr "_Przywróć rozmiar czcionki"
+msgid "_Normal size"
+msgstr "_Zwykły rozmiar"
 
 #. ex:ts=4:et:
 #: ../plugins/textsize/textsize.plugin.desktop.in.in.h:1
