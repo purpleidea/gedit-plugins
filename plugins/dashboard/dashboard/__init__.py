@@ -75,9 +75,7 @@ class DashboardWindowActivatable(GObject.Object, Gedit.WindowActivatable):
                 doc.connect("loaded", lambda x, y: show_doc())
                 d.search.set_receives_default(True)
                 self.window.set_default(d.search)
-                self.window.activate_default()
                 d.search.grab_focus()
-        self._is_adding = False
 
     def do_deactivate(self):
         tab = self.window.get_active_tab()

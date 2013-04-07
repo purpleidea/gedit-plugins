@@ -21,7 +21,7 @@
 
 from gi.repository import GObject, Gtk, Gio, GLib, GdkPixbuf, GtkSource
 import os
-import urllib
+import urllib.parse
 
 thumb_cache = {}
 pixbuf_cache = {}
@@ -41,7 +41,7 @@ no_pixbuf = Gtk.IconTheme.get_default().load_icon("gtk-file", 48, 0)
 
 def uri_exists(uri):
     return uri.startswith("note://") or \
-        os.path.exists(urllib.unquote(str(uri[7:])))
+        os.path.exists(urllib.parse.unquote(str(uri[7:])))
 
 
 def make_icon_frame(pixbuf, blend=False, border=1, color=0x000000ff):
@@ -75,11 +75,12 @@ def create_text_thumb(gfile, size=None, threshold=2):
             last_line = line
     missing_lines = 30 - len(new_content)
     if missing_lines > 0:
-        for i in xrange(missing_lines):
+        for i in range(missing_lines):
             new_content.append(" \n")
     content = "\n".join(new_content)
     lang_manager = GtkSource.LanguageManager.get_default()
-    lang = lang_manager.guess_language(gfile.subject.uri[7:], None)
+    lang = lang_manager.guess_language(
+        gfile.subject.get_property("uri")[7:], None)
     if lang:
         buf = GtkSource.Buffer.new_with_language(lang)
     else:
@@ -123,7 +124,7 @@ def get_pixbuf_from_cache(gicon, callback, size=48):
 
 
 def get_icon(item, callback, size=48):
-    uri = item.uri
+    uri = item.get_property("uri")
     f = Gio.file_new_for_uri(uri)
 
     def query_info_callback(gfile, result, cancellable):
@@ -150,6 +151,4 @@ def get_icon(item, callback, size=48):
 
         f.query_info_async(attr, Gio.FileQueryInfoFlags.NONE,
             GLib.PRIORITY_DEFAULT, None, query_info_callback, None)
-
-
 

@@ -20,8 +20,7 @@
 #  Boston, MA 02110-1301, USA.
 
 from gi.repository import GObject, Gedit, Gtk, Gio, GLib, GdkPixbuf, GtkSource
-from zeitgeist.client import ZeitgeistClient
-from zeitgeist.datamodel import Event, TimeRange
+from gi.repository import Zeitgeist
 from .utils import *
 
 import time
@@ -30,35 +29,43 @@ import urllib
 import dbus
 import datetime
 
+CLIENT = Zeitgeist.Log.get_default()
+
 try:
     BUS = dbus.SessionBus()
-except Exception:
-    BUS = None
+    obj = BUS.get_object('org.gnome.zeitgeist.SimpleIndexer',
+        '/org/gnome/zeitgeist/index/activity')
+    iface = dbus.Interface(obj, 'org.gnome.zeitgeist.Index')
+    ZG_FTS = Zeitgeist.Index.new()
+except Exception as err:
+    ZG_FTS = None
+    print ("Could not detect FTS supports, disabling Dashboard search")
 
-CLIENT = ZeitgeistClient()
 version = [int(x) for x in CLIENT.get_version()]
-MIN_VERSION = [0, 8, 0, 0]
+
+MIN_VERSION = [0, 9, 11, 0]
 if version < MIN_VERSION:
-    print("PLEASE USE ZEITGEIST 0.8.0 or above")
+    print("PLEASE USE ZEITGEIST 0.9.11 or above")
 
 class Item(Gtk.Button):
 
     def __init__(self, subject):
 
         Gtk.Button.__init__(self)
-        self._file_object = Gio.file_new_for_uri(subject.uri)
+        self._file_object = Gio.file_new_for_uri(subject.get_property("uri"))
         self._file_info =\
             self._file_object.query_info("standard::content-type",
             Gio.FileQueryInfoFlags.NONE, None)
         self.subject = subject
-        SIZE_LARGE = (256, 160)
+        SIZE_LARGE = (256, 256)
         self.thumb = create_text_thumb(self, SIZE_LARGE, 1)
-        self.set_size_request(224, 196)
+        self.set_size_request(256, 256)
         vbox = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
         vbox.pack_start(self.thumb, True, True, 0)
         self.label = Gtk.Label()
+        self.label.set_ellipsize(2)
         self.label.set_markup("<span size='large'><b>%s</b></span>"\
-            %subject.text)
+            %subject.get_property("text"))
         vbox.pack_start(self.label, False, False, 6)
         self.add(vbox)
 
@@ -79,7 +86,7 @@ class StockButton(Gtk.Button):
 
     def __init__(self, stock, label):
         Gtk.Button.__init__(self)
-        self.set_size_request(256, 196)
+        self.set_size_request(256, 256)
         vbox = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
         self.label = Gtk.Label()
         self.label.set_markup("<span size='large'><b>%s</b></span>"%label)
@@ -110,23 +117,13 @@ class DashView(Gtk.Box):
         self.new_button = StockButton(Gtk.STOCK_NEW, _("Empty Document"))
         self.new_button.connect("clicked", lambda x: show_doc())
 
-    def populate_grid(self, events):
+    def populate_grid(self, subjects):
         for child in self.grid.get_children():
             self.grid.remove(child)
         self.hide()
-        subjects = []
 
         self.grid.add(self.new_button)
         self.show_all()
-
-        for event in events:
-            for subject in event.subjects:
-                if uri_exists(subject.uri):
-                    subjects.append(subject)
-                if len(subjects) == GRID_ITEM_COUNT:
-                    break
-            if len(subjects) == GRID_ITEM_COUNT:
-                break
 
         for i, subject in enumerate(subjects):
             item = Item(subjects[i])
@@ -137,63 +134,6 @@ class DashView(Gtk.Box):
     def open(self, item):
         Gedit.commands_load_location(self._window,
             item._file_object, None, -1, -1)
-
-
-class DashPanelButton (Gtk.Box):
-
-    def __init__(self, label):
-        Gtk.Box.__init__(self, orientation = Gtk.Orientation.VERTICAL)
-        vbox = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
-        self.text = label
-        self.label = Gtk.Label()
-        self.label.set_markup("<b>%s</b>"%label)
-        self.label.set_alignment(0.5, 0.5)
-        self.button = Gtk.Button()
-        self.button.add(vbox)
-        self.button.set_relief(2)
-        self.pack_start(self.button, True, True, 0)
-        self.set_size_request(-1, 42)
-        self._active = False
-        self.connect("style-updated", self.change_style)
-        self.button.set_can_focus(False)
-        self.line = Gtk.EventBox()
-        self.line.set_size_request(-1, 3)
-        box = Gtk.Box()
-        box.pack_start(self.line, True, True, 4)
-        vbox.pack_start(Gtk.Box(), False, False, 6) #This is for styling
-        vbox.pack_start(self.label, False, False, 0)
-        vbox.pack_start(box, False, False, 1)
-
-    def set_active(self, active):
-        self._active = active
-        if self._active == True:
-            self.line.show()
-        else:
-            self.line.hide()
-
-    def change_style(self, widget):
-        self.style = self.get_style_context()
-        color = self.style.get_background_color(Gtk.StateFlags.SELECTED)
-        self.line.override_background_color(Gtk.StateFlags.NORMAL, color)
-
-
-class ZeitgeistFTS(object):
-
-    result_type_relevancy = 100
-
-    def __init__(self):
-        self.template = Event()
-        self.template.actor = "application://gedit.desktop"
-        self._fts = BUS.get_object('org.gnome.zeitgeist.Engine',
-            '/org/gnome/zeitgeist/index/activity')
-        self.fts = dbus.Interface(self._fts, 'org.gnome.zeitgeist.Index')
-
-    def search(self, text, callback):
-        events, count = self.fts.Search(text + "*", TimeRange.always(),
-            [self.template], 0, 100, 2)
-        callback(map(Event, events), count)
-
-ZG_FTS = ZeitgeistFTS()
 
 
 class SearchEntry(Gtk.Entry):
@@ -313,22 +253,24 @@ class ListView(Gtk.TreeView):
         self.model.clear()
         self.now = time.time()
 
-    def insert_results(self, events, match):
+    def insert_results(self, log, res, data):
+        events = log.search_finish(res)
         self.clear()
-        for event in events:
+        for i in range(events.size()):
+            event = events.next_value()
             self.add_item(event, 48)
 
     def add_item(self, event, icon_size):
-        item = event.subjects[0]
-        if uri_exists(item.uri):
-            uri = item.uri.replace(self.home_path, "Home").split("/")
+        item = event.get_subject(0)
+        if uri_exists(item.get_property("uri")):
+            uri = item.get_property("uri").replace(self.home_path, "Home").split("/")
             uri = " → ".join(uri[:-1])
             text = """<span size='large'><b>
                %s\n</b></span><span color='darkgrey'>   %s
-               </span>"""%(item.text, uri)
+               </span>"""%(item.get_property("text"), uri)
             iter = self.model.append(["   ", no_pixbuf, text,
                 "<span color='darkgrey'>   %s</span>"\
-                %self.get_time_string(event.timestamp), item])
+                %self.get_time_string(event.get_property("timestamp")), item])
 
             def callback(icon):
                 self.model[iter][1] = icon if icon is not None else no_pixbuf
@@ -341,134 +283,118 @@ class Dashboard (Gtk.Box):
         Gtk.Box.__init__(self, orientation = Gtk.Orientation.VERTICAL)
         self._window = window
         self._show_doc = show_doc
-        self.last_used_button = None
-        self.frequently_used_toggle_button = DashPanelButton(_("Most Used"))
-        self.recently_used_toggle_button = DashPanelButton(_("Recently Used"))
         self._init_done = False
+        self.search = SearchEntry()
 
-        hbox1 = Gtk.Box()
-        hbox1.pack_start(self.recently_used_toggle_button, False, False, 0)
-        hbox1.pack_start(self.frequently_used_toggle_button, False, False, 0)
-
-        self.frequently_used_toggle_button.button.connect("clicked",
-            lambda x: self._toggle_view(self.frequently_used_toggle_button))
-        self.recently_used_toggle_button.button.connect("clicked",
-            lambda x: self._toggle_view(self.recently_used_toggle_button))
-
-        self.dash_panel_buttons = [self.frequently_used_toggle_button,
-            self.recently_used_toggle_button]
+        if ZG_FTS:
+            box = Gtk.Box()
+            box.set_homogeneous(True)
+            box.pack_start(Gtk.Label(), True, True, 0)
+            box.pack_start(self.search, True, True, 0)
+            box.pack_start(Gtk.Label(), True, True, 0)
+            self.search.connect("search", self._on_search)
+            self.search.connect("clear", self._on_clear)
+            self.connect("draw", self.change_style)
+            self.pack_start(box, False, False, 16)
 
         self.view = DashView(self._show_doc, window)
-
-        hbox = Gtk.Box()
-        hbox.pack_start(self.view, True, True, 9)
-
-        self.scrolledwindow = scrolledwindow = Gtk.ScrolledWindow()
-        scrolledwindow.add_with_viewport(hbox)
-        self.connect("style-updated", self.change_style)
-        self.search = SearchEntry()
-        hbox = Gtk.Box()
-        self.toolbar = toolbar = Gtk.Toolbar()
-        toolitem = Gtk.ToolItem()
-        toolitem.set_expand(True)
-        toolbar.insert(toolitem, 0)
-
+        scrolledwindow = Gtk.ScrolledWindow()
         vbox = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
-        vbox.pack_start(self.search, True, True, 6)
-
-        hbox.pack_start(Gtk.Label(""), True, True, 24) # purely cosmetic
-        hbox.pack_start(hbox1, True, True, 0)
-        hbox.pack_end(vbox, False, False, 9)
-
-        vbox = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
-        vbox.pack_start(hbox, False, False, 1)
-        separator = Gtk.Separator(orientation = Gtk.Orientation.HORIZONTAL)
-        vbox.pack_start(separator, False, False, 1)
-        vbox.pack_start(Gtk.Box(), False, False, 0)
-        self.pack_start(vbox, False, False, 0)
-
-        self.dash_box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
-        self.dash_box.pack_start(scrolledwindow, True, True, 0)
-        self.pack_start(self.dash_box, True, True, 0)
-
+        scrolledwindow.add(vbox)
+        vbox.pack_start(self.view, True, True, 0)
         self.tree_view = ListView()
-        self.search_results_scrolled_window = Gtk.ScrolledWindow()
-        self.search_results_scrolled_window.add(self.tree_view)
+        vbox.pack_start(self.tree_view, True, True, 0)
 
-        self.search_result_box = Gtk.Box(orientation =\
-            Gtk.Orientation.VERTICAL)
-        self.search_result_box.pack_start(self.search_results_scrolled_window,
-            True, True, 0)
-        self.pack_end(self.search_result_box, True, True, 0)
-
+        self.pack_start(scrolledwindow, True, True, 0)
         self.get_recent()
-
-        self.search.connect("search", self._on_search)
-        self.search.connect("clear", self._on_clear)
-
         self.show_all()
-        self.recently_used_toggle_button.set_active(True)
-        self.frequently_used_toggle_button.set_active(False)
-        self.last_used_button = self.recently_used_toggle_button
 
         def open_uri(widget, row, cell):
             Gedit.commands_load_location(self._window,
-                Gio.file_new_for_uri(widget.model[row][4].uri), None, 0, 0)
+                Gio.file_new_for_uri(widget.model[row][4].get_property("uri")),
+                    None, 0, 0)
         self.tree_view.connect("row-activated", open_uri)
-        self.search_result_box.hide()
+        self.grab_focus()
+
 
     def grab_focus(self):
-        self.search.grab_focus()
+        if ZG_FTS:
+            self.search.grab_focus()
 
     def _on_search(self, widget, query):
-        self.search_result_box.show()
-        self.dash_box.hide()
+        self.tree_view.show()
+        self.view.hide()
         print("Dashboard search for:", query)
-        ZG_FTS.search(query, self.tree_view.insert_results)
-        self.last_used_button.set_active(False)
+        result_type_relevancy = 100
+        self.template = Zeitgeist.Event()
+        self.template.set_property("actor", "application://gedit.desktop")
+        timerange = Zeitgeist.TimeRange.anytime()
+        ZG_FTS.search(query + "*",
+            timerange,
+            [self.template],
+            0, 100, 2, None, self.tree_view.insert_results, None)
 
     def _on_clear(self, widget):
-        self.search_result_box.hide()
-        self.dash_box.show()
+        self.tree_view.hide()
+        self.view.show()
         self.tree_view.clear()
-        self.last_used_button.set_active(True)
 
-    def change_style(self, widget):
+    def change_style(self, widget, data):
         self.style = self.get_style_context()
-        viewport = self.scrolledwindow.get_children()[0]
-        color = self.style.get_color(Gtk.StateFlags.SELECTED)
-        viewport.override_background_color(Gtk.StateFlags.NORMAL, color)
-        if self._init_done == False:
+        if self._init_done == False and ZG_FTS:
             self.search.grab_focus()
             self._init_done = True
 
     def get_recent(self):
-        template = Event()
-        template.actor = "application://gedit.desktop"
-        CLIENT.find_events_for_templates([template], self.view.populate_grid,
-            num_events = 100, result_type = 2)
+        template = Zeitgeist.Event()
+        template.set_property("actor", "application://gedit.desktop")
+        CLIENT.find_events(
+            Zeitgeist.TimeRange.anytime(),
+            [template],
+            Zeitgeist.StorageState.ANY,
+            100,
+            Zeitgeist.ResultType.MOST_RECENT_SUBJECTS,
+            None,
+            self.get_frequent,
+            None)
 
-    def get_frequent(self):
-        template = Event()
-        template.actor = "application://gedit.desktop"
+    def get_frequent(self, log, res, data):
+        events = CLIENT.find_events_finish(res)
+        template = Zeitgeist.Event()
+        template.set_property("actor", "application://gedit.desktop")
         now = time.time() * 1000
         # 14 being the amount of days
         # and 86400000 the amount of milliseconds per day
         two_weeks_in_ms = 14 * 86400000
-        CLIENT.find_events_for_templates([template], self.view.populate_grid,
-            [now - two_weeks_in_ms, now], num_events = 100, result_type = 4)
+        timerange = Zeitgeist.TimeRange.new(now - two_weeks_in_ms, now)
+        CLIENT.find_events(
+            timerange,
+            [template],
+            Zeitgeist.StorageState.ANY,
+            100,
+            Zeitgeist.ResultType.MOST_POPULAR_SUBJECTS,
+            None,
+            self.validate_results,
+            events)
 
-    def _toggle_view(self, widget):
-        for button in self.dash_panel_buttons:
-            if button == widget:
-                button.set_active(True)
-                self.last_used_button = button
-                self.search.set_text("")
-            else:
-                button.set_active(False)
-        if self.frequently_used_toggle_button._active:
-            self.get_frequent()
-        elif self.recently_used_toggle_button._active:
-            self.get_recent()
+    def validate_results(self, log, res, data):
+        recent_events = data
+        popular_events = CLIENT.find_events_finish(res)
+        subjects = []
+        for events in (recent_events, popular_events,):
+            allowed_len = 4 if events == recent_events else 7
+            for i in range(events.size()):
+                if len(subjects) == allowed_len:
+                    break
+                event = events.next_value()
+                for i in range(event.num_subjects()):
+                    subj = event.get_subject(i)
+                    if uri_exists(subj.get_property("uri")):
+                        subjects.append(subj)
+                    if len(subjects) == allowed_len:
+                        break
+                if len(subjects) == allowed_len:
+                    break
+        self.view.populate_grid(subjects)
 
 # ex:ts=4:et:
