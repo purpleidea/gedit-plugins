@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gedit-plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-06 11:19+0200\n"
-"PO-Revision-Date: 2013-04-06 11:20+0200\n"
+"POT-Creation-Date: 2013-04-08 19:47+0200\n"
+"PO-Revision-Date: 2013-04-08 19:48+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -183,7 +183,7 @@ msgid "Name"
 msgstr "Nazwa"
 
 #: ../plugins/colorschemer/schemer/schemer.ui.h:13
-msgid "Id"
+msgid "ID"
 msgstr "Identyfikator"
 
 #: ../plugins/colorschemer/schemer/schemer.ui.h:14
