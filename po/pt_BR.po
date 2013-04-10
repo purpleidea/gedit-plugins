@@ -28,8 +28,8 @@ msgstr ""
 "Project-Id-Version: gedit-plugins\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gedit&keywords=I18N+L10N&component=Plugins\n"
-"POT-Creation-Date: 2013-01-27 13:34+0000\n"
-"PO-Revision-Date: 2013-02-07 02:01-0300\n"
+"POT-Creation-Date: 2013-04-08 20:59+0000\n"
+"PO-Revision-Date: 2013-04-09 22:49-0300\n"
 "Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_BR-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -37,7 +37,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.5.5\n"
 
 #: ../plugins/bookmarks/bookmarks.plugin.desktop.in.in.h:1
 msgid "Bookmarks"
@@ -79,8 +79,9 @@ msgstr "Fechamento de parênteses"
 msgid "Automatically adds closing brackets."
 msgstr "Fecha parênteses automaticamente."
 
-#: ../plugins/charmap/charmap.plugin.desktop.in.in.h:1
+#. ex:et:ts=4:
 #: ../plugins/charmap/charmap/__init__.py:51
+#: ../plugins/charmap/charmap.plugin.desktop.in.in.h:1
 msgid "Character Map"
 msgstr "Mapa de caracteres"
 
@@ -88,7 +89,6 @@ msgstr "Mapa de caracteres"
 msgid "Insert special characters just by clicking on them."
 msgstr "Insere caracteres especiais apenas clicando neles."
 
-#. ex:et:ts=4:
 #: ../plugins/codecomment/codecomment.plugin.desktop.in.in.h:1
 msgid "Code comment"
 msgstr "Comentar código"
@@ -135,6 +135,75 @@ msgid "Pick Color"
 msgstr "Selecionar cor"
 
 #. ex:ts=4:et:
+#: ../plugins/colorschemer/colorschemer.plugin.desktop.in.in.h:1
+#: ../plugins/colorschemer/schemer/schemer.ui.h:1
+msgid "Color Scheme Editor"
+msgstr "Editor de esquemas de cor"
+
+#: ../plugins/colorschemer/colorschemer.plugin.desktop.in.in.h:2
+msgid "Source code color scheme editor"
+msgstr "Editor de esquemas de cores de código fonte"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:2
+msgid "X"
+msgstr "X"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:3
+msgid "Bold"
+msgstr "Negrito"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:4
+msgid "Italic"
+msgstr "Itálico"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:5
+msgid "Underline"
+msgstr "Sublinhado"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:6
+msgid "Strikethrough"
+msgstr "Tachado"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:7
+msgid "Pick the background color"
+msgstr "Escolha uma cor de plano de fundo"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:8
+msgid "Pick the foreground color"
+msgstr "Escolha uma cor de primeiro plano"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:9
+msgid "_Background"
+msgstr "_Plano de fundo"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:10
+msgid "_Foreground"
+msgstr "P_rimeiro plano"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:11
+msgid "_Clear "
+msgstr "_Limpar "
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:12
+msgid "Name"
+msgstr "Nome"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:13
+msgid "ID"
+msgstr "ID"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:14
+msgid "Description"
+msgstr "Descrição"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:15
+msgid "Author"
+msgstr "Autor"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:16
+msgid "Sample"
+msgstr "Exemplo"
+
 #: ../plugins/commander/commander.plugin.desktop.in.in.h:1
 msgid "Commander"
 msgstr "Comando"
@@ -458,7 +527,7 @@ msgstr ""
 
 #: ../plugins/terminal/org.gnome.gedit.plugins.terminal.gschema.xml.in.in.h:17
 msgid "Default color of terminal background"
-msgstr "Cor padrão do fundo do terminal "
+msgstr "Cor padrão do fundo do terminal"
 
 #: ../plugins/terminal/org.gnome.gedit.plugins.terminal.gschema.xml.in.in.h:18
 msgid ""
@@ -478,7 +547,7 @@ msgid ""
 "use. This is that palette, in the form of a colon-separated list of color "
 "names. Color names should be in hex format e.g. \"#FF00FF\""
 msgstr ""
-"Terminais tem uma paleta de 16 cores que as aplicações dentro da consola "
+"Terminais tem uma paleta de 16 cores que as aplicações dentro do console "
 "podem utilizar. Esta é essa paleta, no formato de uma lista de nomes de "
 "cores separados por vírgulas. Nomes de cores deverão ser no formato "
 "hexadecimal, por ex: \"#FF00FF\""
@@ -558,16 +627,16 @@ msgid "C_hange Directory"
 msgstr "Al_ternar diretório"
 
 #: ../plugins/textsize/textsize/__init__.py:142
-msgid "_Increase font size"
-msgstr "_Aumentar tamanho da fonte"
+msgid "_Larger Text"
+msgstr "Texto m_aior"
 
 #: ../plugins/textsize/textsize/__init__.py:145
-msgid "_Decrease font size"
-msgstr "_Diminuir tamanho da fonte"
+msgid "S_maller Text"
+msgstr "Texto m_enor"
 
 #: ../plugins/textsize/textsize/__init__.py:148
-msgid "_Reset font size"
-msgstr "_Restaurar tamanho da fonte"
+msgid "_Normal size"
+msgstr "Tamanho _normal"
 
 #. ex:ts=4:et:
 #: ../plugins/textsize/textsize.plugin.desktop.in.in.h:1
@@ -590,6 +659,21 @@ msgstr "Completar palavras"
 #: ../plugins/wordcompletion/wordcompletion.plugin.desktop.in.in.h:2
 msgid "Word completion using the completion framework"
 msgstr "Completa palavras usando o framework de completar"
+
+#~ msgid "Scheme Editor"
+#~ msgstr "Editor de esquemas"
+
+#~ msgid "Id"
+#~ msgstr "Id"
+
+#~ msgid "_Increase font size"
+#~ msgstr "_Aumentar tamanho da fonte"
+
+#~ msgid "_Decrease font size"
+#~ msgstr "_Diminuir tamanho da fonte"
+
+#~ msgid "_Reset font size"
+#~ msgstr "_Restaurar tamanho da fonte"
 
 #~ msgid "Session Name"
 #~ msgstr "Nome da sessão"
@@ -681,14 +765,8 @@ msgstr "Completa palavras usando o framework de completar"
 #~ msgid "Associated information"
 #~ msgstr "Informações associadas"
 
-#~ msgid "Author info"
-#~ msgstr "Informações do autor"
-
 #~ msgid "Axis related headers"
 #~ msgstr "Cabeçalhos relacionados a eixos"
-
-#~ msgid "Background color"
-#~ msgstr "Cor de plano de fundo"
 
 #~ msgid "Background color (deprecated)"
 #~ msgstr "Cor de plano de fundo (obsoleto)"
@@ -707,9 +785,6 @@ msgstr "Completa palavras usando o framework de completar"
 
 #~ msgid "Base font (deprecated)"
 #~ msgstr "Fonte de base (obsoleto)"
-
-#~ msgid "Bold"
-#~ msgstr "Negrito"
 
 #~ msgid "Border"
 #~ msgstr "Borda"
@@ -812,9 +887,6 @@ msgstr "Completa palavras usando o framework de completar"
 
 #~ msgid "Deleted text"
 #~ msgstr "Texto excluído"
-
-#~ msgid "Direction"
-#~ msgstr "Direção"
 
 #~ msgid "Directionality"
 #~ msgstr "Direcionalidade"
