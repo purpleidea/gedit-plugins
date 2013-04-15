@@ -501,7 +501,6 @@ goto_bookmark (GeditWindow    *window,
 {
 	GtkTextBuffer *buffer;
 	GtkTextIter at;
-	GtkTextMark *insert;
 	GtkTextIter end;
 
 	if (view == NULL)
