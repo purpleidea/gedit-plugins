@@ -6,14 +6,14 @@
 # Giuseppe <quiquoqua@pn.itnet.it>, 1998.
 # Alessio Frusciante <algol@firenze.linux.it>, 2002.
 # Roberto Rosselli Del Turco <rosselli@ling.unipi.it>, 2003-2005.
-# Milo Casagrande <milo@ubuntu.com>, 2006-2010, 2011, 2012.
+# Milo Casagrande <milo@ubuntu.com>, 2006-2010, 2011, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gedit-plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-27 18:14+0200\n"
-"PO-Revision-Date: 2012-06-27 18:18+0200\n"
+"POT-Creation-Date: 2013-04-19 19:26+0200\n"
+"PO-Revision-Date: 2013-04-19 19:26+0200\n"
 "Last-Translator: Milo Casagrande <milo@ubuntu.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -31,27 +31,27 @@ msgstr "Segnalibri"
 msgid "Easy document navigation with bookmarks"
 msgstr "Semplice esplorazione dei documenti con i segnalibri"
 
-#: ../plugins/bookmarks/gedit-bookmarks-plugin.c:200
+#: ../plugins/bookmarks/gedit-bookmarks-plugin.c:201
 msgid "Toggle Bookmark"
 msgstr "Abilita/Disabilita segnalibro"
 
-#: ../plugins/bookmarks/gedit-bookmarks-plugin.c:201
+#: ../plugins/bookmarks/gedit-bookmarks-plugin.c:202
 msgid "Toggle bookmark status of the current line"
 msgstr "Abilita/Disabilita lo stato del segnalibro della riga corrente"
 
-#: ../plugins/bookmarks/gedit-bookmarks-plugin.c:203
+#: ../plugins/bookmarks/gedit-bookmarks-plugin.c:204
 msgid "Goto Next Bookmark"
 msgstr "Segnalibro successivo"
 
-#: ../plugins/bookmarks/gedit-bookmarks-plugin.c:204
+#: ../plugins/bookmarks/gedit-bookmarks-plugin.c:205
 msgid "Goto the next bookmark"
 msgstr "Va al segnalibro successivo"
 
-#: ../plugins/bookmarks/gedit-bookmarks-plugin.c:206
+#: ../plugins/bookmarks/gedit-bookmarks-plugin.c:207
 msgid "Goto Previous Bookmark"
 msgstr "Segnalibro precedente"
 
-#: ../plugins/bookmarks/gedit-bookmarks-plugin.c:207
+#: ../plugins/bookmarks/gedit-bookmarks-plugin.c:208
 msgid "Goto the previous bookmark"
 msgstr "Va al segnalibro precedente"
 
@@ -63,8 +63,9 @@ msgstr "Completamento parentesi"
 msgid "Automatically adds closing brackets."
 msgstr "Aggiunge automaticamente le parentesi di chiusura"
 
-#: ../plugins/charmap/charmap.plugin.desktop.in.in.h:1
+#. ex:et:ts=4:
 #: ../plugins/charmap/charmap/__init__.py:51
+#: ../plugins/charmap/charmap.plugin.desktop.in.in.h:1
 msgid "Character Map"
 msgstr "Tabella caratteri"
 
@@ -72,7 +73,6 @@ msgstr "Tabella caratteri"
 msgid "Insert special characters just by clicking on them."
 msgstr "Inserisce dei caratteri speciali semplicemente facendoci clic."
 
-#. ex:et:ts=4:
 #: ../plugins/codecomment/codecomment.plugin.desktop.in.in.h:1
 msgid "Code comment"
 msgstr "Commenta codice"
@@ -108,20 +108,89 @@ msgstr ""
 "Seleziona un colore da un dialogo e inserisce la sua rappresentazione "
 "esadecimale."
 
-#: ../plugins/colorpicker/colorpicker.py:76
+#: ../plugins/colorpicker/colorpicker.py:161
 msgid "Pick _Color..."
 msgstr "Scegli _colore..."
 
 # (NdT) questo è un tooltip... però il colore siamo noi a sceglierlo...
-#: ../plugins/colorpicker/colorpicker.py:77
+#: ../plugins/colorpicker/colorpicker.py:162
 msgid "Pick a color from a dialog"
 msgstr "Scegli un colore da un dialogo"
 
-#: ../plugins/colorpicker/colorpicker.py:176
+#: ../plugins/colorpicker/colorpicker.py:178
 msgid "Pick Color"
 msgstr "Seleziona colore"
 
 #. ex:ts=4:et:
+#: ../plugins/colorschemer/colorschemer.plugin.desktop.in.in.h:1
+#: ../plugins/colorschemer/schemer/schemer.ui.h:1
+msgid "Color Scheme Editor"
+msgstr "Editor schema colori"
+
+#: ../plugins/colorschemer/colorschemer.plugin.desktop.in.in.h:2
+msgid "Source code color scheme editor"
+msgstr "Editor schemi colori per codice sorgente"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:2
+msgid "X"
+msgstr "X"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:3
+msgid "Bold"
+msgstr "Grassetto"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:4
+msgid "Italic"
+msgstr "Corsivo"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:5
+msgid "Underline"
+msgstr "Sottolineato"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:6
+msgid "Strikethrough"
+msgstr "Testo barrato"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:7
+msgid "Pick the background color"
+msgstr "Scelta colore di sfondo"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:8
+msgid "Pick the foreground color"
+msgstr "Scelta colore primo piano"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:9
+msgid "_Background"
+msgstr "_Sfondo"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:10
+msgid "_Foreground"
+msgstr "_Primo piano"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:11
+msgid "_Clear "
+msgstr "_Azzera"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:12
+msgid "Name"
+msgstr "Nome"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:13
+msgid "ID"
+msgstr "ID"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:14
+msgid "Description"
+msgstr "Descrizione"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:15
+msgid "Author"
+msgstr "Autore"
+
+#: ../plugins/colorschemer/schemer/schemer.ui.h:16
+msgid "Sample"
+msgstr "Campione"
+
 #: ../plugins/commander/commander.plugin.desktop.in.in.h:1
 msgid "Commander"
 msgstr "Commander"
@@ -139,21 +208,13 @@ msgstr "Modalità commander"
 msgid "Start commander mode"
 msgstr "Attiva la modalità commander"
 
-#: ../plugins/dashboard/dashboard/dashboard.py:110
+#: ../plugins/dashboard/dashboard/dashboard.py:117
 msgid "Empty Document"
 msgstr "Documento vuoto"
 
-#: ../plugins/dashboard/dashboard/dashboard.py:218
+#: ../plugins/dashboard/dashboard/dashboard.py:158
 msgid "Type here to search..."
 msgstr "Digitare il termine di ricerca..."
-
-#: ../plugins/dashboard/dashboard/dashboard.py:345
-msgid "Most Used"
-msgstr "Più usati"
-
-#: ../plugins/dashboard/dashboard/dashboard.py:346
-msgid "Recently Used"
-msgstr "Usati recentemente"
 
 #. ex:ts=4:et:
 #: ../plugins/dashboard/dashboard.plugin.desktop.in.in.h:1
@@ -262,57 +323,57 @@ msgstr "Modalità colonna..."
 msgid "Removed edit point..."
 msgstr "Punto di modifica rimosso..."
 
-#: ../plugins/multiedit/multiedit/documenthelper.py:916
+#: ../plugins/multiedit/multiedit/documenthelper.py:920
 msgid "Cancelled column mode..."
 msgstr "Modalità colonna annullata..."
 
-#: ../plugins/multiedit/multiedit/documenthelper.py:1288
+#: ../plugins/multiedit/multiedit/documenthelper.py:1293
 msgid "Enter column edit mode using selection"
 msgstr "Attiva la modalità di modifica a colonna utilizzando la selezione"
 
-#: ../plugins/multiedit/multiedit/documenthelper.py:1289
+#: ../plugins/multiedit/multiedit/documenthelper.py:1294
 msgid "Enter <b>smart</b> column edit mode using selection"
 msgstr ""
 "Attiva la modalità di modifica <b>intelligente</b> a colonna utilizzando la "
 "selezione"
 
-#: ../plugins/multiedit/multiedit/documenthelper.py:1290
+#: ../plugins/multiedit/multiedit/documenthelper.py:1295
 msgid "<b>Smart</b> column align mode using selection"
 msgstr "Allineamento colonna <b>intelligente</b> utilizzando la selezione"
 
-#: ../plugins/multiedit/multiedit/documenthelper.py:1291
+#: ../plugins/multiedit/multiedit/documenthelper.py:1296
 msgid "<b>Smart</b> column align mode with additional space using selection"
 msgstr ""
 "Allineamento colonna <b>intelligente</b> con spazi aggiuntivi utilizzando la "
 "selezione"
 
-#: ../plugins/multiedit/multiedit/documenthelper.py:1293
+#: ../plugins/multiedit/multiedit/documenthelper.py:1298
 msgid "Toggle edit point"
 msgstr "Attiva/Disattiva punto di modifica"
 
-#: ../plugins/multiedit/multiedit/documenthelper.py:1294
+#: ../plugins/multiedit/multiedit/documenthelper.py:1299
 msgid "Add edit point at beginning of line/selection"
 msgstr "Aggiungi punto di modifica all'inizio della riga/selezione"
 
-#: ../plugins/multiedit/multiedit/documenthelper.py:1295
+#: ../plugins/multiedit/multiedit/documenthelper.py:1300
 msgid "Add edit point at end of line/selection"
 msgstr "Aggiungi punto di modifica alla fine della riga/selezione"
 
-#: ../plugins/multiedit/multiedit/documenthelper.py:1296
+#: ../plugins/multiedit/multiedit/documenthelper.py:1301
 msgid "Align edit points"
 msgstr "Allinea punti di modifica"
 
-#: ../plugins/multiedit/multiedit/documenthelper.py:1297
+#: ../plugins/multiedit/multiedit/documenthelper.py:1302
 msgid "Align edit points with additional space"
 msgstr "Allinea i punti di modifica con spazi aggiuntivi"
 
-#: ../plugins/multiedit/multiedit/documenthelper.py:1328
-#: ../plugins/multiedit/multiedit/__init__.py:80
+#: ../plugins/multiedit/multiedit/documenthelper.py:1333
+#: ../plugins/multiedit/multiedit/__init__.py:79
 msgid "Multi Edit Mode"
 msgstr "Modalità multi-modifica"
 
 # (ndt) suggerimento
-#: ../plugins/multiedit/multiedit/__init__.py:82
+#: ../plugins/multiedit/multiedit/__init__.py:81
 msgid "Start multi edit mode"
 msgstr "Attiva la modalità multi-modifica"
 
@@ -325,57 +386,6 @@ msgstr "Multi-modifica"
 #: ../plugins/multiedit/multiedit.plugin.desktop.in.in.h:2
 msgid "Edit document in multiple places at once"
 msgstr "Modifica il documento in più parti alla volta"
-
-# (NdT) titolo dialogo
-#: ../plugins/sessionsaver/dialogs.py:132
-msgid "Session Name"
-msgstr "Nome sessione"
-
-#: ../plugins/sessionsaver/__init__.py:84
-#, python-format
-msgid "Recover '%s' session"
-msgstr "Ripristino sessione «%s»"
-
-#: ../plugins/sessionsaver/__init__.py:103
-msgid "Sa_ved sessions"
-msgstr "Sessioni sal_vate"
-
-#: ../plugins/sessionsaver/__init__.py:105
-msgid "_Save current session"
-msgstr "_Salva sessione corrente"
-
-#: ../plugins/sessionsaver/__init__.py:106
-msgid "Save the current document list as a new session"
-msgstr "Salva l'elenco dei documenti correnti come una nuova sessione"
-
-#: ../plugins/sessionsaver/__init__.py:108
-msgid "_Manage saved sessions..."
-msgstr "_Gestione sessioni salvate..."
-
-#: ../plugins/sessionsaver/__init__.py:109
-msgid "Open the saved session manager"
-msgstr "Apre il gestore delle sessioni salvate"
-
-#. ex:ts=4:et:
-#: ../plugins/sessionsaver/sessionsaver.plugin.desktop.in.in.h:1
-msgid "Session Saver"
-msgstr "Salva sessione"
-
-#: ../plugins/sessionsaver/sessionsaver.plugin.desktop.in.in.h:2
-msgid "Save and restore your working sessions"
-msgstr "Salva e ripristina le sessioni di lavoro"
-
-#: ../plugins/sessionsaver/sessionsaver.ui.h:1
-msgid "Save session"
-msgstr "Salva sessione"
-
-#: ../plugins/sessionsaver/sessionsaver.ui.h:2
-msgid "Session name:"
-msgstr "Nome sessione:"
-
-#: ../plugins/sessionsaver/sessionsaver.ui.h:3
-msgid "Saved Sessions"
-msgstr "Sessioni salvate"
 
 #: ../plugins/smartspaces/smartspaces.plugin.desktop.in.in.h:1
 msgid "Smart Spaces"
@@ -393,1574 +403,12 @@ msgstr "SyncTeX"
 msgid "Synchronize between LaTeX and PDF with gedit and evince."
 msgstr "Sincronizza tra LaTeX e PDF con gedit ed Evince"
 
-#: ../plugins/synctex/synctex/synctex.py:307
-#: ../plugins/synctex/synctex/synctex.py:308
+#: ../plugins/synctex/synctex/synctex.py:310
+#: ../plugins/synctex/synctex/synctex.py:311
 msgid "Forward Search"
 msgstr "Cerca in avanti"
 
-#: ../plugins/taglist/gedit-taglist-plugin.c:165
-#: ../plugins/taglist/gedit-taglist-plugin-panel.c:700
-#: ../plugins/taglist/gedit-taglist-plugin-panel.c:716
-msgid "Tags"
-msgstr "Tag"
-
-#: ../plugins/taglist/gedit-taglist-plugin-panel.c:608
-msgid "Select the group of tags you want to use"
-msgstr "Selezionare il gruppo di tag da utilizzare"
-
-#: ../plugins/taglist/gedit-taglist-plugin-panel.c:627
-msgid "_Preview"
-msgstr "_Anteprima"
-
-#: ../plugins/taglist/gedit-taglist-plugin-panel.c:697
-msgid "Available Tag Lists"
-msgstr "Elenco dei tag disponibili"
-
-#. ex:ts=8:noet:
-#: ../plugins/taglist/HTML.tags.xml.in.h:1
-msgid "XHTML 1.0 — Tags"
-msgstr "XHTML 1.0 — Tag"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:2
-msgid "Abbreviated form"
-msgstr "Forma abbreviata"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:3
-msgid "Abbreviation"
-msgstr "Abbreviazione"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:4
-msgid "Accessibility key character"
-msgstr "Carattere tasto di accessibilità"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:5
-msgid "Acronym"
-msgstr "Acronimo"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:6
-msgid "Align"
-msgstr "Allineamento"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:7
-msgid "Alignment character"
-msgstr "Carattere di allineamento"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:8
-msgid "Alternative"
-msgstr "Alternativa"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:9
-msgid "Anchor URI"
-msgstr "Ancora con URI"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:10
-msgid "Anchor"
-msgstr "Ancora"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:12
-msgid "Applet class file code (deprecated)"
-msgstr "File codice classe applet (deprecato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:13
-msgid "Associated information"
-msgstr "Informazioni associate"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:14
-msgid "Author info"
-msgstr "Informazioni sull'autore"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:15
-msgid "Axis related headers"
-msgstr "Intestazioni degli assi"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:17
-msgid "Background color (deprecated)"
-msgstr "Colore di sfondo (deprecato)"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:19
-msgid "Background texture tile (deprecated)"
-msgstr "File di immagine di sfondo (deprecato)"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:21
-msgid "Base font (deprecated)"
-msgstr "Carattere di base (deprecato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:22
-msgid "Base URI"
-msgstr "URI di base"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:23
-msgid "Bold"
-msgstr "Grassetto"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:25
-msgid "Border (deprecated)"
-msgstr "Bordo (deprecato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:26
-msgid "Cell rowspan"
-msgstr "Estensione cella in righe"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:28
-msgid "Center (deprecated)"
-msgstr "Centra (deprecato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:29
-msgid "Character encoding of linked resource"
-msgstr "Codifica dei caratteri di una risorsa esterna"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:30
-msgid "Checked state"
-msgstr "Stato selezionato"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:31
-msgid "Citation"
-msgstr "Citazione"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:32
-msgid "Cite reason for change"
-msgstr "Indica ragione cambiamento"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:33
-msgid "Class implementation ID"
-msgstr "ID implementazione classe"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:34
-msgid "Class list"
-msgstr "Elenco classi"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:35
-msgid "Clear text flow control"
-msgstr "Cancella controllo flusso testo"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:36
-msgid "Code content type"
-msgstr "Tipo di codice"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:38
-msgid "Color of selected links (deprecated)"
-msgstr "Colore collegamenti selezionati (deprecato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:39
-msgid "Column span"
-msgstr "Larghezza in colonne"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:40
-msgid "Columns"
-msgstr "Colonne"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:41
-msgid "Comment"
-msgstr "Commento"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:42
-msgid "Computer code fragment"
-msgstr "Frammento di codice"
-
-#. The "type" attribute is deprecated for the "ol" tag only,
-#. since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:45
-msgid "Content type (deprecated)"
-msgstr "Tipo del contenuto (deprecato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:46
-msgid "Coordinates"
-msgstr "Coordinate"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:47
-msgid "Date and time of change"
-msgstr "Data e ora di modifica"
-
-#. NOTE: used in "object" tag
-#: ../plugins/taglist/HTML.tags.xml.in.h:49
-msgid "Declare flag"
-msgstr "Dichiarazione flag"
-
-#. Translators: DEFER is an optional attribute of the <script> tag.
-#. It indicates that the script is not going to generate any document
-#. content. The browser can continue parsing and drawing the page.
-#: ../plugins/taglist/HTML.tags.xml.in.h:53
-msgid "Defer attribute"
-msgstr "Attributo defer"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:54
-msgid "Definition description"
-msgstr "Descrizione definizione"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:55
-msgid "Definition list"
-msgstr "Elenco di definizioni"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:56
-msgid "Definition term"
-msgstr "Termine definizione"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:57
-msgid "Deleted text"
-msgstr "Testo eliminato"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:58
-msgid "Directionality"
-msgstr "Direzionalità"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:60
-msgid "Directionality (deprecated)"
-msgstr "Direzionalità (deprecato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:61
-msgid "Disabled"
-msgstr "Disabilitato"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:62
-msgid "DIV container"
-msgstr "Contenitore DIV"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:63
-msgid "DIV Style container"
-msgstr "Contenitore DIV con stile"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:64
-msgid "Document base"
-msgstr "Base del documento"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:65
-msgid "Document body"
-msgstr "Corpo del documento"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:66
-msgid "Document head"
-msgstr "Intestazione del documento"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:67
-msgid "Element ID"
-msgstr "ID dell'elemento"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:68
-msgid "Document title"
-msgstr "Titolo del documento"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:69
-msgid "Document type"
-msgstr "Tipo di documento"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:70
-#: ../plugins/taglist/Latex.tags.xml.in.h:72
-msgid "Emphasis"
-msgstr "Enfasi"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:71
-msgid "Encode type"
-msgstr "Tipo di codifica"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:73
-msgid "Font face (deprecated)"
-msgstr "Nome del carattere (deprecato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:74
-msgid "For label"
-msgstr "Etichetta for"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:75
-msgid "Forced line break"
-msgstr "Ritorno a capo"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:76
-msgid "Form action handler"
-msgstr "Handler azione del form"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:77
-msgid "Form control group"
-msgstr "Gruppo di controllo del form"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:78
-msgid "Form field label text"
-msgstr "Etichetta di campo del form"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:79
-msgid "Form input type"
-msgstr "Input del form con tipo"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:80
-msgid "Form input"
-msgstr "Input del form"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:81
-msgid "Form method"
-msgstr "Metodo del form"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:82
-msgid "Form"
-msgstr "Form"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:83
-msgid "Forward link"
-msgstr "Collegamento in avanti"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:84
-msgid "Frame render parts"
-msgstr "Parti del frame"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:85
-msgid "Frame source"
-msgstr "Sorgente del frame"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:86
-msgid "Frame target"
-msgstr "Destinazione del frame"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:87
-msgid "Frame"
-msgstr "Frame"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:88
-msgid "Frame border"
-msgstr "Bordo del frame"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:89
-msgid "Frameset columns"
-msgstr "Colonne del frameset"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:90
-msgid "Frameset rows"
-msgstr "Righe del frameset"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:91
-msgid "Frameset"
-msgstr "Frameset"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:92
-msgid "Frame spacing"
-msgstr "Spaziatura del frame"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:93
-msgid "Generic embedded object"
-msgstr "Oggetto incorporato generico"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:94
-msgid "Generic metainformation"
-msgstr "Meta-informazioni generiche"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:95
-msgid "Generic span"
-msgstr "Span generico"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:96
-msgid "Header cell IDs"
-msgstr "ID delle celle di intestazione"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:97
-msgid "Heading 1"
-msgstr "Titolo 1"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:98
-msgid "Heading 2"
-msgstr "Titolo 2"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:99
-msgid "Heading 3"
-msgstr "Titolo 3"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:100
-msgid "Heading 4"
-msgstr "Titolo 4"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:101
-msgid "Heading 5"
-msgstr "Titolo 5"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:102
-msgid "Heading 6"
-msgstr "Titolo 6"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:103
-msgid "Height"
-msgstr "Altezza"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:104
-msgid "Horizontal rule"
-msgstr "Separatore orizzontale"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:106
-msgid "Horizontal space (deprecated)"
-msgstr "Spaziatura orizzontale (deprecato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:107
-msgid "HREF URI"
-msgstr "URI dell'HREF"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:108
-msgid "HTML root element"
-msgstr "Elemento radice HTML"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:109
-msgid "HTTP header name"
-msgstr "Nome intestazione HTTP"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:110
-msgid "I18N BiDi override"
-msgstr "Reimpostazione BiDi I18N"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:111
-msgid "Image map area"
-msgstr "Area mappa immagine"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:112
-msgid "Image map name"
-msgstr "Nome mappa immagine"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:113
-msgid "Image map"
-msgstr "Mappa immagine"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:114
-msgid "Image"
-msgstr "Immagine"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:115
-msgid "Inline frame"
-msgstr "Frame inline"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:116
-msgid "Inserted text"
-msgstr "Testo inserito"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:117
-msgid "Instance definition"
-msgstr "Definizione di istanza"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:118
-msgid "Italic text"
-msgstr "Corsivo"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:120
-msgid "Java applet (deprecated)"
-msgstr "Applet Java (deprecato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:121
-msgid "Label"
-msgstr "Etichetta"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:122
-msgid "Language code"
-msgstr "Codice lingua"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:123
-msgid "Large text style"
-msgstr "Testo grande"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:125
-msgid "Link color (deprecated)"
-msgstr "Colore collegamento (deprecato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:126
-msgid "List item"
-msgstr "Voce di elenco"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:127
-msgid "List of MIME types for file upload"
-msgstr "Elenco tipi MIME per caricamento dei file"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:128
-msgid "List of supported character sets"
-msgstr "Elenco dei set di caratteri supportati"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:129
-msgid "Local change to font"
-msgstr "Cambiamento del carattere locale"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:130
-msgid "Long description link"
-msgstr "Collegamento a descrizione lunga"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:131
-msgid "Long quotation"
-msgstr "Blocco di citazione"
-
-#. Supported in XHTML 1.0 Frameset DTD only.
-#: ../plugins/taglist/HTML.tags.xml.in.h:133
-msgid "Margin pixel height"
-msgstr "Altezza del margine in pixel"
-
-#. Supported in XHTML 1.0 Frameset DTD only.
-#: ../plugins/taglist/HTML.tags.xml.in.h:135
-msgid "Margin pixel width"
-msgstr "Larghezza del margine in pixel"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:136
-msgid "Maximum length of text field"
-msgstr "Massima lunghezza del campo testuale"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:137
-msgid "Output media"
-msgstr "Supporto di output"
-
-#. Here I take some liberties: There's no mandatory attributes,
-#. but those are most common, and will likely be used.
-#: ../plugins/taglist/HTML.tags.xml.in.h:140
-msgid "Media-independent link"
-msgstr "Collegamento indipendente dal supporto"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:142
-msgid "Menu list (deprecated)"
-msgstr "Elenco a menù (deprecato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:143
-msgid "Multi-line text field"
-msgstr "Campo testo multi-riga"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:144
-msgid "Multiple"
-msgstr "Multiplo"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:145
-msgid "Name"
-msgstr "Nome"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:146
-msgid "Named property value"
-msgstr "Valore di una proprietà con nome"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:147
-msgid "No frames"
-msgstr "Senza frame"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:148
-msgid "No resize"
-msgstr "Impedisci ridimensionamento"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:149
-msgid "No script"
-msgstr "Senza script"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:151
-msgid "No shade (deprecated)"
-msgstr "Senza ombra (deprecato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:152
-msgid "No URI"
-msgstr "Nessun URI"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:154
-msgid "No word wrap (deprecated)"
-msgstr "Niente a capo automatico (deprecato)"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:156
-msgid "Object applet file (deprecated)"
-msgstr "File dell'applet di un oggetto (deprecato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:157
-msgid "Object data reference"
-msgstr "Riferimento ai dati di un oggetto"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:158
-msgid "Offset for alignment character"
-msgstr "Offset per carattere di allineamento"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:159
-msgid "OnBlur event"
-msgstr "Evento OnBlur"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:160
-msgid "OnChange event"
-msgstr "Evento OnChange"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:161
-msgid "OnClick event"
-msgstr "Evento OnClick"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:162
-msgid "OnDblClick event"
-msgstr "Evento OnDblClick"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:163
-msgid "OnFocus event"
-msgstr "Evento OnFocus"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:164
-msgid "OnKeyDown event"
-msgstr "Evento OnKeyDown"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:165
-msgid "OnKeyPress event"
-msgstr "Evento OnKeyPress"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:166
-msgid "OnKeyUp event"
-msgstr "Evento OnKeyUp"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:167
-msgid "OnLoad event"
-msgstr "Evento OnLoad"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:168
-msgid "OnMouseDown event"
-msgstr "Evento OnMouseDown"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:169
-msgid "OnMouseMove event"
-msgstr "Evento OnMouseMove"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:170
-msgid "OnMouseOut event"
-msgstr "Evento OnMouseOut"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:171
-msgid "OnMouseOver event"
-msgstr "Evento OnMouseOver"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:172
-msgid "OnMouseUp event"
-msgstr "Evento OnMouseUp"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:173
-msgid "OnReset event"
-msgstr "Evento OnReset"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:174
-msgid "OnSelect event"
-msgstr "Evento OnSelect"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:175
-msgid "OnSubmit event"
-msgstr "Evento OnSubmit"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:176
-msgid "OnUnload event"
-msgstr "Evento OnUnload"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:177
-msgid "Option group"
-msgstr "Gruppo di opzioni"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:178
-msgid "Option selector"
-msgstr "Selettore opzioni"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:179
-msgid "Ordered list"
-msgstr "Elenco numerato"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:180
-msgid "Paragraph class"
-msgstr "Paragrafo con classe"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:181
-msgid "Paragraph style"
-msgstr "Paragrafo con stile"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:182
-msgid "Paragraph"
-msgstr "Paragrafo"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:183
-msgid "Preformatted text"
-msgstr "Testo pre-formattato"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:184
-msgid "Profile metainfo dictionary"
-msgstr "Dizionario meta-informazioni profilo"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:185
-msgid "Push button"
-msgstr "Pulsante"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:186
-msgid "ReadOnly text and password"
-msgstr "Testo e password di sola lettura"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:188
-msgid "Reduced spacing (deprecated)"
-msgstr "Spaziatura ridotta (deprecato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:189
-msgid "Reverse link"
-msgstr "Collegamento inverso"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:190
-msgid "Rows"
-msgstr "Righe"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:191
-msgid "Rulings between rows and columns"
-msgstr "Separatori tra righe e colonne"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:192
-msgid "Sample program output, scripts"
-msgstr "Output di esempio di programmi e script"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:193
-msgid "Scope covered by header cells"
-msgstr "Ambito delle celle di intestazione"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:195
-msgid "Script language name"
-msgstr "Linguaggio dello script"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:196
-msgid "Script statements"
-msgstr "Dichiarazioni script"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:197
-msgid "Scrollbar"
-msgstr "Barra di scorrimento"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:198
-msgid "Selectable option"
-msgstr "Opzione selezionabile"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:199
-msgid "Selected"
-msgstr "Selezionato"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:200
-msgid "Server-side image map"
-msgstr "Mappa immagine lato server"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:201
-msgid "Shape"
-msgstr "Forma"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:202
-msgid "Short inline quotation"
-msgstr "Citazione breve in linea"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:204
-msgid "Size (deprecated)"
-msgstr "Dimensione (deprecato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:205
-msgid "Small text style"
-msgstr "Testo piccolo"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:206
-msgid "Source"
-msgstr "Fonte"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:207
-msgid "Space-separated archive list"
-msgstr "Elenco archivio separato da spazi"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:208
-msgid "Spacing between cells"
-msgstr "Spaziatura tra celle"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:209
-msgid "Spacing within cells"
-msgstr "Margine interno delle celle"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:210
-msgid "Span"
-msgstr "Span"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:211
-msgid "Standby load message"
-msgstr "Messaggio di attesa caricamento"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:213
-msgid "Starting sequence number (deprecated)"
-msgstr "Inizio numerazione (deprecato)"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:215
-msgid "Strike-through text style (deprecated)"
-msgstr "Stile barrato (deprecato)"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:217
-msgid "Strike-through text (deprecated)"
-msgstr "Testo barrato (deprecato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:218
-msgid "Strong emphasis"
-msgstr "Enfasi forte"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:219
-msgid "Style info"
-msgstr "Stile"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:220
-msgid "Subscript"
-msgstr "Pedice"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:221
-msgid "Superscript"
-msgstr "Apice"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:222
-msgid "Table body"
-msgstr "Corpo tabella"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:223
-msgid "Table caption"
-msgstr "Didascalia tabella"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:224
-msgid "Table column group properties"
-msgstr "Proprietà gruppo colonne tabella"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:225
-msgid "Table column properties"
-msgstr "Proprietà colonne tabella"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:226
-msgid "Table data cell"
-msgstr "Cella dati tabella"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:227
-msgid "Table footer"
-msgstr "Piè di tabella"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:228
-msgid "Table header cell"
-msgstr "Cella intestazione tabella"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:229
-msgid "Table header"
-msgstr "Intestazione tabella"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:230
-msgid "Table row"
-msgstr "Riga tabella"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:231
-msgid "Table summary"
-msgstr "Indice tabella"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:232
-msgid "Table"
-msgstr "Tabella"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:233
-msgid "Target — Blank"
-msgstr "Destinazione — Blank"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:234
-msgid "Target — Parent"
-msgstr "Destinazione — Parent"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:235
-msgid "Target — Self"
-msgstr "Destinazione — Self"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:236
-msgid "Target — Top"
-msgstr "Destinazione — Top"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:237
-msgid "Teletype or monospace text style"
-msgstr "Carattere a spaziatura fissa (telescrivente)"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:239
-msgid "Text color (deprecated)"
-msgstr "Colore del testo (deprecato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:240
-msgid "Text entered by user"
-msgstr "Testo inserito dall'utente"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:241
-msgid "Title"
-msgstr "Titolo"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:242
-msgid "Underlined text style"
-msgstr "Sottolineato"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:243
-msgid "Unordered list"
-msgstr "Elenco puntato"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:244
-msgid "Use image map"
-msgstr "Usa mappa immagine"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:245
-msgid "Value interpretation"
-msgstr "Interpretazione del valore"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:246
-msgid "Value"
-msgstr "Valore"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:247
-msgid "Variable or program argument"
-msgstr "Variabile o parametro di programma"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:248
-msgid "Vertical cell alignment"
-msgstr "Allineamento verticale celle"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:250
-msgid "Vertical space (deprecated)"
-msgstr "Spaziatura verticale (deprecato)"
-
-#. Deprecated since HTML 4.01, not supported in XHTML 1.0 Strict DTD.
-#: ../plugins/taglist/HTML.tags.xml.in.h:252
-msgid "Visited link color (deprecated)"
-msgstr "Colore collegamento visitati (deprecato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:253
-msgid "Width"
-msgstr "Larghezza"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:254
-msgid "HTML — Tags"
-msgstr "HTML — Tag"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:255
-msgid "Above"
-msgstr "Sopra"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:256
-msgid "Applet class file code"
-msgstr "File codice classe applet"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:257
-msgid "Array"
-msgstr "Array"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:258
-msgid "Background color"
-msgstr "Colore di sfondo"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:259
-msgid "Background texture tile"
-msgstr "File di immagine di sfondo"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:260
-msgid "Base font"
-msgstr "Carattere di base"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:261
-msgid "Border color"
-msgstr "Colore del bordo"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:262
-msgid "Border"
-msgstr "Bordo"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:263
-msgid "Center"
-msgstr "Centra"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:264
-msgid "Checked (state)"
-msgstr "Selezionato (stato)"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:265
-msgid "Color of selected links"
-msgstr "Colore collegamenti selezionati"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:266
-msgid "Content scheme"
-msgstr "Schema del contenuto"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:267
-msgid "Content type"
-msgstr "Tipo del contenuto"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:268
-msgid "Direction"
-msgstr "Direzione"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:269
-msgid "Directory list"
-msgstr "Elenco directory"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:270
-msgid "HTML version"
-msgstr "Versione HTML"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:271
-msgid "Embedded object"
-msgstr "Oggetto incorporato"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:272
-msgid "Figure"
-msgstr "Figura"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:273
-msgid "Font face"
-msgstr "Nome del carattere"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:274
-msgid "Frameborder"
-msgstr "Bordo del frame"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:275
-msgid "Framespacing"
-msgstr "Spaziatura tra frame"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:276
-msgid "Heading"
-msgstr "Titolo"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:277
-msgid "Horizontal space"
-msgstr "Spaziatura orizzontale"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:278
-msgid "Image source"
-msgstr "Sorgente dell'immagine"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:279
-msgid "Inline layer"
-msgstr "Layer inline"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:280
-msgid "Java applet"
-msgstr "Applet Java"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:281
-msgid "Layer"
-msgstr "Layer"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:282
-msgid "Link color"
-msgstr "Colore collegamento"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:283
-msgid "Listing"
-msgstr "Elenco"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:284
-msgid "Mail link"
-msgstr "Collegamento di posta"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:285
-msgid "Marquee"
-msgstr "Marquee"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:286
-msgid "Menu list"
-msgstr "Elenco a menù"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:287
-msgid "Multicolumn"
-msgstr "Multi-colonna"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:288
-msgid "Next ID"
-msgstr "ID successivo"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:289
-msgid "No embedded objects"
-msgstr "Senza oggetti incorporati"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:290
-msgid "No layers"
-msgstr "Senza layer"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:291
-msgid "No line break"
-msgstr "Impedisci a capo automatico"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:292
-msgid "No shade"
-msgstr "Senza ombra"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:293
-msgid "No word wrap"
-msgstr "Niente a capo automatico"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:294
-msgid "Note"
-msgstr "Nota"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:295
-msgid "Object applet file"
-msgstr "File dell'applet di un oggetto"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:296
-msgid "Preformatted listing"
-msgstr "Elenco pre-formattato"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:297
-msgid "Prompt message"
-msgstr "Messaggio di prompt"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:298
-msgid "Quote"
-msgstr "Cita"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:299
-msgid "Range"
-msgstr "Intervallo"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:300
-msgid "Reduced spacing"
-msgstr "Spaziatura ridotta"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:301
-msgid "Root"
-msgstr "Radice"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:302
-msgid "Single line prompt"
-msgstr "Prompt a riga singola"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:303
-msgid "Size"
-msgstr "Dimensione"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:304
-msgid "Soft line break"
-msgstr "A capo semplice"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:305
-msgid "Sound"
-msgstr "Suono"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:306
-msgid "Spacer"
-msgstr "Spaziatore"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:307
-msgid "Square root"
-msgstr "Radice quadrata"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:308
-msgid "Starting sequence number"
-msgstr "Inizio numerazione"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:309
-msgid "Strike-through text style"
-msgstr "Stile barrato"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:310
-msgid "Strike-through text"
-msgstr "Testo barrato"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:311
-msgid "Tab order position"
-msgstr "Posizione del tab"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:312
-msgid "Text color"
-msgstr "Colore del testo"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:313
-msgid "Text"
-msgstr "Testo"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:314
-msgid "Top margin in pixels"
-msgstr "Margine superiore in pixel"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:315
-msgid "URL"
-msgstr "URL"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:316
-msgid "Vertical space"
-msgstr "Spaziatura verticale"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:317
-msgid "Visited link color"
-msgstr "Colore collegamento visitati"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:318
-msgid "HTML — Special Characters"
-msgstr "HTML — Caratteri speciali"
-
-#: ../plugins/taglist/HTML.tags.xml.in.h:319
-msgid "Non-breaking space"
-msgstr "Spazio non terminante"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:1
-msgid "Latex — Tags"
-msgstr "Latex — Tag"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:2
-msgid "Bibliography (cite)"
-msgstr "Citazione bibliografica (cite)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:3
-msgid "Bibliography (item)"
-msgstr "Voce di bibliografia (item)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:4
-msgid "Bibliography (shortcite)"
-msgstr "Citazione bibliografica (shortcite)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:5
-msgid "Bibliography (thebibliography)"
-msgstr "Bibliografia (thebibliography)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:6
-msgid "Brackets ()"
-msgstr "Parentesi ()"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:7
-msgid "Brackets []"
-msgstr "Parentesi []"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:8
-msgid "Brackets {}"
-msgstr "Parentesi {}"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:9
-msgid "Brackets <>"
-msgstr "Parentesi <>"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:10
-msgid "File input"
-msgstr "Input da file"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:11
-msgid "Function cosine"
-msgstr "Funzione coseno"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:12
-msgid "Function e^"
-msgstr "Funzione e^"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:13
-msgid "Function exp"
-msgstr "Funzione exp"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:14
-msgid "Function log"
-msgstr "Funzione log"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:15
-msgid "Function log10"
-msgstr "Funzione log10"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:16
-msgid "Function sine"
-msgstr "Funzione seno"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:17
-msgid "Greek alpha"
-msgstr "Greco: alfa"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:18
-msgid "Greek beta"
-msgstr "Greco: beta"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:19
-msgid "Greek epsilon"
-msgstr "Greco: epsilon"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:20
-msgid "Greek gamma"
-msgstr "Greco: gamma"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:21
-msgid "Greek lambda"
-msgstr "Greco: lambda"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:22
-msgid "Greek rho"
-msgstr "Greco: rho"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:23
-msgid "Greek tau"
-msgstr "Greco: tau"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:24
-msgid "Header 0 (chapter)"
-msgstr "Titolo 0 (chapter)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:25
-msgid "Header 0 (chapter*)"
-msgstr "Titolo 0 (chapter*)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:26
-msgid "Header 1 (section)"
-msgstr "Titolo 1 (section)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:27
-msgid "Header 1 (section*)"
-msgstr "Titolo 1 (section*)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:28
-msgid "Header 2 (subsection)"
-msgstr "Titolo 2 (subsection)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:29
-msgid "Header 2 (subsection*)"
-msgstr "Titolo 2 (subsection*)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:30
-msgid "Header 3 (subsubsection)"
-msgstr "Titolo 3 (subsubsection)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:31
-msgid "Header 3 (subsubsection*)"
-msgstr "Titolo 3 (subsubsection*)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:32
-msgid "Header 4 (paragraph)"
-msgstr "Titolo 4 (paragraph)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:33
-msgid "Header appendix"
-msgstr "Titolo appendice"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:34
-msgid "List description"
-msgstr "Descrizione lista"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:35
-msgid "List enumerate"
-msgstr "Elenco numerato"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:36
-msgid "List itemize"
-msgstr "Elenco puntato"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:37
-msgid "Item with label"
-msgstr "Voce con etichetta"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:38
-msgid "Item"
-msgstr "Voce (item)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:39
-msgid "Maths (display)"
-msgstr "Matematica (display)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:40
-msgid "Maths (inline)"
-msgstr "Matematica (inline)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:41
-msgid "Operator fraction"
-msgstr "Operatore frazione"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:42
-msgid "Operator integral (display)"
-msgstr "Operatore integrale (display)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:43
-msgid "Operator integral (inline)"
-msgstr "Operatore integrale (inline)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:44
-msgid "Operator sum (display)"
-msgstr "Operatore sommatoria (display)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:45
-msgid "Operator sum (inline)"
-msgstr "Operatore sommatoria (inline)"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:46
-msgid "Reference label"
-msgstr "Label di riferimento"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:47
-msgid "Reference ref"
-msgstr "Ref di riferimento"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:48
-msgid "Symbol <<"
-msgstr "Simbolo <<"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:49
-msgid "Symbol <="
-msgstr "Simbolo <="
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:50
-msgid "Symbol >="
-msgstr "Simbolo >="
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:51
-msgid "Symbol >>"
-msgstr "Simbolo >>"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:52
-msgid "Symbol and"
-msgstr "Simbolo «and»"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:53
-msgid "Symbol const"
-msgstr "Simbolo costante"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:54
-msgid "Symbol d2-by-dt2-partial"
-msgstr "Simbolo «d2 su dt2» parziale"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:55
-msgid "Symbol dagger"
-msgstr "Simbolo pugnale"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:56
-msgid "Symbol d-by-dt"
-msgstr "Simbolo «d su dt»"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:57
-msgid "Symbol d-by-dt-partial"
-msgstr "Simbolo «d su dt» parziale"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:58
-msgid "Symbol equiv"
-msgstr "Simbolo equiv"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:59
-msgid "Symbol en-dash --"
-msgstr "Simbolo trattino (en-dash) --"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:60
-msgid "Symbol em-dash ---"
-msgstr "Simbolo trattino (em-dash) ---"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:61
-msgid "Symbol infinity"
-msgstr "Simbolo infinito"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:62
-msgid "Symbol mathspace ,"
-msgstr "Simbolo matematico ,"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:63
-msgid "Symbol mathspace ."
-msgstr "Simbolo matematico ."
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:64
-msgid "Symbol mathspace _"
-msgstr "Simbolo matematico _"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:65
-msgid "Symbol mathspace __"
-msgstr "Simbolo matematico __"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:66
-msgid "Symbol simeq"
-msgstr "Simbolo simeq"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:67
-msgid "Symbol star"
-msgstr "Simbolo asterisco"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:68
-msgid "Typeface bold"
-msgstr "Carattere grassetto"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:69
-msgid "Typeface type"
-msgstr "Carattere macchina da scrivere"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:70
-msgid "Typeface italic"
-msgstr "Carattere corsivo"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:71
-msgid "Typeface slanted"
-msgstr "Carattere inclinato"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:73
-msgid "Unbreakable text"
-msgstr "Testo non separabile"
-
-#: ../plugins/taglist/Latex.tags.xml.in.h:74
-msgid "Footnote"
-msgstr "Nota a piè di pagina"
-
-#: ../plugins/taglist/taglist.plugin.desktop.in.in.h:1
-msgid "Tag list"
-msgstr "Elenco dei tag"
-
-#: ../plugins/taglist/taglist.plugin.desktop.in.in.h:2
-msgid ""
-"Provides a method to easily insert commonly used tags/strings into a "
-"document without having to type them."
-msgstr ""
-"Offre la possibilità di inserire in un documento i tag o le stringhe più "
-"comuni senza doverli digitare."
-
-#: ../plugins/taglist/XSLT.tags.xml.in.h:1
-msgid "XSLT — Elements"
-msgstr "XSLT — Elementi"
-
-#: ../plugins/taglist/XSLT.tags.xml.in.h:2
-msgid "XSLT — Functions"
-msgstr "XSLT — Funzioni"
-
-#: ../plugins/taglist/XSLT.tags.xml.in.h:3
-msgid "XSLT — Axes"
-msgstr "XSLT — Assi"
-
-#: ../plugins/taglist/XSLT.tags.xml.in.h:4
-msgid "ancestor"
-msgstr "antenato"
-
-#: ../plugins/taglist/XSLT.tags.xml.in.h:5
-msgid "ancestor-or-self"
-msgstr "antenato o sé stesso"
-
-#: ../plugins/taglist/XSLT.tags.xml.in.h:6
-msgid "attribute"
-msgstr "attributo"
-
-#: ../plugins/taglist/XSLT.tags.xml.in.h:7
-msgid "child"
-msgstr "figlio"
-
-#: ../plugins/taglist/XSLT.tags.xml.in.h:8
-msgid "descendant"
-msgstr "discendente"
-
-#: ../plugins/taglist/XSLT.tags.xml.in.h:9
-msgid "descendant-or-self"
-msgstr "discendente o sé stesso"
-
-#: ../plugins/taglist/XSLT.tags.xml.in.h:10
-msgid "following"
-msgstr "seguente"
-
-#: ../plugins/taglist/XSLT.tags.xml.in.h:11
-msgid "following-sibling"
-msgstr "seguente-fratello"
-
-#: ../plugins/taglist/XSLT.tags.xml.in.h:12
-msgid "namespace"
-msgstr "namespace"
-
-#: ../plugins/taglist/XSLT.tags.xml.in.h:13
-msgid "parent"
-msgstr "genitore"
-
-#: ../plugins/taglist/XSLT.tags.xml.in.h:14
-msgid "preceding"
-msgstr "precedente"
-
-#: ../plugins/taglist/XSLT.tags.xml.in.h:15
-msgid "preceding-sibling"
-msgstr "precedente-fratello"
-
-#: ../plugins/taglist/XSLT.tags.xml.in.h:16
-msgid "self"
-msgstr "sé stesso"
-
-#: ../plugins/taglist/XUL.tags.xml.in.h:1
-msgid "XUL — Tags"
-msgstr "XUL — Tag"
-
+#. ex:ts=4:et:
 #: ../plugins/terminal/org.gnome.gedit.plugins.terminal.gschema.xml.in.in.h:1
 msgid "Whether to silence terminal bell"
 msgstr "Indica se disabilitare l'avviso acustico"
@@ -2155,25 +603,25 @@ msgstr "Terminale integrato"
 msgid "Embed a terminal in the bottom pane."
 msgstr "Incorpora un terminale nel riquadro inferiore"
 
-#: ../plugins/terminal/terminal.py:260
+#: ../plugins/terminal/terminal.py:262
 msgid "Terminal"
 msgstr "Terminale"
 
-#: ../plugins/terminal/terminal.py:282
+#: ../plugins/terminal/terminal.py:283
 msgid "C_hange Directory"
 msgstr "Cambia _directory"
 
-#: ../plugins/textsize/textsize/__init__.py:143
-msgid "_Increase font size"
-msgstr "_Aumenta dimensione carattere"
+#: ../plugins/textsize/textsize/__init__.py:142
+msgid "_Larger Text"
+msgstr "Testo più _grande"
 
-#: ../plugins/textsize/textsize/__init__.py:146
-msgid "_Decrease font size"
-msgstr "_Riduci dimensione carattere"
+#: ../plugins/textsize/textsize/__init__.py:145
+msgid "S_maller Text"
+msgstr "Testo _più piccolo"
 
-#: ../plugins/textsize/textsize/__init__.py:149
-msgid "_Reset font size"
-msgstr "Ri_pristina dimensione carattere"
+#: ../plugins/textsize/textsize/__init__.py:148
+msgid "_Normal size"
+msgstr "Dimensione _normale"
 
 #. ex:ts=4:et:
 #: ../plugins/textsize/textsize.plugin.desktop.in.in.h:1
@@ -2196,6 +644,3 @@ msgstr "Completamento parola"
 #: ../plugins/wordcompletion/wordcompletion.plugin.desktop.in.in.h:2
 msgid "Word completion using the completion framework"
 msgstr "Completamento delle parole attraverso l'apposito framework"
-
-#~ msgid "_Insert"
-#~ msgstr "_Inserisci"
