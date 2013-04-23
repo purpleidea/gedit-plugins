@@ -92,9 +92,9 @@ ALL_PLUGINS="bookmarks drawspaces wordcompletion"
 USEFUL_PLUGINS="bookmarks drawspaces wordcompletion"
 DEFAULT_PLUGINS="bookmarks drawspaces wordcompletion"
 
-PYTHON_ALL_PLUGINS="bracketcompletion charmap codecomment colorpicker colorschemer commander dashboard joinlines multiedit textsize smartspaces terminal synctex"
-PYTHON_USEFUL_PLUGINS="bracketcompletion charmap codecomment colorpicker colorschemer commander dashboard joinlines multiedit textsize smartspaces terminal synctex"
-PYTHON_DEFAULT_PLUGINS="bracketcompletion charmap codecomment colorpicker colorschemer commander dashboard joinlines multiedit textsize smartspaces terminal synctex"
+PYTHON_ALL_PLUGINS="bracketcompletion charmap codecomment colorpicker colorschemer commander dashboard git joinlines multiedit textsize smartspaces terminal synctex"
+PYTHON_USEFUL_PLUGINS="bracketcompletion charmap codecomment colorpicker colorschemer commander dashboard git joinlines multiedit textsize smartspaces terminal synctex"
+PYTHON_DEFAULT_PLUGINS="bracketcompletion charmap codecomment colorpicker colorschemer commander dashboard git joinlines multiedit textsize smartspaces terminal synctex"
 
 DIST_PLUGINS="$ALL_PLUGINS $PYTHON_ALL_PLUGINS"
 
@@ -115,7 +115,7 @@ AC_ARG_WITH([plugins],
 [  --with-plugins=plugin1,plugin2,...
 			  build the specified plugins. Available:
 			  bracketcompletion, charmap, codecomment,
-			  colorpicker, drawspaces, joinlines, multiedit,
+			  colorpicker, drawspaces, git, joinlines, multiedit,
 			  textsize, smartspaces,
 			  terminal, wordcompletion, as well as the aliases
 			  default, all, and really-all],
@@ -266,6 +266,29 @@ then
 	fi
 fi
 
+# ================================================================
+# Git (libgit2-glib)
+# ================================================================
+plugin_defined synctex
+if test "$?" = 1
+then
+	LIBGIT2_GLIB_REQUIRED=0.0.2
+	PKG_CHECK_MODULES([GIT2_GLIB],
+		[libgit2-glib >= $LIBGIT2_GLIB_REQUIRED],
+		[have_git2=yes],[have_git2=no])
+
+	if test "x$have_git2" = "xno"; then
+		plugin_defined_explicit git
+		if test "$?" = 1
+		then
+			AC_MSG_ERROR([libgit2-glib could not be found, needed for git plugin])
+		else
+			AC_MSG_WARN([libgit2-glib could not be found, git plugin will be disabled])
+			undef_plugin git "libgit2-glib not found"
+		fi
+	fi
+fi
+
 if test -z "$disabled_plugins"
 then
 	disabled_plugins="none"
@@ -340,6 +363,9 @@ plugins/dashboard/Makefile
 plugins/drawspaces/drawspaces.plugin.desktop.in
 plugins/drawspaces/Makefile
 plugins/drawspaces/org.gnome.gedit.plugins.drawspaces.gschema.xml.in
+plugins/git/git.plugin.desktop.in
+plugins/git/git/Makefile
+plugins/git/Makefile
 plugins/joinlines/joinlines.plugin.desktop.in
 plugins/joinlines/Makefile
 plugins/multiedit/Makefile
