@@ -115,7 +115,7 @@ class SynctexViewHelper:
         file_output = None
         line_count = self._doc.get_line_count()
 
-        for i in range(min(3,line_count)) + range(max(0,line_count - 3), line_count):
+        for i in list(range(min(3,line_count))) + list(range(max(0,line_count - 3), line_count)):
             start = self._doc.get_iter_at_line(i)
             end = start.copy()
             end.forward_to_line_end()
