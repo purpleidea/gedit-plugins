@@ -21,16 +21,16 @@ msgstr ""
 "Project-Id-Version: gedit.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gedit&keywords=I18N+L10N&component=Plugins\n"
-"POT-Creation-Date: 2013-04-10 02:30+0000\n"
-"PO-Revision-Date: 2013-04-11 18:16+0200\n"
+"POT-Creation-Date: 2013-04-27 15:30+0000\n"
+"PO-Revision-Date: 2013-04-28 20:51+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español <gnome-es-list@gnome.org>\n"
+"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Gtranslator 1.9.3\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Gtranslator 2.91.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../plugins/bookmarks/bookmarks.plugin.desktop.in.in.h:1
 msgid "Bookmarks"
@@ -83,7 +83,8 @@ msgid "Insert special characters just by clicking on them."
 msgstr "Inserte caracteres especiales tan sólo pulsando en ellos."
 
 #: ../plugins/codecomment/codecomment.plugin.desktop.in.in.h:1
-msgid "Code comment"
+#| msgid "Code comment"
+msgid "Code Comment"
 msgstr "Comentar código"
 
 #: ../plugins/codecomment/codecomment.plugin.desktop.in.in.h:2
@@ -146,32 +147,26 @@ msgid "Bold"
 msgstr "Negrita"
 
 #: ../plugins/colorschemer/schemer/schemer.ui.h:4
-#| msgid "Italic text"
 msgid "Italic"
 msgstr "Cursiva"
 
 #: ../plugins/colorschemer/schemer/schemer.ui.h:5
-#| msgid "Underlined text style"
 msgid "Underline"
 msgstr "Subrayado"
 
 #: ../plugins/colorschemer/schemer/schemer.ui.h:6
-#| msgid "Strike-through text"
 msgid "Strikethrough"
 msgstr "Tachado"
 
 #: ../plugins/colorschemer/schemer/schemer.ui.h:7
-#| msgid "Background color"
 msgid "Pick the background color"
 msgstr "Coger el color de fondo"
 
 #: ../plugins/colorschemer/schemer/schemer.ui.h:8
-#| msgid "Background color"
 msgid "Pick the foreground color"
 msgstr "Coger el color de primer plano"
 
 #: ../plugins/colorschemer/schemer/schemer.ui.h:9
-#| msgid "Background color"
 msgid "_Background"
 msgstr "_Fondo"
 
@@ -192,12 +187,10 @@ msgid "ID"
 msgstr "ID"
 
 #: ../plugins/colorschemer/schemer/schemer.ui.h:14
-#| msgid "List description"
 msgid "Description"
 msgstr "Descripción"
 
 #: ../plugins/colorschemer/schemer/schemer.ui.h:15
-#| msgid "Author info"
 msgid "Author"
 msgstr "Autor"
 
@@ -221,21 +214,13 @@ msgstr "Modo «commander»"
 msgid "Start commander mode"
 msgstr "Iniciar el modo «commander»"
 
-#: ../plugins/dashboard/dashboard/dashboard.py:110
+#: ../plugins/dashboard/dashboard/dashboard.py:117
 msgid "Empty Document"
 msgstr "Documento vacío"
 
-#: ../plugins/dashboard/dashboard/dashboard.py:218
+#: ../plugins/dashboard/dashboard/dashboard.py:158
 msgid "Type here to search..."
 msgstr "Escribir aquí para buscar…"
-
-#: ../plugins/dashboard/dashboard/dashboard.py:345
-msgid "Most Used"
-msgstr "Más usados"
-
-#: ../plugins/dashboard/dashboard/dashboard.py:346
-msgid "Recently Used"
-msgstr "Usados recientemente"
 
 #. ex:ts=4:et:
 #: ../plugins/dashboard/dashboard.plugin.desktop.in.in.h:1
@@ -448,8 +433,8 @@ msgid ""
 msgstr ""
 "Número de líneas de desplazamiento que guardar aproximadamente. Puede "
 "desplazarse hacia atrás en la terminal esta cantidad de líneas; las líneas "
-"que no entran en el desplazamiento se descartan. Si «scrollback-unlimited» es "
-"cierto, este valor se ignora."
+"que no entran en el desplazamiento se descartan. Si «scrollback-unlimited» "
+"es cierto, este valor se ignora."
 
 #: ../plugins/terminal/org.gnome.gedit.plugins.terminal.gschema.xml.in.in.h:5
 msgid "Whether an unlimited number of lines should be kept in scrollback"
@@ -578,8 +563,8 @@ msgid ""
 "The possible values are \"system\" to use the global cursor blinking "
 "settings, or \"on\" or \"off\" to set the mode explicitly."
 msgstr ""
-"Los valores posibles son «system» para usar los ajustes de parpadeo globales, "
-"u «on» u «off» para establecer el modo explícito."
+"Los valores posibles son «system» para usar los ajustes de parpadeo "
+"globales, u «on» u «off» para establecer el modo explícito."
 
 #: ../plugins/terminal/org.gnome.gedit.plugins.terminal.gschema.xml.in.in.h:25
 msgid "The cursor appearance"
@@ -623,26 +608,23 @@ msgstr "Terminal empotrado"
 msgid "Embed a terminal in the bottom pane."
 msgstr "Empotre un terminal en el panel inferior."
 
-#: ../plugins/terminal/terminal.py:260
+#: ../plugins/terminal/terminal.py:262
 msgid "Terminal"
 msgstr "Terminal"
 
-#: ../plugins/terminal/terminal.py:281
+#: ../plugins/terminal/terminal.py:283
 msgid "C_hange Directory"
 msgstr "_Cambiar de carpeta"
 
 #: ../plugins/textsize/textsize/__init__.py:142
-#| msgid "Large text style"
 msgid "_Larger Text"
 msgstr "Texto más _grande"
 
 #: ../plugins/textsize/textsize/__init__.py:145
-#| msgid "Small text style"
 msgid "S_maller Text"
 msgstr "Texto más _pequeño"
 
 #: ../plugins/textsize/textsize/__init__.py:148
-#| msgid "No resize"
 msgid "_Normal size"
 msgstr "Tamaño _normal"
 
@@ -667,6 +649,12 @@ msgstr "Completado de palabras"
 #: ../plugins/wordcompletion/wordcompletion.plugin.desktop.in.in.h:2
 msgid "Word completion using the completion framework"
 msgstr "Completado de palabras usando el entorno de trabajo de completado"
+
+#~ msgid "Most Used"
+#~ msgstr "Más usados"
+
+#~ msgid "Recently Used"
+#~ msgstr "Usados recientemente"
 
 #~ msgid "Session Name"
 #~ msgstr "Nombre de la sesión"
