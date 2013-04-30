@@ -269,12 +269,12 @@ fi
 # ================================================================
 # Git (libgit2-glib)
 # ================================================================
-plugin_defined synctex
+plugin_defined git
 if test "$?" = 1
 then
 	LIBGIT2_GLIB_REQUIRED=0.0.2
 	PKG_CHECK_MODULES([GIT2_GLIB],
-		[libgit2-glib >= $LIBGIT2_GLIB_REQUIRED],
+		[libgit2-glib-1.0 >= $LIBGIT2_GLIB_REQUIRED],
 		[have_git2=yes],[have_git2=no])
 
 	if test "x$have_git2" = "xno"; then
