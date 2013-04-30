@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: gedit\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gedit&keywords=I18N+L10N&component=Plugins\n"
-"POT-Creation-Date: 2013-04-13 13:37+0000\n"
-"PO-Revision-Date: 2013-04-14 20:50+0200\n"
+"POT-Creation-Date: 2013-04-27 15:30+0000\n"
+"PO-Revision-Date: 2013-04-30 12:49+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -83,7 +83,7 @@ msgid "Insert special characters just by clicking on them."
 msgstr "Vkládání speciálních znaků pouhým kliknutím."
 
 #: ../plugins/codecomment/codecomment.plugin.desktop.in.in.h:1
-msgid "Code comment"
+msgid "Code Comment"
 msgstr "Komentování kódu"
 
 #: ../plugins/codecomment/codecomment.plugin.desktop.in.in.h:2
@@ -594,11 +594,11 @@ msgstr "Vestavěný terminál"
 msgid "Embed a terminal in the bottom pane."
 msgstr "Vložení terminálu do dolního panelu."
 
-#: ../plugins/terminal/terminal.py:260
+#: ../plugins/terminal/terminal.py:262
 msgid "Terminal"
 msgstr "Terminál"
 
-#: ../plugins/terminal/terminal.py:281
+#: ../plugins/terminal/terminal.py:283
 msgid "C_hange Directory"
 msgstr "Z_měnit složku"
 
