@@ -1,5 +1,5 @@
 # Brazilian Portuguese translation of gedit.
-# Copyright (C) 1999-2009 Free Software Foundation, Inc.
+# Copyright (C) 1999-2013 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gedit package.
 # Frederic L. W. Meunier <linux@urbi.com.br>, 1999.
 # Evandro Fernandes Giovanini <evandrofg@ig.com.br>, 2000.
@@ -28,8 +28,8 @@ msgstr ""
 "Project-Id-Version: gedit-plugins\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gedit&keywords=I18N+L10N&component=Plugins\n"
-"POT-Creation-Date: 2013-04-08 20:59+0000\n"
-"PO-Revision-Date: 2013-04-09 22:49-0300\n"
+"POT-Creation-Date: 2013-04-30 16:53+0000\n"
+"PO-Revision-Date: 2013-05-01 01:33-0300\n"
 "Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_BR-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -90,7 +90,7 @@ msgid "Insert special characters just by clicking on them."
 msgstr "Insere caracteres especiais apenas clicando neles."
 
 #: ../plugins/codecomment/codecomment.plugin.desktop.in.in.h:1
-msgid "Code comment"
+msgid "Code Comment"
 msgstr "Comentar código"
 
 #: ../plugins/codecomment/codecomment.plugin.desktop.in.in.h:2
@@ -220,21 +220,13 @@ msgstr "Modo de comando"
 msgid "Start commander mode"
 msgstr "Iniciar modo de comando"
 
-#: ../plugins/dashboard/dashboard/dashboard.py:110
+#: ../plugins/dashboard/dashboard/dashboard.py:117
 msgid "Empty Document"
 msgstr "Documento vazio"
 
-#: ../plugins/dashboard/dashboard/dashboard.py:218
+#: ../plugins/dashboard/dashboard/dashboard.py:158
 msgid "Type here to search..."
 msgstr "Digite aqui para pesquisar..."
-
-#: ../plugins/dashboard/dashboard/dashboard.py:345
-msgid "Most Used"
-msgstr "Mais usados"
-
-#: ../plugins/dashboard/dashboard/dashboard.py:346
-msgid "Recently Used"
-msgstr "Usados recentemente"
 
 #. ex:ts=4:et:
 #: ../plugins/dashboard/dashboard.plugin.desktop.in.in.h:1
@@ -251,7 +243,7 @@ msgid "Draw Spaces"
 msgstr "Desenhar espaços"
 
 #: ../plugins/drawspaces/drawspaces.plugin.desktop.in.in.h:2
-msgid "Draw Spaces and Tabs"
+msgid "Draw spaces and tabs"
 msgstr "Desenha espaços e tabulações"
 
 #: ../plugins/drawspaces/gedit-drawspaces-plugin.c:134
@@ -618,11 +610,11 @@ msgstr "Terminal embutido"
 msgid "Embed a terminal in the bottom pane."
 msgstr "Embute um terminal no painel inferior."
 
-#: ../plugins/terminal/terminal.py:260
+#: ../plugins/terminal/terminal.py:262
 msgid "Terminal"
 msgstr "Terminal"
 
-#: ../plugins/terminal/terminal.py:281
+#: ../plugins/terminal/terminal.py:283
 msgid "C_hange Directory"
 msgstr "Al_ternar diretório"
 
@@ -659,6 +651,12 @@ msgstr "Completar palavras"
 #: ../plugins/wordcompletion/wordcompletion.plugin.desktop.in.in.h:2
 msgid "Word completion using the completion framework"
 msgstr "Completa palavras usando o framework de completar"
+
+#~ msgid "Most Used"
+#~ msgstr "Mais usados"
+
+#~ msgid "Recently Used"
+#~ msgstr "Usados recentemente"
 
 #~ msgid "Scheme Editor"
 #~ msgstr "Editor de esquemas"
