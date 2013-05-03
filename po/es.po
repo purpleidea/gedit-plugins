@@ -21,16 +21,16 @@ msgstr ""
 "Project-Id-Version: gedit.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gedit&keywords=I18N+L10N&component=Plugins\n"
-"POT-Creation-Date: 2013-04-27 15:30+0000\n"
-"PO-Revision-Date: 2013-04-28 20:51+0200\n"
+"POT-Creation-Date: 2013-04-30 16:53+0000\n"
+"PO-Revision-Date: 2013-05-03 17:53+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
+"Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Gtranslator 2.91.5\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #: ../plugins/bookmarks/bookmarks.plugin.desktop.in.in.h:1
 msgid "Bookmarks"
@@ -83,7 +83,6 @@ msgid "Insert special characters just by clicking on them."
 msgstr "Inserte caracteres especiales tan sólo pulsando en ellos."
 
 #: ../plugins/codecomment/codecomment.plugin.desktop.in.in.h:1
-#| msgid "Code comment"
 msgid "Code Comment"
 msgstr "Comentar código"
 
@@ -237,7 +236,8 @@ msgid "Draw Spaces"
 msgstr "Dibujar espacios"
 
 #: ../plugins/drawspaces/drawspaces.plugin.desktop.in.in.h:2
-msgid "Draw Spaces and Tabs"
+#| msgid "Draw Spaces and Tabs"
+msgid "Draw spaces and tabs"
 msgstr "Dibujar espacios y tabulaciones"
 
 #: ../plugins/drawspaces/gedit-drawspaces-plugin.c:134
@@ -433,8 +433,8 @@ msgid ""
 msgstr ""
 "Número de líneas de desplazamiento que guardar aproximadamente. Puede "
 "desplazarse hacia atrás en la terminal esta cantidad de líneas; las líneas "
-"que no entran en el desplazamiento se descartan. Si «scrollback-unlimited» "
-"es cierto, este valor se ignora."
+"que no entran en el desplazamiento se descartan. Si «scrollback-unlimited» es "
+"cierto, este valor se ignora."
 
 #: ../plugins/terminal/org.gnome.gedit.plugins.terminal.gschema.xml.in.in.h:5
 msgid "Whether an unlimited number of lines should be kept in scrollback"
@@ -563,8 +563,8 @@ msgid ""
 "The possible values are \"system\" to use the global cursor blinking "
 "settings, or \"on\" or \"off\" to set the mode explicitly."
 msgstr ""
-"Los valores posibles son «system» para usar los ajustes de parpadeo "
-"globales, u «on» u «off» para establecer el modo explícito."
+"Los valores posibles son «system» para usar los ajustes de parpadeo globales, "
+"u «on» u «off» para establecer el modo explícito."
 
 #: ../plugins/terminal/org.gnome.gedit.plugins.terminal.gschema.xml.in.in.h:25
 msgid "The cursor appearance"
