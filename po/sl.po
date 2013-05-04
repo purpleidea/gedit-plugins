@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gedit-plugins master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gedit&keywords=I18N+L10N&component=Plugins\n"
-"POT-Creation-Date: 2013-04-05 11:35+0000\n"
-"PO-Revision-Date: 2013-04-05 17:52+0100\n"
+"POT-Creation-Date: 2013-05-03 19:47+0000\n"
+"PO-Revision-Date: 2013-05-04 21:30+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: Slovenian\n"
@@ -74,7 +74,7 @@ msgid "Insert special characters just by clicking on them."
 msgstr "Vstavljanje posebnih znakov le s klikom nanje."
 
 #: ../plugins/codecomment/codecomment.plugin.desktop.in.in.h:1
-msgid "Code comment"
+msgid "Code Comment"
 msgstr "Opomba h kodi"
 
 #: ../plugins/codecomment/codecomment.plugin.desktop.in.in.h:2
@@ -120,16 +120,13 @@ msgstr "Izbor barve"
 
 #. ex:ts=4:et:
 #: ../plugins/colorschemer/colorschemer.plugin.desktop.in.in.h:1
+#: ../plugins/colorschemer/schemer/schemer.ui.h:1
 msgid "Color Scheme Editor"
 msgstr "Urejevalnik barvne sheme"
 
 #: ../plugins/colorschemer/colorschemer.plugin.desktop.in.in.h:2
 msgid "Source code color scheme editor"
 msgstr "Urejevalnik shem barvnega označevanja kode"
-
-#: ../plugins/colorschemer/schemer/schemer.ui.h:1
-msgid "Scheme Editor"
-msgstr "Urejevalnik sheme"
 
 #: ../plugins/colorschemer/schemer/schemer.ui.h:2
 msgid "X"
@@ -176,7 +173,7 @@ msgid "Name"
 msgstr "Ime"
 
 #: ../plugins/colorschemer/schemer/schemer.ui.h:13
-msgid "Id"
+msgid "ID"
 msgstr "ID"
 
 #: ../plugins/colorschemer/schemer/schemer.ui.h:14
@@ -207,21 +204,13 @@ msgstr "Način upravljalnika ukazov"
 msgid "Start commander mode"
 msgstr "Začni v načinu upravljalnika ukazov"
 
-#: ../plugins/dashboard/dashboard/dashboard.py:110
+#: ../plugins/dashboard/dashboard/dashboard.py:117
 msgid "Empty Document"
 msgstr "Prazen dokument"
 
-#: ../plugins/dashboard/dashboard/dashboard.py:218
+#: ../plugins/dashboard/dashboard/dashboard.py:158
 msgid "Type here to search..."
 msgstr "Vnos besedila za iskanje ..."
-
-#: ../plugins/dashboard/dashboard/dashboard.py:345
-msgid "Most Used"
-msgstr "Največ uporabljeno"
-
-#: ../plugins/dashboard/dashboard/dashboard.py:346
-msgid "Recently Used"
-msgstr "Nedavno uporabljeno"
 
 #. ex:ts=4:et:
 #: ../plugins/dashboard/dashboard.plugin.desktop.in.in.h:1
@@ -238,8 +227,8 @@ msgid "Draw Spaces"
 msgstr "Izriši presledne znake"
 
 #: ../plugins/drawspaces/drawspaces.plugin.desktop.in.in.h:2
-msgid "Draw Spaces and Tabs"
-msgstr "Izris presledkov in tabulatorjev"
+msgid "Draw spaces and tabs"
+msgstr "Izriši presledke in tabulatorje"
 
 #: ../plugins/drawspaces/gedit-drawspaces-plugin.c:134
 msgid "Show _White Space"
@@ -593,25 +582,25 @@ msgstr "Vgrajen terminal"
 msgid "Embed a terminal in the bottom pane."
 msgstr "Vgradi terminal v spodnji pladenj"
 
-#: ../plugins/terminal/terminal.py:260
+#: ../plugins/terminal/terminal.py:262
 msgid "Terminal"
 msgstr "Terminal"
 
-#: ../plugins/terminal/terminal.py:281
+#: ../plugins/terminal/terminal.py:283
 msgid "C_hange Directory"
 msgstr "Spremeni _mapo"
 
 #: ../plugins/textsize/textsize/__init__.py:142
-msgid "_Increase font size"
-msgstr "Po_večaj velikost pisave"
+msgid "_Larger Text"
+msgstr "_Večja pisava"
 
 #: ../plugins/textsize/textsize/__init__.py:145
-msgid "_Decrease font size"
-msgstr "Po_manjšaj velikost pisave"
+msgid "S_maller Text"
+msgstr "_Manjša pisava"
 
 #: ../plugins/textsize/textsize/__init__.py:148
-msgid "_Reset font size"
-msgstr "_Ponastavi velikost pisave"
+msgid "_Normal size"
+msgstr "_Običajna pisava"
 
 #. ex:ts=4:et:
 #: ../plugins/textsize/textsize.plugin.desktop.in.in.h:1
@@ -634,6 +623,27 @@ msgstr "Dopolnjevanje besed"
 #: ../plugins/wordcompletion/wordcompletion.plugin.desktop.in.in.h:2
 msgid "Word completion using the completion framework"
 msgstr "Dopolnjevanje besed z uporabo ogrodja dopolnjevanja"
+
+#~ msgid "Scheme Editor"
+#~ msgstr "Urejevalnik sheme"
+
+#~ msgid "Id"
+#~ msgstr "ID"
+
+#~ msgid "Most Used"
+#~ msgstr "Največ uporabljeno"
+
+#~ msgid "Recently Used"
+#~ msgstr "Nedavno uporabljeno"
+
+#~ msgid "_Increase font size"
+#~ msgstr "Po_večaj velikost pisave"
+
+#~ msgid "_Decrease font size"
+#~ msgstr "Po_manjšaj velikost pisave"
+
+#~ msgid "_Reset font size"
+#~ msgstr "_Ponastavi velikost pisave"
 
 #~ msgid "_Insert"
 #~ msgstr "_Vstavi"
@@ -992,9 +1002,6 @@ msgstr "Dopolnjevanje besed z uporabo ogrodja dopolnjevanja"
 #~ msgid "Language code"
 #~ msgstr "Šifra jezika"
 
-#~ msgid "Large text style"
-#~ msgstr "Slog velikega besedila"
-
 #~ msgid "Link color (deprecated)"
 #~ msgstr "Barva povezave (opuščeno)"
 
@@ -1045,9 +1052,6 @@ msgstr "Dopolnjevanje besed z uporabo ogrodja dopolnjevanja"
 
 #~ msgid "No frames"
 #~ msgstr "Ni okvirjev"
-
-#~ msgid "No resize"
-#~ msgstr "Ni spremembe velikosti"
 
 #~ msgid "No script"
 #~ msgstr "Ni skripte"
@@ -1198,9 +1202,6 @@ msgstr "Dopolnjevanje besed z uporabo ogrodja dopolnjevanja"
 
 #~ msgid "Size (deprecated)"
 #~ msgstr "Velikost (opuščeno)"
-
-#~ msgid "Small text style"
-#~ msgstr "Slog majhnega besedila"
 
 #~ msgid "Source"
 #~ msgstr "Izvor"
