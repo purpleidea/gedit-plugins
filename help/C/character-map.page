@@ -1,24 +1,25 @@
 <page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
       type="topic" style="task"
-      id="gedit-plugins-character-map">
+      id="plugin-character-map">
+
   <info>
-    <revision version="0.2" date="2013-02-24" status="review"/>
     <link type="guide" xref="gedit-plugin-guide#gedit-additional-plugins"/>
+    <revision version="0.2" date="2013-02-24" status="review"/>
 
     <credit type="author">
       <name>Jim Campbell</name>
-      <email>jwcampbell@gmail.com</email>
+      <email its:translate="no">jwcampbell@gmail.com</email>
     </credit>
-
     <credit type="author">
       <name>Paul Weaver</name>
-      <email>ch3pjw@bath.ac.uk</email>
+      <email its:translate="no">ch3pjw@bath.ac.uk</email>
     </credit>
 
-    <desc>Insert special characters just by clicking on them</desc>
+    <desc>Insert special characters just by clicking on them.</desc>
   </info>
 
-  <title>Character map</title>
+  <title>Character Map</title>
 
   <comment>
     <cite date="2013-02-24" href="mailto:ch3pjw@bath.ac.uk">Paul Weaver</cite>
@@ -33,28 +34,40 @@
   <gui style="menuitem">Preferences</gui><gui>Plugins</gui>
   <gui>Character Map</gui></guiseq>.</p>
   
-  <section id="using-character-map">
-    <title>Using Character Map</title>
+<section id="using-character-map">
+  <title>Using Character Map</title>
 
-    <p>Once the plugin is enabled, you can add characters from the
-    <em>Character Map</em> tab of the side panel (<guiseq><gui>View</gui>
-    <gui>Side Panel</gui></guiseq>).</p>
+  <p>Once the plugin is enabled, you can add characters from the
+  <gui style="tab">Character Map</gui> tab of the side panel
+  (<guiseq><gui>View</gui><gui>Side Panel</gui></guiseq>).</p>
   
   <steps>
-    <item><p>Place the cursor at the point in your document at which you would
-    like your special character.</p></item>
-    <item><p>Open the side panel by selecting <guiseq><gui>View</gui>
-    <gui>Side Panel</gui></guiseq>, or by pressing <key>F9</key>.</p></item>
-    <item><p>Select the <em>Character Map</em> tab in the side
-    panel.</p></item>
-    <item><p>If neccessary, choose the character set to which your character
-    belongs from the list at the top of the <em>Character Map</em> tab (e.g.,
-    Arabic).</p></item>
-    <item><p>Double click your desired character to insert it.</p></item>
+    <item>
+      <p>Place the cursor at the point in your document at which you would like
+      your special character.</p>
+    </item>
+    <item>
+      <p>Open the side panel by selecting <guiseq><gui>View</gui>
+      <gui>Side Panel</gui></guiseq>, or by pressing <key>F9</key>.</p>
+    </item>
+    <item>
+      <p>Select the <gui>Character Map</gui> tab in the side panel.</p>
+    </item>
+    <item>
+      <p>If neccessary, choose the character set to which your character
+      belongs from the list at the top of the <gui style="tab">Character
+      Map</gui> tab (for example, Arabic).</p>
+    </item>
+    <item>
+      <p>Double click your desired character to insert it.</p>
+    </item>
   </steps>
   
-    <note style="tip"><p>You must click on the editing view of your document to
-    continue editing normally.</p></note>
-  </section>
+  <note style="tip">
+    <p>You must click on the editing view of your document to continue editing
+    normally.</p>
+  </note>
+
+</section>
 
 </page>

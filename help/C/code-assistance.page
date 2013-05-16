@@ -1,25 +1,27 @@
 <page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
       type="topic" style="task"
-      id="gedit-plugins-code-assistance">
+      id="plugin-code-assistance">
+
   <info>
     <link type="guide" xref="gedit-plugin-guide#gedit-additional-plugins"/>  
     <revision version="3.4" date="2013-02-24" status="review"/>
 
     <credit type="author">
       <name>Jim Campbell</name>
-      <email>jwcampbell@gmail.com</email>
+      <email its:translate="no">jwcampbell@gmail.com</email>
     </credit>
 
-    <desc>Real-time error highlighting for supported languages</desc>
+    <desc>Real-time error highlighting for supported languages.</desc>
   </info>
 
-  <title>Code assistance</title>
+  <title>Code Assistance</title>
   
   <!-- NOTE: This is draft documentation. It is not yet ready for translation. 
   Thank you! -->
 
-  <p>The <app>gedit-code-assistance</app> plugin provides real-time error 
-  highlighting for C, C++ and Objective-C. To enable this plugin, select 
+  <p>The <app>gedit-code-assistance</app> plugin provides real-time error
+  highlighting for C, C++ and Objective-C. To enable this plugin, select
   <guiseq><gui style="menu">gedit</gui><gui style="menuitem">Preferences</gui>
   <gui>Plugins</gui><gui>Code Assistance</gui></guiseq>.</p>
   
@@ -35,17 +37,18 @@
   </section>
   -->
   
-  <section id="how-gedit-code-assistance-works">
-    <title>How the code assistance plugin works</title>
+<section id="how-gedit-code-assistance-works">
+  <title>How the code assistance plugin works</title>
   
-    <p>The plugin currently relies on information in the makefile to deduce the 
-    Clang error-highlighting rules. It examines the <code>make</code> rules 
-    and determines which targets depend on the the file that is being parsed. 
-    The plugin then extracts the compiler flags by simulating an 
-    execution of those targets.</p>
-  
-    <p>This is not completely fool proof, of course. In the future, the plugin 
-    will allow you to manually specify the compile flags.</p>
-  </section>
-  
+  <p>The plugin currently relies on information in the makefile to deduce the
+  Clang error-highlighting rules. It examines the
+  <code its:translate="no">make</code> rules and determines which targets
+  depend on the the file that is being parsed. The plugin then extracts the
+  compiler flags by simulating an execution of those targets.</p>
+
+  <p>This is not completely fool proof, of course. In the future, the plugin
+  will allow you to manually specify the compile flags.</p>
+
+</section>
+
 </page>

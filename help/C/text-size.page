@@ -1,20 +1,25 @@
 <page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
       type="topic" style="task"
-      id="gedit-plugins-text-size">
+      id="plugin-text-size">
+
   <info>
     <link type="guide" xref="gedit-plugin-guide#gedit-additional-plugins"/>
     <link type="seealso" xref="gedit-change-default-font"/>
     <revision version="3.4" date="2013-02-24" status="review"/>
+
     <credit type="author">
       <name>Jim Campbell</name>
-      <email>jwcampbell@gmail.com</email>
+      <email its:translate="no">jwcampbell@gmail.com</email>
     </credit>
     <credit type="author">
       <name>Sindhu S</name>
-      <email>sindhus@live.in</email>
+      <email its:translate="no">sindhus@live.in</email>
     </credit>
+
     <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
-    <desc>Increase or decrease text size</desc>
+
+    <desc>Increase or decrease text size.</desc>
   </info>
 
   <title>Text Size</title>
@@ -23,41 +28,45 @@
   better readibility in <app>gedit</app> without changing the program's default
   text size.</p>
 
-  <section id="enable-text-size">
-    <title>Enable Text Size Plugin</title>
+<section id="enable-text-size">
+  <title>Enable Text Size Plugin</title>
 
-    <p>To enable Text Size plugin:</p>
-    <steps>
-      <item>
-        <p>Select <guiseq><gui style="menu">gedit</gui>
-        <gui style="menuitem">Preferences</gui>
-        <gui style="tab">Plugins</gui></guiseq>.</p>
-      </item>
-      <item>
-        <p>Select <gui style="menuitem">Text Size</gui> to enable the
-        plugin.</p>
-      </item>
-    </steps>
-  </section>
+  <steps>
+    <title>To enable Text Size plugin:</title>
+    <item>
+      <p>Select <guiseq><gui style="menu">gedit</gui>
+      <gui style="menuitem">Preferences</gui>
+      <gui style="tab">Plugins</gui></guiseq>.</p>
+    </item>
+    <item>
+      <p>Select <gui style="menuitem">Text Size</gui> to enable the
+      plugin.</p>
+    </item>
+  </steps>
 
-  <section id="use-text-size">
-    <title>Use Text Size Plugin</title>
-      <p>Once you have enabled the plugin, do any of the following to change the
-      text size in <app>gedit</app>:</p>
+</section>
 
-      <list>
-        <item>
-          <p>To <em>increase</em> the text size, press
-          <keyseq><key>Ctrl</key><key>+</key></keyseq>.</p>
-        </item>
-        <item>
-          <p>To <em>decrease</em> the text size, press
-          <keyseq><key>Ctrl</key><key>-</key></keyseq>.</p>
-        </item>
-        <item>
-          <p>To <em>reset</em> the text size to the default size, press
-          <keyseq><key>Ctrl</key><key>0</key></keyseq>.</p>
-        </item>
-    </list>
-  </section>
+<section id="use-text-size">
+  <title>Use the <app>Text Size</app> plugin</title>
+
+  <p>Once you have enabled the plugin, do any of the following to change the
+  text size in <app>gedit</app>:</p>
+
+  <list>
+    <item>
+      <p>To <em>increase</em> the text size, press
+      <keyseq><key>Ctrl</key><key>+</key></keyseq>.</p>
+    </item>
+    <item>
+      <p>To <em>decrease</em> the text size, press
+      <keyseq><key>Ctrl</key><key>-</key></keyseq>.</p>
+    </item>
+    <item>
+      <p>To <em>reset</em> the text size to the default size, press
+      <keyseq><key>Ctrl</key><key>0</key></keyseq>.</p>
+    </item>
+  </list>
+
+</section>
+
 </page>
