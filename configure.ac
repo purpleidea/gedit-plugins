@@ -304,6 +304,8 @@ AC_SUBST([BUILD_PLUGINS],[$PLUGINS])
 AC_PATH_PROG(GLIB_COMPILE_RESOURCES, glib-compile-resources)
 AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal)
 
+YELP_HELP_INIT
+
 AC_ARG_ENABLE(deprecations,
               [AS_HELP_STRING([--enable-deprecations],
                               [warn about deprecated usages [default=no]])],,
@@ -335,6 +337,7 @@ AC_SUBST(GEDIT_PLUGINS_DATA_DIR)
 
 AC_CONFIG_FILES([
 Makefile
+help/Makefile
 plugins/gpdefs.py
 plugins/Makefile
 plugins/bookmarks/bookmarks.plugin.desktop.in
