@@ -13,6 +13,7 @@ HELP_FILES = \
 	dashboard.page \
 	draw-spaces.page \
 	join-split-lines.page \
+	legal-plugins.xml \
 	multi-edit.page \
 	session-saver.page \
 	tag-list.page \

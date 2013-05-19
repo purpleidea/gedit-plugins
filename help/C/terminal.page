@@ -17,7 +17,7 @@
       <email its:translate="no">sindhus@live.in</email>
     </credit>
 
-    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="legal-plugins.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
     <desc>Add a terminal console to the bottom pane.</desc>
   </info>
