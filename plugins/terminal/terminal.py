@@ -114,7 +114,7 @@ class GeditTerminal(Gtk.Box):
         profiles = self.settings_try_new("org.gnome.Terminal.ProfilesList")
 
         if profiles:
-            default_path = "/org/gnome/terminal/legacy/profiles:/:" + profiles.get_string("default")
+            default_path = "/org/gnome/terminal/legacy/profiles:/:" + profiles.get_string("default") + "/"
             settings = Gio.Settings.new_with_path("org.gnome.Terminal.Legacy.Profile",
                                                   default_path)
         else:
