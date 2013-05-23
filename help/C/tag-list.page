@@ -23,7 +23,7 @@
 
     <include href="legal-plugins.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
-    <desc>Automatically insert tags, strings and special characters into a documenti.</desc>
+    <desc>Automatically insert tags, strings and special characters into a document.</desc>
   </info>
 
   <title>Tag List</title>
