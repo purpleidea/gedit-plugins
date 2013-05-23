@@ -58,6 +58,8 @@ class GeditTerminal(Gtk.Box):
         self.system_settings.connect("changed::monospace-font-name", self.font_changed)
 
         self._vte = Vte.Terminal()
+        self._vte.set_background_image(None)
+        self._vte.set_background_transparent(False)
         self.reconfigure_vte()
         self._vte.set_size(self._vte.get_column_count(), 5)
         self._vte.set_size_request(200, 50)
@@ -97,9 +99,28 @@ class GeditTerminal(Gtk.Box):
     def do_grab_focus(self):
         self._vte.grab_focus()
 
+    def settings_try_new(self, schema):
+        schemas = Gio.Settings.list_schemas()
+        if not schemas:
+            return None
+
+        for s in schemas:
+            if s == schema:
+                return Gio.Settings.new(schema)
+
+        return None
+
     def get_profile_settings(self):
-        #FIXME return either the gnome-terminal settings or the gedit one
-        return Gio.Settings.new("org.gnome.gedit.plugins.terminal")
+        profiles = self.settings_try_new("org.gnome.Terminal.ProfilesList")
+
+        if profiles:
+            default_path = "/org/gnome/terminal/legacy/profiles:/:" + profiles.get_string("default")
+            settings = Gio.Settings.new_with_path("org.gnome.Terminal.Legacy.Profile",
+                                                  default_path)
+        else:
+            settings = Gio.Settings.new("org.gnome.gedit.plugins.terminal")
+
+        return settings
 
     def get_font(self):
         if self.profile_settings.get_boolean("use-system-font"):
@@ -134,9 +155,9 @@ class GeditTerminal(Gtk.Box):
             if bg_color != "":
                 bg = Gdk.RGBA()
                 parsed = bg.parse(bg_color)
-        str_colors = self.profile_settings.get_string("palette")
-        if str_colors != "":
-            for str_color in str_colors.split(':'):
+        str_colors = self.profile_settings.get_strv("palette")
+        if str_colors:
+            for str_color in str_colors:
                 try:
                     rgba = Gdk.RGBA()
                     rgba.parse(str_color)
@@ -144,17 +165,14 @@ class GeditTerminal(Gtk.Box):
                 except:
                     palette = []
                     break
-            if (len(palette) not in (0, 8, 16, 24)):
-                palette = []
 
         self._vte.set_colors_rgba(fg, bg, palette)
-
         self._vte.set_cursor_blink_mode(self.profile_settings.get_enum("cursor-blink-mode"))
         self._vte.set_cursor_shape(self.profile_settings.get_enum("cursor-shape"))
-        self._vte.set_audible_bell(not self.profile_settings.get_boolean("silent-bell"))
+        self._vte.set_audible_bell(self.profile_settings.get_boolean("audible-bell"))
         self._vte.set_allow_bold(self.profile_settings.get_boolean("allow-bold"))
-        self._vte.set_scroll_on_keystroke(self.profile_settings.get_boolean("scrollback-on-keystroke"))
-        self._vte.set_scroll_on_output(self.profile_settings.get_boolean("scrollback-on-output"))
+        self._vte.set_scroll_on_keystroke(self.profile_settings.get_boolean("scroll-on-keystroke"))
+        self._vte.set_scroll_on_output(self.profile_settings.get_boolean("scroll-on-output"))
         self._vte.set_word_chars(self.profile_settings.get_string("word-chars"))
         self._vte.set_emulation(self.defaults['emulation'])
         self._vte.set_visible_bell(self.defaults['visible_bell'])

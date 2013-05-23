@@ -11,7 +11,7 @@
   </enum>
 
   <schema gettext-domain="@GETTEXT_PACKAGE@" id="org.gnome.gedit.plugins.terminal" path="/org/gnome/gedit/plugins/terminal/">
-    <key name="silent-bell" type="b">
+    <key name="audible-bell" type="b">
       <default>true</default>
       <_summary>Whether to silence terminal bell</_summary>
       <_description>
@@ -41,14 +41,14 @@
         terminal.
       </_description>
     </key>
-    <key name="scrollback-on-keystroke" type="b">
+    <key name="scroll-on-keystroke" type="b">
       <default>true</default>
       <_summary>Whether to scroll to the bottom when a key is pressed</_summary>
       <_description>
         If true, pressing a key jumps the scrollbar to the bottom.
       </_description>
     </key>
-    <key name="scrollback-on-output" type="b">
+    <key name="scroll-on-output" type="b">
       <default>false</default>
       <_summary>Whether to scroll to the bottom when there's new output</_summary>
       <_description>
@@ -91,8 +91,23 @@
         a color name such as "red").
       </_description>
     </key>
-    <key name="palette" type="s">
-      <default>'#2E2E34343636:#CCCC00000000:#4E4E9A9A0606:#C4C4A0A00000:#34346565A4A4:#757550507B7B:#060698209A9A:#D3D3D7D7CFCF:#555557575353:#EFEF29292929:#8A8AE2E23434:#FCFCE9E94F4F:#72729F9FCFCF:#ADAD7F7FA8A8:#3434E2E2E2E2:#EEEEEEEEECEC'</default>
+    <key name="palette" type="as">
+      <default>["#2E2E34343636",
+                "#CCCC00000000",
+                "#4E4E9A9A0606",
+                "#C4C4A0A00000",
+                "#34346565A4A4",
+                "#757550507B7B",
+                "#060698209A9A",
+                "#D3D3D7D7CFCF",
+                "#555557575353",
+                "#EFEF29292929",
+                "#8A8AE2E23434",
+                "#FCFCE9E94F4F",
+                "#72729F9FCFCF",
+                "#ADAD7F7FA8A8",
+                "#3434E2E2E2E2",
+                "#EEEEEEEEECEC"]</default>
       <_summary>Palette for terminal applications</_summary>
       <_description>
         Terminals have a 16-color palette that applications inside
