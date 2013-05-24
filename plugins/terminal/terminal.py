@@ -53,13 +53,13 @@ class GeditTerminal(Vte.Terminal):
         self.system_settings = Gio.Settings.new("org.gnome.desktop.interface")
         self.system_settings.connect("changed::monospace-font-name", self.font_changed)
 
-        self.connect("child-exited", self.on_child_exited)
-
         self.reconfigure_vte()
 
         self.fork_command_full(Vte.PtyFlags.DEFAULT, None, [Vte.get_user_shell()], None, GLib.SpawnFlags.SEARCH_PATH, None, None)
 
-    def on_child_exited(self):
+    def do_child_exited(self):
+        Vte.Terminal.do_child_exited(self)
+
         self._vte.fork_command_full(Vte.PtyFlags.DEFAULT, None, [Vte.get_user_shell()], None, GLib.SpawnFlags.SEARCH_PATH, None, None)
 
     def settings_try_new(self, schema):
