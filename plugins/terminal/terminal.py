@@ -40,6 +40,8 @@ class GeditTerminal(Vte.Terminal):
         'visible_bell'          : False,
     }
 
+    TARGET_URI_LIST = 200
+
     def __init__(self):
         Vte.Terminal.__init__(self)
 
@@ -47,6 +49,13 @@ class GeditTerminal(Vte.Terminal):
         self.set_background_transparent(False)
         self.set_size(self.get_column_count(), 5)
         self.set_size_request(200, 50)
+
+        tl = Gtk.TargetList.new([])
+        tl.add_uri_targets(self.TARGET_URI_LIST)
+
+        self.drag_dest_set(Gtk.DestDefaults.HIGHLIGHT | Gtk.DestDefaults.DROP,
+                           [], Gdk.DragAction.DEFAULT | Gdk.DragAction.COPY)
+        self.drag_dest_set_target_list(tl)
 
         self.profile_settings = self.get_profile_settings()
         self.profile_settings.connect("changed", self.on_profile_settings_changed)
@@ -61,6 +70,13 @@ class GeditTerminal(Vte.Terminal):
         Vte.Terminal.do_child_exited(self)
 
         self._vte.fork_command_full(Vte.PtyFlags.DEFAULT, None, [Vte.get_user_shell()], None, GLib.SpawnFlags.SEARCH_PATH, None, None)
+
+    def do_drag_data_received(self, drag_context, x, y, data, info, time):
+        if info == self.TARGET_URI_LIST:
+            self.feed_child(' '.join(["'" + item + "'" for item in Gedit.utils_drop_get_uris(data)]), -1)
+            Gtk.drag_finish(drag_context, True, False, time);
+        else:
+            Vte.Terminal.do_drag_data_received(self, drag_context, x, y, data, info, time)
 
     def settings_try_new(self, schema):
         schemas = Gio.Settings.list_schemas()
