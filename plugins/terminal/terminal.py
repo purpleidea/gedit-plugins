@@ -73,7 +73,7 @@ class GeditTerminal(Vte.Terminal):
 
     def do_drag_data_received(self, drag_context, x, y, data, info, time):
         if info == self.TARGET_URI_LIST:
-            self.feed_child(' '.join(["'" + item + "'" for item in Gedit.utils_drop_get_uris(data)]), -1)
+            self.feed_child(' '.join(["'" + Gio.file_new_for_uri(item).get_path() + "'" for item in Gedit.utils_drop_get_uris(data)]), -1)
             Gtk.drag_finish(drag_context, True, False, time);
         else:
             Vte.Terminal.do_drag_data_received(self, drag_context, x, y, data, info, time)
