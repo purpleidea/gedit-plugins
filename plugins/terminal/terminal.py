@@ -311,7 +311,7 @@ class TerminalPlugin(GObject.Object, Gedit.WindowActivatable):
         doc = self.window.get_active_document()
         if doc:
             location = doc.get_location()
-            if location and location.has_uri_scheme(location, "file"):
+            if location and location.has_uri_scheme("file"):
                 directory = location.get_parent()
                 return directory.get_path()
         return None
