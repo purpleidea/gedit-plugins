@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gedit.help.master\n"
-"POT-Creation-Date: 2013-05-23 15:39+0000\n"
-"PO-Revision-Date: 2013-05-23 18:10+0200\n"
+"POT-Creation-Date: 2013-05-23 16:11+0000\n"
+"PO-Revision-Date: 2013-05-27 12:12+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -29,7 +29,6 @@ msgstr ""
 "María Majadas <maria.majadas@hispalinux.es>, 2005"
 
 #: C/index.page:7(page/title)
-#| msgid "gedit Plugins"
 msgid "Gedit Plugins"
 msgstr "Complementos de gedit"
 
@@ -45,7 +44,6 @@ msgid "Jim Campbell"
 msgstr "Jim Campbell"
 
 #: C/bookmarks.page:15(info/desc)
-#| msgid "Record commonly-referenced locations with bookmarks"
 msgid "Record commonly-referenced locations with bookmarks."
 msgstr "Guardar ubicaciones usadas frecuentemente con los marcadores"
 
@@ -54,10 +52,6 @@ msgid "Bookmarks"
 msgstr "Marcadores"
 
 #: C/bookmarks.page:20(page/p)
-#| msgid ""
-#| "Gedit bookmarks allow you to highlight important lines of text within "
-#| "your document or program, making them easier to find. You can also move "
-#| "up or down between bookmarks, making document navigation a bit faster."
 msgid ""
 "<app>gedit</app> bookmarks allow you to highlight important lines of text "
 "within your document or program, making them easier to find. You can also "
@@ -91,10 +85,6 @@ msgid "Navigate to the line where you want to insert or remove the bookmark."
 msgstr "Navegue hasta la línea en la que quiere insertar o quitar el marcador."
 
 #: C/bookmarks.page:37(item/p)
-#| msgid ""
-#| "Press <keyseq><key>Ctrl</key><key>Alt</key><key>B</key></keyseq>, or "
-#| "click <guiseq><gui style=\"menu\">Edit</gui> <gui style=\"menuitem"
-#| "\">Toggle Bookmark</gui></guiseq>."
 msgid ""
 "Press <keyseq><key>Ctrl</key><key>Alt</key><key>B</key></keyseq>, or click "
 "<guiseq><gui style=\"menu\">Edit</gui><gui style=\"menuitem\">Toggle "
@@ -125,7 +115,6 @@ msgstr ""
 "moverse al marcador anterior."
 
 #: C/bookmarks.page:53(note/p)
-#, fuzzy
 #| msgid ""
 #| "If you prefer using the mouse, you can click <guiseq> <gui style=\"menu"
 #| "\">gedit</gui> <gui style=\"menuitem\">Go to Next Bookmark</gui></guiseq> "
@@ -137,23 +126,21 @@ msgid ""
 "<guiseq><gui style=\"menu\">Edit</gui> <gui style=\"menuitem\">Go to "
 "Previous Bookmark</gui></guiseq>."
 msgstr ""
-"Si prefiere usar el ratón, puede pulsar <guiseq><gui>Editar</gui><gui>Ir al "
-"siguiente marcador</gui></guiseq> o <guiseq><gui style=\"menu\">Editar</"
-"gui><gui style=\"menuitem\">Ir al marcador anterior</gui></guiseq>."
+"Si prefiere usar el ratón, puede pulsar <guiseq><gui style=\"menu\">gedit</"
+"gui><gui style=\"menuitem\">Ir al siguiente marcador</gui></guiseq> o "
+"<guiseq><gui style=\"menu\">Editar</gui><gui style=\"menuitem\">ir al "
+"marcador siguiente</gui></guiseq>."
 
 #: C/bracket-comp.page:15(info/desc)
-#, fuzzy
 #| msgid "Auto-complete closing brackets"
 msgid "Auto-complete closing brackets."
 msgstr "Autocompletar cerrado de paréntesis"
 
 #: C/bracket-comp.page:18(page/title)
-#| msgid "Bracket completion"
 msgid "Bracket Completion"
 msgstr "Completado de corchetes"
 
 #: C/bracket-comp.page:20(page/p)
-#, fuzzy
 #| msgid ""
 #| "The <app>Bracket Completion</app> plugin will auto-complete closing "
 #| "brackets for curly braces, parentheses, and square brackets."
@@ -184,12 +171,10 @@ msgid "Paul Weaver"
 msgstr "Paul Weaver"
 
 #: C/character-map.page:19(info/desc)
-#| msgid "Insert special characters just by clicking on them"
 msgid "Insert special characters just by clicking on them."
 msgstr "Insertar caracteres especiales simplemente pulsando sobre ellos."
 
 #: C/character-map.page:22(page/title)
-#| msgid "Character map"
 msgid "Character Map"
 msgstr "Mapa de caracteres"
 
@@ -212,7 +197,6 @@ msgid "Using Character Map"
 msgstr "Usar el mapa de caracteres"
 
 #: C/character-map.page:40(section/p)
-#, fuzzy
 #| msgid ""
 #| "Once the plugin is enabled, you can add characters from the <em>Character "
 #| "Map</em> tab of the side panel (<guiseq><gui>View</gui> <gui>Side Panel</"
@@ -223,8 +207,8 @@ msgid ""
 "gui><gui>Side Panel</gui></guiseq>)."
 msgstr ""
 "Una vez que el complemento esté activado, puede añadir caracteres desde la "
-"pestaña <em>Mapa de caracteres</em> en el panel lateral (<guiseq><gui>Ver</"
-"gui><gui>Panel lateral</gui></guiseq>)."
+"pestaña <gui style=\"tab\">Mapa de caracteres</gui> en el panel lateral "
+"(<guiseq><gui>Ver</gui><gui>Panel lateral</gui></guiseq>)."
 
 #: C/character-map.page:46(item/p)
 msgid ""
@@ -243,13 +227,11 @@ msgstr ""
 "lateral</gui></guiseq>, o pulsando <key>F9</key>."
 
 #: C/character-map.page:54(item/p)
-#| msgid "Select the <em>Character Map</em> tab in the side panel."
 msgid "Select the <gui>Character Map</gui> tab in the side panel."
 msgstr ""
 "Seleccione la pestaña <gui>Mapa de caracteres</gui> en el panel lateral."
 
 #: C/character-map.page:57(item/p)
-#, fuzzy
 #| msgid ""
 #| "If neccessary, choose the character set to which your character belongs "
 #| "from the list at the top of the <em>Character Map</em> tab (e.g., Arabic)."
@@ -259,8 +241,8 @@ msgid ""
 "example, Arabic)."
 msgstr ""
 "Si es necesario, elija el conjunto de caracteres al que pertenece su "
-"carácter de la lista de la parte superior de la pestaña <em>Mapa de "
-"caracteres</em> (ej, Árabe)."
+"carácter de la lista de la parte superior de la pestaña <gui style=\"tab"
+"\">Mapa de caracteres</gui> (ej, Árabe)."
 
 #: C/character-map.page:62(item/p)
 msgid "Double click your desired character to insert it."
@@ -275,13 +257,11 @@ msgstr ""
 "normalmente."
 
 #: C/code-assistance.page:15(info/desc)
-#, fuzzy
 #| msgid "Real-time error highlighting for supported languages"
 msgid "Real-time error highlighting for supported languages."
-msgstr "Resaltado de errores en tiempo real para lenguajes soportados"
+msgstr "Resaltado de errores en tiempo real para lenguajes soportados."
 
 #: C/code-assistance.page:18(page/title)
-#| msgid "Code assistance"
 msgid "Code Assistance"
 msgstr "Asistente de código"
 
@@ -303,7 +283,6 @@ msgid "How the code assistance plugin works"
 msgstr "Cómo funciona el complemento «asistente de código»"
 
 #: C/code-assistance.page:43(section/p)
-#, fuzzy
 #| msgid ""
 #| "The plugin currently relies on information in the makefile to deduce the "
 #| "Clang error-highlighting rules. It examines the <code>make</code> rules "
@@ -319,7 +298,7 @@ msgid ""
 msgstr ""
 "Actualmente, el complemento se basa en la información del makefile para "
 "deducir las reglas de resaltado de errores de Clang. Examina las reglas de "
-"<code>make</code> y determina qué objetivos dependen del archivo que se está "
+"<_:code-1/> y determina qué objetivos dependen del archivo que se está "
 "analizando. Entonces, el complemento extrae las opciones del compilador "
 "simulando una ejecución de estos objetivos."
 
@@ -332,7 +311,6 @@ msgstr ""
 "permitirá especificar manualmente las opciones del compilador."
 
 #: C/code-comment.page:15(info/desc)
-#| msgid "Comment-out or uncomment a block of code"
 msgid "Comment-out or uncomment a block of code."
 msgstr "Comentar o descomentar un bloque de código."
 
@@ -406,19 +384,16 @@ msgstr ""
 "lenguajes en la <gui>Barra de estado</gui> inferior."
 
 #: C/color-picker.page:15(info/desc)
-#, fuzzy
 #| msgid "Pick a color from a dialog and insert its hexadecimal representation"
 msgid "Pick a color from a dialog and insert its hexadecimal representation."
 msgstr ""
-"Seleccionar un color de un diálogo e insertar su representación hexadecimal"
+"Seleccionar un color de un diálogo e insertar su representación hexadecimal."
 
 #: C/color-picker.page:18(page/title)
-#| msgid "Color picker"
 msgid "Color Picker"
 msgstr "Selector de color"
 
 #: C/color-picker.page:20(page/p)
-#, fuzzy
 #| msgid ""
 #| "The <app>color picker</app> plugin helps you to insert the character "
 #| "codes that represent a certain color. This can make it easier to choose "
@@ -433,7 +408,6 @@ msgstr ""
 "elegir y usar el color correcto en sus programas."
 
 #: C/color-picker.page:24(page/p)
-#, fuzzy
 #| msgid ""
 #| "To enable the color picker plugin, select <guiseq> <gui style=\"menu"
 #| "\">gedit</gui><gui style=\"menuitem\">Preferences</gui> <gui>Plugins</"
@@ -460,7 +434,6 @@ msgstr ""
 "código del color."
 
 #: C/color-picker.page:35(item/p)
-#, fuzzy
 #| msgid ""
 #| "Select <guiseq><gui>Tools</gui><gui>Pick Color...</gui></guiseq>. The "
 #| "color picker dialog will appear."
@@ -469,7 +442,7 @@ msgid ""
 "picker dialog will appear."
 msgstr ""
 "Seleccione <guiseq><gui>Herramientas</gui><gui>Seleccionar color...</gui></"
-"guiseq>. aparecerá el diálogo del selector de color."
+"guiseq>. Aparecerá el diálogo del selector de color."
 
 #: C/color-picker.page:39(item/p)
 msgid "Click on the desired color in the color picker window."
@@ -505,7 +478,6 @@ msgstr ""
 "habitualmente más tarde."
 
 #: C/commander.page:15(info/desc)
-#| msgid "Use a command-line interface for advanced editing"
 msgid "Use a command-line interface for advanced editing."
 msgstr "Usar una interfaz de línea de comandos para edición avanzada."
 
@@ -514,7 +486,6 @@ msgid "Commander"
 msgstr "Comando"
 
 #: C/commander.page:20(page/p)
-#, fuzzy
 #| msgid ""
 #| "The <app>Commander</app> plugin is a plugin for advanced <app>gedit</app> "
 #| "users that allows you to perform command-line actions on the current "
@@ -535,7 +506,6 @@ msgstr ""
 "<gui>Complementos</gui><gui>Comando</gui></guiseq>."
 
 #: C/commander.page:26(page/p)
-#, fuzzy
 #| msgid ""
 #| "Once you have enabled the plugin, activate it by pressing <keyseq><key> "
 #| "Ctrl</key><key>.</key></keyseq>."
@@ -543,8 +513,8 @@ msgid ""
 "Once you have enabled the plugin, activate it by pressing <keyseq><key>Ctrl</"
 "key><key>.</key></keyseq>."
 msgstr ""
-"Una vez que haya instalado el complemento, actívelo pulsando <keyseq><key> "
-"Ctrl</key><key>.</key></keyseq>."
+"Una vez que haya instalado el complemento, actívelo pulsando "
+"<keyseq><key>Ctrl</key><key>.</key></keyseq>."
 
 #: C/commander.page:30(note/p)
 msgid "The last key in the above key combination is a period."
@@ -563,7 +533,6 @@ msgid "See an overview of available commands"
 msgstr "Ver una descripción de los comandos disponibles"
 
 #: C/commander.page:43(td/p)
-#| msgid "<keyseq><key>Ctrl</key><key>W</key></keyseq>"
 msgid "<keyseq><key>Tab</key><key>Tab</key></keyseq>"
 msgstr "<keyseq><key>Tab</key><key>Tab</key></keyseq>"
 
@@ -576,7 +545,6 @@ msgid "<key>/</key> <input>foo</input>"
 msgstr "<key>/</key> <input>foo</input>"
 
 #: C/commander.page:49(td/p)
-#| msgid "This will find the word <em>foo</em>."
 msgid "This will find the word <input>foo</input>."
 msgstr "Esto buscará la palabra <input>foo</input>."
 
@@ -585,12 +553,10 @@ msgid "Replace a word within the current file"
 msgstr "Reemplazar una palabra en el archivo actual"
 
 #: C/commander.page:55(td/p)
-#| msgid "<keyseq><key>Ctrl</key><key>W</key></keyseq>"
 msgid "<keyseq><key>/</key><key>/</key></keyseq> <input>foo bar</input>"
 msgstr "<keyseq><key>/</key><key>/</key></keyseq> <input>algo barra</input>"
 
 #: C/commander.page:57(td/p)
-#| msgid "This will replace <em>foo</em> with <em>bar</em>."
 msgid "This will replace <input>foo</input> with <input>bar</input>."
 msgstr "Esto reemplazará <em>foo</em> por <em>bar</em>."
 
@@ -599,26 +565,24 @@ msgid "Move the cursor to a certain line number in your file"
 msgstr "Mover el cursos a un determinado número de línea en su archivo"
 
 #: C/commander.page:64(td/p)
-#, fuzzy
 #| msgid "go [line number] <em>or</em> just <em>g</em> [line number]"
 msgid ""
 "go <input>[line number]</input> <em>or</em> just <key>G</key> <input>[line "
 "number]</input>"
 msgstr ""
-"go [número de línea] <em>o</em> simplemente <em>g</em> [número de línea]"
+"go <input>[número de línea]</input> <em>o</em> simplemente <em>G</em> <input>"
+"[número de línea]</input>"
 
 #: C/commander.page:69(td/p)
 msgid "Toggle the bookmark indicator for the current line"
 msgstr "Conmutar el indicador de marcador para la línea actual"
 
 #: C/commander.page:70(td/p)
-#, fuzzy
 #| msgid "bookmark <em>or</em> just <em>b</em>"
 msgid "bookmark <em>or</em> just <key>B</key>"
-msgstr "bookmark <em>o</em> simplemente <em>b</em>"
+msgstr "bookmark <em>o</em> simplemente <em>B</em>"
 
 #: C/commander.page:76(note/p)
-#, fuzzy
 msgid ""
 "Some commands, such as the <app>bookmark</app> command require that the "
 "appropriate plugin be installed and activated. If you do not have the "
@@ -630,18 +594,17 @@ msgstr ""
 "activado, obtendrá un mensaje de error."
 
 #: C/dashboard.page:15(info/desc)
-#, fuzzy
 #| msgid "Display recently-used and most-used files on startup"
 msgid "Display recently-used and most-used files on startup."
 msgstr ""
-"Mostrar los archivos usados recientemente y los archivos más usados al inicio"
+"Mostrar los archivos usados recientemente y los archivos más usados al "
+"inicio."
 
 #: C/dashboard.page:18(page/title)
 msgid "Dashboard"
 msgstr "Tablero"
 
 #: C/dashboard.page:20(page/p)
-#, fuzzy
 #| msgid ""
 #| "The <app>Dashboard</app> plugin provides quick access to your most "
 #| "recently-used files and most-frequently used files. To activate the "
@@ -693,7 +656,6 @@ msgid "Most frequently-used files"
 msgstr "Archivos más frecuentemente usados"
 
 #: C/dashboard.page:44(section/p)
-#, fuzzy
 #| msgid ""
 #| "Similarly, the dashboard displays a shortcut for an <gui>empty document </"
 #| "gui> and seven of your most frequently-used files. Click on the <gui> "
@@ -711,7 +673,6 @@ msgstr ""
 "de los otros archivos para abrirlo."
 
 #: C/dashboard.page:50(note/p)
-#, fuzzy
 #| msgid ""
 #| "Once activated, the <app>dashboard</app> will be displayed by default "
 #| "when you open <app>gedit</app>. You can also open the <app>dashboard</"
@@ -729,12 +690,10 @@ msgstr ""
 "<keyseq><key>Ctrl</key><key>N</key></keyseq>."
 
 #: C/draw-spaces.page:15(info/desc)
-#| msgid "Show white space between words or portions of code"
 msgid "Show white space between words or portions of code."
 msgstr "Mostrar espacios en blanco entre palabras o fragmentos de código."
 
 #: C/draw-spaces.page:18(page/title)
-#| msgid "Draw spaces"
 msgid "Draw Spaces"
 msgstr "Dibujar espacios"
 
@@ -798,7 +757,6 @@ msgid "You can also set the plugin to mark:"
 msgstr "También puede configurar el complemento para marcar:"
 
 #: C/draw-spaces.page:43(item/p)
-#| msgid "New Lines"
 msgid "New lines"
 msgstr "Líneas nuevas"
 
@@ -815,12 +773,10 @@ msgstr ""
 "serán visibles cuando imprima el archivo en papel."
 
 #: C/join-split-lines.page:15(info/desc)
-#| msgid "Join several lines of text, or split long lines"
 msgid "Join several lines of text or split long lines."
 msgstr "Unir varias líneas de texto o dividir líneas largas."
 
 #: C/join-split-lines.page:18(page/title)
-#| msgid "Join/Split lines"
 msgid "Join/Split Lines"
 msgstr "Unir/dividir líneas"
 
@@ -877,7 +833,6 @@ msgstr ""
 "la línea."
 
 #: C/join-split-lines.page:47(item/p)
-#| msgid "Press <keyseq><key>Ctrl</key><key>Shift</key><key>J</key></keyseq>."
 msgid "Press <keyseq><key>Ctrl</key><key>Shift</key> <key>J</key></keyseq>."
 msgstr "Pulse <keyseq><key>Ctrl</key><key>Mayús</key><key>J</key></keyseq>."
 
@@ -912,17 +867,14 @@ msgid "2011"
 msgstr "2011"
 
 #: C/multi-edit.page:16(info/desc)
-#| msgid "Edit a document in multiple places at once"
 msgid "Edit a document in multiple places at once."
 msgstr "Editar un documento en varios sitios a la vez."
 
 #: C/multi-edit.page:19(page/title)
-#| msgid "Multi edit"
 msgid "Multi Edit"
 msgstr "Edición múltiple"
 
 #: C/multi-edit.page:21(page/p)
-#, fuzzy
 #| msgid ""
 #| "The <app>Multi Edit</app> plugin allows you to edit a document in "
 #| "multiple places at once. This can be helpful when performing tedious "
@@ -1000,7 +952,6 @@ msgstr ""
 "normal."
 
 #: C/session-saver.page:15(info/desc)
-#| msgid "Save and restore your working sessions"
 msgid "Save and restore your working sessions."
 msgstr "Guardar y restaurar sus sesiones de trabajo."
 
@@ -1009,7 +960,6 @@ msgid "Session Saver"
 msgstr "Guardador de sesiones"
 
 #: C/session-saver.page:20(page/p)
-#, fuzzy
 #| msgid ""
 #| "The <app>Session Saver</app> plugin saves groups of files together so "
 #| "that you can open them together at a later time. To enable the plugin, "
@@ -1067,9 +1017,6 @@ msgid "To delete an existing session:"
 msgstr "Para eliminar una sesión existente:"
 
 #: C/session-saver.page:52(item/p)
-#| msgid ""
-#| "Select <guiseq><gui>File</gui><gui>Saved Sessions</gui><gui> Manage saved "
-#| "sessions</gui></guiseq>."
 msgid ""
 "Select <guiseq><gui>File</gui><gui>Saved Sessions</gui><gui>Manage saved "
 "sessions</gui></guiseq>."
@@ -1102,8 +1049,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/tag-list.page:63(media)
-#| msgctxt "_"
-#| msgid "external ref='print-select.png' md5='__failed__'"
 msgctxt "_"
 msgid "external ref='figures/gedit-side-pane3.png' md5='__failed__'"
 msgstr "external ref='figures/gedit-side-pane3.png' md5='__failed__'"
@@ -1118,17 +1063,15 @@ msgid "Sindhu S"
 msgstr "Sindhu S"
 
 #: C/tag-list.page:26(info/desc)
-#, fuzzy
 #| msgid ""
 #| "Automatically insert tags, strings and special characters into a document"
 msgid ""
-"Automatically insert tags, strings and special characters into a documenti."
+"Automatically insert tags, strings and special characters into a document."
 msgstr ""
 "Insertar automáticamente etiquetas, cadenas y caracteres especiales en un "
-"documento"
+"documento."
 
 #: C/tag-list.page:29(page/title)
-#| msgid "Tag list"
 msgid "Tag List"
 msgstr "Lista de etiquetas"
 
@@ -1273,12 +1216,10 @@ msgstr ""
 "la parte inferior del panel lateral."
 
 #: C/terminal.page:22(info/desc)
-#| msgid "Add a terminal console to the bottom pane"
 msgid "Add a terminal console to the bottom pane."
 msgstr "Añadir una consola de terminal al panel inferior."
 
 #: C/terminal.page:25(page/title)
-#| msgid "Embedded terminal"
 msgid "Embedded Terminal"
 msgstr "Terminal empotrada"
 
@@ -1300,7 +1241,6 @@ msgid "Enable Embedded Terminal"
 msgstr "Activar la terminal empotrada"
 
 #: C/terminal.page:36(steps/title)
-#| msgid "To enable the Embedded Terminal plugin:"
 msgid "To enable the <app>Embedded Terminal</app> plugin:"
 msgstr "Para activar el complemento de <app>Terminal empotrada</app>:"
 
@@ -1331,7 +1271,6 @@ msgstr ""
 "<keyseq><key>Ctrl</key><key>F9</key></keyseq>."
 
 #: C/text-size.page:22(info/desc)
-#| msgid "Increase or decrease text size"
 msgid "Increase or decrease text size."
 msgstr "Aumentar o disminuir el tamaño del texto"
 
@@ -1364,7 +1303,6 @@ msgstr ""
 "complemento."
 
 #: C/text-size.page:50(section/title)
-#| msgid "To enable the <app>Tag List</app> plugin:"
 msgid "Use the <app>Text Size</app> plugin"
 msgstr "Usar el complemento de <app>Tamaño del texto</app>:"
 
@@ -1401,12 +1339,10 @@ msgstr ""
 "seleccione <keyseq><key>Ctrl</key><key>0</key></keyseq>."
 
 #: C/word-completion.page:25(info/desc)
-#| msgid "Autocomplete words or portions of code as you type"
 msgid "Autocomplete words or portions of code as you type."
 msgstr "Autocompletar palabras o fragmentos de código según escribe."
 
 #: C/word-completion.page:28(page/title)
-#| msgid "Word completion"
 msgid "Word Completion"
 msgstr "Completado de palabras"
 
