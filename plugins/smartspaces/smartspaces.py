@@ -38,13 +38,13 @@ class SmartSpacesPluginSettings(GObject.Object, PeasGtk.Configurable):
         delete_checkbox = builder.get_object('delete_checkbox')
         arrows_checkbox = builder.get_object('arrows_checkbox')
         keypad_checkbox = builder.get_object('keypad_checkbox')
+        smartspaces_vbox = builder.get_object('smartspaces_vbox')
 
         settings.bind('smart-backspace', backspace_checkbox, 'active', Gio.SettingsBindFlags.DEFAULT)
         settings.bind('smart-delete', delete_checkbox, 'active', Gio.SettingsBindFlags.DEFAULT)
         settings.bind('smart-arrows', arrows_checkbox, 'active', Gio.SettingsBindFlags.DEFAULT)
         settings.bind('smart-kparrows', keypad_checkbox, 'active', Gio.SettingsBindFlags.DEFAULT)
 
-        smartspaces_vbox = builder.get_object('smartspaces_vbox')
         return smartspaces_vbox
 
 class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
@@ -110,9 +110,9 @@ class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
             print 'keyval: %s' % str(event.keyval)
 
         # FIXME: this condition is confusing as !
-        bs_bool = event.keyval != Gdk.KEY_BackSpace or event.state & mods != 0 and event.state & mods != Gdk.ModifierType.SHIFT_MASK
+        backspace_bool = event.keyval != Gdk.KEY_BackSpace or event.state & mods != 0 and event.state & mods != Gdk.ModifierType.SHIFT_MASK
 
-        dl_bool = event.keyval != Gdk.KEY_Delete or event.state & mods != 0 and event.state & mods != Gdk.ModifierType.SHIFT_MASK
+        delete_bool = event.keyval != Gdk.KEY_Delete or event.state & mods != 0 and event.state & mods != Gdk.ModifierType.SHIFT_MASK
 
         if event.keyval in [Gdk.KEY_Left, Gdk.KEY_Right] and self.settings.get_boolean('smart-arrows'):
             return self.do_key_press_leftright(view, event, debug=DEBUG)
@@ -120,10 +120,10 @@ class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
         elif event.keyval in [Gdk.KEY_KP_Left, Gdk.KEY_KP_Right] and self.settings.get_boolean('smart-kparrows'):
             return self.do_key_press_leftright(view, event, debug=DEBUG)
 
-        elif not(bs_bool) and self.settings.get_boolean('smart-backspace'):
+        elif not(backspace_bool) and self.settings.get_boolean('smart-backspace'):
             return self.do_key_press_backspace(view, event)
 
-        elif not(dl_bool) and self.settings.get_boolean('smart-delete'):
+        elif not(delete_bool) and self.settings.get_boolean('smart-delete'):
             return self.do_key_press_delete(view, event)
 
         else:
