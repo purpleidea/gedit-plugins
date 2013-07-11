@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema id="org.gnome.gedit.plugins.smartspaces" path="/org/gnome/gedit/plugins/smartspaces/">
+  <schema gettext-domain="@GETTEXT_PACKAGE@" id="org.gnome.gedit.plugins.smartspaces" path="/org/gnome/gedit/plugins/smartspaces/">
     <key type="b" name="smart-backspace">
       <default>true</default>
-      <summary>Enable smart backspace.</summary>
-      <description>This enables the use of smart backspace when removing annoying space-indented code.</description>
+      <_summary>Enable smart backspace.</_summary>
+      <_description>This enables the use of smart backspace when removing annoying space-indented code.</_description>
     </key>
     <key type="b" name="smart-delete">
       <default>true</default>
-      <summary>Enable smart delete.</summary>
-      <description>This enables the use of smart delete when deleting annoying space-indented code.</description>
+      <_summary>Enable smart delete.</_summary>
+      <_description>This enables the use of smart delete when deleting annoying space-indented code.</_description>
     </key>
     <key type="b" name="smart-arrows">
       <default>true</default>
-      <summary>Enable smart arrows.</summary>
-      <description>This enables the use of smart arrows when moving through annoying space-indented code.</description>
+      <_summary>Enable smart arrows.</_summary>
+      <_description>This enables the use of smart arrows when moving through annoying space-indented code.</_description>
     </key>
     <key type="b" name="smart-kparrows">
       <default>false</default>
-      <summary>Enable smart keypad arrows.</summary>
-      <description>This enables the use of smart keypad arrows when moving through annoying space-indented code.</description>
+      <_summary>Enable smart keypad arrows.</_summary>
+      <_description>This enables the use of smart keypad arrows when moving through annoying space-indented code.</_description>
     </key>
   </schema>
 </schemalist>

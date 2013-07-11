@@ -8,7 +8,7 @@
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation; either version 3 of the License, or
+#  the Free Software Foundation; either version 2 of the License, or
 #  (at your option) any later version.
 #
 #  This program is distributed in the hope that it will be useful,
@@ -22,34 +22,34 @@
 #  Boston, MA 02110-1301, USA.
 
 from gi.repository import GObject, Gtk, Gdk, GtkSource, Gedit, PeasGtk, Gio
-DEBUG = False                                                  # very!! useful
-SCHEMA_ID = 'org.gnome.gedit.plugins.smartspaces'
+
+DEBUG = False
 # TODO: check that the boilerplate and the loading/unloading details work right
 
 class SmartSpacesPluginSettings(GObject.Object, PeasGtk.Configurable):
 
     def do_create_configure_widget(self):
-        settings = self.plugin_info.get_settings(SCHEMA_ID)
+        settings = self.plugin_info.get_settings('org.gnome.gedit.plugins.smartspaces')
 
         # TODO: this sticks out on display, and doesn't wrap...
         label = Gtk.Label('These settings let you remove, delete and move '\
         'through space indented code, as if it was using tabs.')
-        check1 = Gtk.CheckButton('Enable smart backspace.')
-        check2 = Gtk.CheckButton('Enable smart delete.')
-        check3 = Gtk.CheckButton('Enable smart arrows.')
-        check4 = Gtk.CheckButton('Enable smart keypad arrows.')
+        backspace_checkbox = Gtk.CheckButton('Enable smart backspace.')
+        delete_checkbox = Gtk.CheckButton('Enable smart delete.')
+        arrows_checkbox = Gtk.CheckButton('Enable smart arrows.')
+        keypad_checkbox = Gtk.CheckButton('Enable smart keypad arrows.')
 
-        settings.bind('smart-backspace', check1, 'active', Gio.SettingsBindFlags.DEFAULT)
-        settings.bind('smart-delete', check2, 'active', Gio.SettingsBindFlags.DEFAULT)
-        settings.bind('smart-arrows', check3, 'active', Gio.SettingsBindFlags.DEFAULT)
-        settings.bind('smart-kparrows', check4, 'active', Gio.SettingsBindFlags.DEFAULT)
+        settings.bind('smart-backspace', backspace_checkbox, 'active', Gio.SettingsBindFlags.DEFAULT)
+        settings.bind('smart-delete', delete_checkbox, 'active', Gio.SettingsBindFlags.DEFAULT)
+        settings.bind('smart-arrows', arrows_checkbox, 'active', Gio.SettingsBindFlags.DEFAULT)
+        settings.bind('smart-kparrows', keypad_checkbox, 'active', Gio.SettingsBindFlags.DEFAULT)
 
         vbox = Gtk.VBox(False, 5)
         vbox.add(label)
-        vbox.add(check1)
-        vbox.add(check2)
-        vbox.add(check3)
-        vbox.add(check4)
+        vbox.add(backspace_checkbox)
+        vbox.add(delete_checkbox)
+        vbox.add(arrows_checkbox)
+        vbox.add(keypad_checkbox)
 
         return vbox
 
@@ -62,9 +62,7 @@ class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
         GObject.Object.__init__(self)
 
     def do_activate(self):
-        # the magic plugin_info attribute comes from here:
-        # http://git.gnome.org/browse/libpeas/tree/loaders/python/peas-plugin-loader-python.c#n177
-        self.settings = self.plugin_info.get_settings(SCHEMA_ID)
+        self.settings = self.plugin_info.get_settings('org.gnome.gedit.plugins.smartspaces')
 
         self._handlers = [
             None,
@@ -190,8 +188,7 @@ class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
     # if you find any corner cases that you'd like to be handled differently.
     def do_key_press_delete(self, view, event):
         mods = Gtk.accelerator_get_default_mod_mask()
-        if event.keyval != Gdk.KEY_Delete or \
-        event.state & mods != 0 and event.state & mods != Gdk.ModifierType.SHIFT_MASK:
+        if event.keyval != Gdk.KEY_Delete or event.state & mods != 0 and event.state & mods != Gdk.ModifierType.SHIFT_MASK:
             return False
 
         doc = view.get_buffer()
