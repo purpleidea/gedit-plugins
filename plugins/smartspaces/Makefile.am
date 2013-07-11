@@ -11,6 +11,8 @@ plugin_in_files = smartspaces.plugin.desktop.in
 
 plugin_DATA = $(plugin_in_files:.plugin.desktop.in=.plugin)
 
+gsettings_SCHEMAS = org.gnome.gedit.plugins.smartspaces.gschema.xml
+
 EXTRA_DIST = $(plugin_in_files)
 
 CLEANFILES = $(plugin_DATA)
