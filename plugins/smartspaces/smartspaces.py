@@ -112,14 +112,13 @@ class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
         # only take care of backspace, shift+backspace, left, right, delete...
         mods = Gtk.accelerator_get_default_mod_mask()
 
-        if DEBUG: print 'keyval: %s' % str(event.keyval)
+        if DEBUG:
+            print 'keyval: %s' % str(event.keyval)
 
         # FIXME: this condition is confusing as !
-        bs_bool = event.keyval != Gdk.KEY_BackSpace or \
-        event.state & mods != 0 and event.state & mods != Gdk.ModifierType.SHIFT_MASK
+        bs_bool = event.keyval != Gdk.KEY_BackSpace or event.state & mods != 0 and event.state & mods != Gdk.ModifierType.SHIFT_MASK
 
-        dl_bool = event.keyval != Gdk.KEY_Delete or \
-        event.state & mods != 0 and event.state & mods != Gdk.ModifierType.SHIFT_MASK
+        dl_bool = event.keyval != Gdk.KEY_Delete or event.state & mods != 0 and event.state & mods != Gdk.ModifierType.SHIFT_MASK
 
         if event.keyval in [Gdk.KEY_Left, Gdk.KEY_Right] and self.settings.get_boolean('smart-arrows'):
             return self.do_key_press_leftright(view, event, debug=DEBUG)
@@ -138,8 +137,7 @@ class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
 
     def do_key_press_backspace(self, view, event):
         mods = Gtk.accelerator_get_default_mod_mask()
-        if event.keyval != Gdk.KEY_BackSpace or \
-        event.state & mods != 0 and event.state & mods != Gdk.ModifierType.SHIFT_MASK:
+        if event.keyval != Gdk.KEY_BackSpace or event.state & mods != 0 and event.state & mods != Gdk.ModifierType.SHIFT_MASK:
             return False
 
         doc = view.get_buffer()
@@ -235,24 +233,30 @@ class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
         return True
 
     def do_key_press_leftright(self, view, event, debug=False):
-        """Handle moving left and right over spaces as if they were tabs!
+        """
+        Handle moving left and right over spaces as if they were tabs!
         Handle selection (shift) and control-selection (shift+control) too.
         Writing this function was off-by-one hell. Patch carefully and test
-        extensively."""
+        extensively.
+        """
         mods = Gtk.accelerator_get_default_mod_mask()
 
-        if debug: print 'FUNCTION: do_key_press_leftright(keyval:%d)' % event.keyval
+        if debug:
+            print 'FUNCTION: do_key_press_leftright(keyval:%d)' % event.keyval
 
         both = bool(event.state & mods == Gdk.ModifierType.SHIFT_MASK | Gdk.ModifierType.CONTROL_MASK)
-        if debug: print 'BOTH: %s' % both
+        if debug:
+            print 'BOTH: %s' % both
 
         if both: shift = True
         else: shift = bool(event.state & mods == Gdk.ModifierType.SHIFT_MASK)
-        if debug: print 'SHIFT: %s' % shift
+        if debug:
+            print 'SHIFT: %s' % shift
 
         if both: control = True
         else: control = bool(event.state & mods == Gdk.ModifierType.CONTROL_MASK)
-        if debug: print 'CONTROL: %s' % control
+        if debug:
+            print 'CONTROL: %s' % control
 
         if event.keyval != Gdk.KEY_Left and \
         event.keyval != Gdk.KEY_Right and \
@@ -266,16 +270,19 @@ class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
         #    return False
 
         tabwidth = self.get_real_indent_width()
-        if debug: print 'TABWIDTH: %d' % tabwidth
+        if debug:
+            print 'TABWIDTH: %d' % tabwidth
 
         iterobj = doc.get_iter_at_mark(doc.get_insert())    # get cursor mark
         selecto = doc.get_iter_at_mark(doc.get_selection_bound())
 
         length = iterobj.get_chars_in_line()                # length of line
-        if debug: print 'LENGTH: %d' % length
+        if debug:
+            print 'LENGTH: %d' % length
 
         offset = iterobj.get_line_offset()                  # an int
-        if debug: print 'OFFSET: %d' % offset
+        if debug:
+            print 'OFFSET: %d' % offset
 
         iter_a = doc.get_iter_at_mark(doc.get_insert())
         iter_a.set_line_offset(0)                           # move to start
@@ -291,8 +298,10 @@ class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
         lalign = ((tabwidth-offset) % tabwidth)
         ralign = (offset % tabwidth)
 
-        if debug: print 'LALIGN: %d' % lalign
-        if debug: print 'RALIGN: %d' % ralign
+        if debug:
+            print 'LALIGN: %d' % lalign
+        if debug:
+            print 'RALIGN: %d' % ralign
 
         space = True
         until = 0
@@ -302,7 +311,8 @@ class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
                 break
             until = until + 1
 
-        if debug: print 'UNTIL: %d' % until
+        if debug:
+            print 'UNTIL: %d' % until
 
         motion = 1  # cursor moves itself by this (1)
         if event.keyval == Gdk.KEY_Left:
@@ -310,7 +320,8 @@ class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
             if offset == 0:     # start of line
                 return False
 
-            if offset > until and line_list[offset-1] != ' ':  # not within continuous initial indentation
+            # not within continuous initial indentation
+            if offset > until and line_list[offset-1] != ' ':
                 return False
 
             if line_list[offset-1] == ' ':
@@ -322,7 +333,8 @@ class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
                         break
                     luntil = luntil - 1
 
-                if debug: print 'LUNTIL: %d' % luntil
+                if debug:
+                    print 'LUNTIL: %d' % luntil
                 iterobj.set_line_offset( max(offset - (tabwidth-lalign) + motion, luntil+1) )
             else:
                 iterobj.set_line_offset( offset - (tabwidth-lalign) + motion )
@@ -344,7 +356,8 @@ class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
                         break
                     runtil = runtil + 1
 
-                if debug: print 'RUNTIL: %d' % runtil
+                if debug:
+                    print 'RUNTIL: %d' % runtil
                 iterobj.set_line_offset(min(offset + (tabwidth-ralign) - motion, runtil-1))
             else:
                 iterobj.set_line_offset(offset + (tabwidth-ralign) - motion)
