@@ -21,6 +21,7 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor,
 #  Boston, MA 02110-1301, USA.
 
+import os
 from gi.repository import GObject, Gtk, Gdk, GtkSource, Gedit, PeasGtk, Gio
 
 DEBUG = False
@@ -30,28 +31,21 @@ class SmartSpacesPluginSettings(GObject.Object, PeasGtk.Configurable):
 
     def do_create_configure_widget(self):
         settings = self.plugin_info.get_settings('org.gnome.gedit.plugins.smartspaces')
-
-        # TODO: this sticks out on display, and doesn't wrap...
-        label = Gtk.Label('These settings let you remove, delete and move '\
-        'through space indented code, as if it was using tabs.')
-        backspace_checkbox = Gtk.CheckButton('Enable smart backspace.')
-        delete_checkbox = Gtk.CheckButton('Enable smart delete.')
-        arrows_checkbox = Gtk.CheckButton('Enable smart arrows.')
-        keypad_checkbox = Gtk.CheckButton('Enable smart keypad arrows.')
+        path = os.path.join(self.plugin_info.get_data_dir(), 'gedit-smartspaces-plugin.ui')
+        builder = Gtk.Builder()
+        builder.add_from_file(path)
+        backspace_checkbox = builder.get_object('backspace_checkbox')
+        delete_checkbox = builder.get_object('delete_checkbox')
+        arrows_checkbox = builder.get_object('arrows_checkbox')
+        keypad_checkbox = builder.get_object('keypad_checkbox')
 
         settings.bind('smart-backspace', backspace_checkbox, 'active', Gio.SettingsBindFlags.DEFAULT)
         settings.bind('smart-delete', delete_checkbox, 'active', Gio.SettingsBindFlags.DEFAULT)
         settings.bind('smart-arrows', arrows_checkbox, 'active', Gio.SettingsBindFlags.DEFAULT)
         settings.bind('smart-kparrows', keypad_checkbox, 'active', Gio.SettingsBindFlags.DEFAULT)
 
-        vbox = Gtk.VBox(False, 5)
-        vbox.add(label)
-        vbox.add(backspace_checkbox)
-        vbox.add(delete_checkbox)
-        vbox.add(arrows_checkbox)
-        vbox.add(keypad_checkbox)
-
-        return vbox
+        smartspaces_vbox = builder.get_object('smartspaces_vbox')
+        return smartspaces_vbox
 
 class SmartSpacesPlugin(GObject.Object, Gedit.ViewActivatable):
     __gtype_name__ = 'SmartSpacesPlugin'
